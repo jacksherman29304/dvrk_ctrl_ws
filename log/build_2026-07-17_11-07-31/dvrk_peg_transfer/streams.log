@@ -1,0 +1,22 @@
+[0.377s] Invoking command in '/home/dvrk-team/dvrk_ctrl_ws/src/dvrk_peg_transfer': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/dvrk-team/dvrk_ctrl_ws/build/dvrk_peg_transfer/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/dvrk_peg_transfer build --build-base /home/dvrk-team/dvrk_ctrl_ws/build/dvrk_peg_transfer/build install --record /home/dvrk-team/dvrk_ctrl_ws/build/dvrk_peg_transfer/install.log --install-scripts $base/lib/dvrk_peg_transfer --single-version-externally-managed install_data
+[0.494s] running egg_info
+[0.501s] writing ../../build/dvrk_peg_transfer/dvrk_peg_transfer.egg-info/PKG-INFO
+[0.501s] writing dependency_links to ../../build/dvrk_peg_transfer/dvrk_peg_transfer.egg-info/dependency_links.txt
+[0.501s] writing entry points to ../../build/dvrk_peg_transfer/dvrk_peg_transfer.egg-info/entry_points.txt
+[0.501s] writing requirements to ../../build/dvrk_peg_transfer/dvrk_peg_transfer.egg-info/requires.txt
+[0.501s] writing top-level names to ../../build/dvrk_peg_transfer/dvrk_peg_transfer.egg-info/top_level.txt
+[0.515s] reading manifest file '../../build/dvrk_peg_transfer/dvrk_peg_transfer.egg-info/SOURCES.txt'
+[0.515s] writing manifest file '../../build/dvrk_peg_transfer/dvrk_peg_transfer.egg-info/SOURCES.txt'
+[0.515s] running build
+[0.515s] running build_py
+[0.515s] running install
+[0.518s] running install_lib
+[0.525s] running install_data
+[0.525s] running install_egg_info
+[0.533s] removing '/home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer/lib/python3.12/site-packages/dvrk_peg_transfer-0.0.0-py3.12.egg-info' (and everything under it)
+[0.533s] Copying ../../build/dvrk_peg_transfer/dvrk_peg_transfer.egg-info to /home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer/lib/python3.12/site-packages/dvrk_peg_transfer-0.0.0-py3.12.egg-info
+[0.533s] running install_scripts
+[0.586s] Installing object_loc script to /home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer/lib/dvrk_peg_transfer
+[0.586s] Installing tool_cmd script to /home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer/lib/dvrk_peg_transfer
+[0.586s] writing list of installed files to '/home/dvrk-team/dvrk_ctrl_ws/build/dvrk_peg_transfer/install.log'
+[0.599s] Invoked command in '/home/dvrk-team/dvrk_ctrl_ws/src/dvrk_peg_transfer' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/dvrk-team/dvrk_ctrl_ws/build/dvrk_peg_transfer/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/dvrk_peg_transfer build --build-base /home/dvrk-team/dvrk_ctrl_ws/build/dvrk_peg_transfer/build install --record /home/dvrk-team/dvrk_ctrl_ws/build/dvrk_peg_transfer/install.log --install-scripts $base/lib/dvrk_peg_transfer --single-version-externally-managed install_data

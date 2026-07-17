@@ -1,0 +1,42 @@
+running egg_info
+creating ../../build/utilities/utilities.egg-info
+writing ../../build/utilities/utilities.egg-info/PKG-INFO
+writing dependency_links to ../../build/utilities/utilities.egg-info/dependency_links.txt
+writing entry points to ../../build/utilities/utilities.egg-info/entry_points.txt
+writing requirements to ../../build/utilities/utilities.egg-info/requires.txt
+writing top-level names to ../../build/utilities/utilities.egg-info/top_level.txt
+writing manifest file '../../build/utilities/utilities.egg-info/SOURCES.txt'
+reading manifest file '../../build/utilities/utilities.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../../build/utilities/utilities.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/dvrk-team/dvrk_ctrl_ws/build/utilities/build
+creating /home/dvrk-team/dvrk_ctrl_ws/build/utilities/build/lib
+creating /home/dvrk-team/dvrk_ctrl_ws/build/utilities/build/lib/utilities
+copying utilities/object_loc.py -> /home/dvrk-team/dvrk_ctrl_ws/build/utilities/build/lib/utilities
+copying utilities/__init__.py -> /home/dvrk-team/dvrk_ctrl_ws/build/utilities/build/lib/utilities
+copying utilities/tool_cmd.py -> /home/dvrk-team/dvrk_ctrl_ws/build/utilities/build/lib/utilities
+running install
+running install_lib
+creating /home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/python3.12/site-packages/utilities
+copying /home/dvrk-team/dvrk_ctrl_ws/build/utilities/build/lib/utilities/object_loc.py -> /home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/python3.12/site-packages/utilities
+copying /home/dvrk-team/dvrk_ctrl_ws/build/utilities/build/lib/utilities/__init__.py -> /home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/python3.12/site-packages/utilities
+copying /home/dvrk-team/dvrk_ctrl_ws/build/utilities/build/lib/utilities/tool_cmd.py -> /home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/python3.12/site-packages/utilities
+byte-compiling /home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/python3.12/site-packages/utilities/object_loc.py to object_loc.cpython-312.pyc
+byte-compiling /home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/python3.12/site-packages/utilities/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/python3.12/site-packages/utilities/tool_cmd.py to tool_cmd.cpython-312.pyc
+running install_data
+creating /home/dvrk-team/dvrk_ctrl_ws/install/utilities/share/ament_index
+creating /home/dvrk-team/dvrk_ctrl_ws/install/utilities/share/ament_index/resource_index
+creating /home/dvrk-team/dvrk_ctrl_ws/install/utilities/share/ament_index/resource_index/packages
+copying resource/utilities -> /home/dvrk-team/dvrk_ctrl_ws/install/utilities/share/ament_index/resource_index/packages
+copying package.xml -> /home/dvrk-team/dvrk_ctrl_ws/install/utilities/share/utilities
+creating /home/dvrk-team/dvrk_ctrl_ws/install/utilities/share/utilities/launch
+copying launch/system_launch.py -> /home/dvrk-team/dvrk_ctrl_ws/install/utilities/share/utilities/launch
+running install_egg_info
+Copying ../../build/utilities/utilities.egg-info to /home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/python3.12/site-packages/utilities-0.0.0-py3.12.egg-info
+running install_scripts
+Installing object_loc script to /home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/utilities
+Installing tool_cmd script to /home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/utilities
+writing list of installed files to '/home/dvrk-team/dvrk_ctrl_ws/build/utilities/install.log'

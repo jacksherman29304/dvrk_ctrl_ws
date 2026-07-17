@@ -1,0 +1,28 @@
+[0.348s] Invoking command in '/home/dvrk-team/dvrk_ctrl_ws/src/dvrk_peg_transfer': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/dvrk-team/dvrk_ctrl_ws/build/dvrk_peg_transfer/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/dvrk_peg_transfer build --build-base /home/dvrk-team/dvrk_ctrl_ws/build/dvrk_peg_transfer/build install --record /home/dvrk-team/dvrk_ctrl_ws/build/dvrk_peg_transfer/install.log --install-scripts $base/lib/dvrk_peg_transfer --single-version-externally-managed install_data
+[0.467s] running egg_info
+[0.473s] writing ../../build/dvrk_peg_transfer/dvrk_peg_transfer.egg-info/PKG-INFO
+[0.473s] writing dependency_links to ../../build/dvrk_peg_transfer/dvrk_peg_transfer.egg-info/dependency_links.txt
+[0.474s] writing entry points to ../../build/dvrk_peg_transfer/dvrk_peg_transfer.egg-info/entry_points.txt
+[0.474s] writing requirements to ../../build/dvrk_peg_transfer/dvrk_peg_transfer.egg-info/requires.txt
+[0.474s] writing top-level names to ../../build/dvrk_peg_transfer/dvrk_peg_transfer.egg-info/top_level.txt
+[0.488s] reading manifest file '../../build/dvrk_peg_transfer/dvrk_peg_transfer.egg-info/SOURCES.txt'
+[0.488s] writing manifest file '../../build/dvrk_peg_transfer/dvrk_peg_transfer.egg-info/SOURCES.txt'
+[0.488s] running build
+[0.488s] running build_py
+[0.488s] copying dvrk_peg_transfer/object_loc.py -> /home/dvrk-team/dvrk_ctrl_ws/build/dvrk_peg_transfer/build/lib/dvrk_peg_transfer
+[0.488s] copying dvrk_peg_transfer/tool_cmd.py -> /home/dvrk-team/dvrk_ctrl_ws/build/dvrk_peg_transfer/build/lib/dvrk_peg_transfer
+[0.488s] running install
+[0.490s] running install_lib
+[0.497s] copying /home/dvrk-team/dvrk_ctrl_ws/build/dvrk_peg_transfer/build/lib/dvrk_peg_transfer/object_loc.py -> /home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer/lib/python3.12/site-packages/dvrk_peg_transfer
+[0.497s] copying /home/dvrk-team/dvrk_ctrl_ws/build/dvrk_peg_transfer/build/lib/dvrk_peg_transfer/tool_cmd.py -> /home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer/lib/python3.12/site-packages/dvrk_peg_transfer
+[0.498s] byte-compiling /home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer/lib/python3.12/site-packages/dvrk_peg_transfer/object_loc.py to object_loc.cpython-312.pyc
+[0.498s] byte-compiling /home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer/lib/python3.12/site-packages/dvrk_peg_transfer/tool_cmd.py to tool_cmd.cpython-312.pyc
+[0.499s] running install_data
+[0.499s] running install_egg_info
+[0.506s] removing '/home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer/lib/python3.12/site-packages/dvrk_peg_transfer-0.0.0-py3.12.egg-info' (and everything under it)
+[0.506s] Copying ../../build/dvrk_peg_transfer/dvrk_peg_transfer.egg-info to /home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer/lib/python3.12/site-packages/dvrk_peg_transfer-0.0.0-py3.12.egg-info
+[0.506s] running install_scripts
+[0.558s] Installing object_loc script to /home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer/lib/dvrk_peg_transfer
+[0.558s] Installing tool_cmd script to /home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer/lib/dvrk_peg_transfer
+[0.558s] writing list of installed files to '/home/dvrk-team/dvrk_ctrl_ws/build/dvrk_peg_transfer/install.log'
+[0.572s] Invoked command in '/home/dvrk-team/dvrk_ctrl_ws/src/dvrk_peg_transfer' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/dvrk-team/dvrk_ctrl_ws/build/dvrk_peg_transfer/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/dvrk_peg_transfer build --build-base /home/dvrk-team/dvrk_ctrl_ws/build/dvrk_peg_transfer/build install --record /home/dvrk-team/dvrk_ctrl_ws/build/dvrk_peg_transfer/install.log --install-scripts $base/lib/dvrk_peg_transfer --single-version-externally-managed install_data

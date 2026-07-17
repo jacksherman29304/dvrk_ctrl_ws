@@ -1,0 +1,6 @@
+source;share/dvrk_peg_transfer/hook/pythonpath.ps1
+source;share/dvrk_peg_transfer/hook/pythonpath.dsv
+source;share/dvrk_peg_transfer/hook/pythonpath.sh
+source;share/dvrk_peg_transfer/hook/ament_prefix_path.ps1
+source;share/dvrk_peg_transfer/hook/ament_prefix_path.dsv
+source;share/dvrk_peg_transfer/hook/ament_prefix_path.sh

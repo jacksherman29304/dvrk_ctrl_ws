@@ -1,0 +1,33 @@
+[0.465s] Invoking command in '/home/dvrk-team/dvrk_ctrl_ws/src/utility_interface': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/dvrk-team/dvrk_ctrl_ws/build/utility_interface/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dvrk-team/dvrk_ctrl_ws/install/utility_interface/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/utility_interface build --build-base /home/dvrk-team/dvrk_ctrl_ws/build/utility_interface/build install --record /home/dvrk-team/dvrk_ctrl_ws/build/utility_interface/install.log --install-scripts $base/lib/utility_interface --single-version-externally-managed install_data
+[0.587s] running egg_info
+[0.587s] creating ../../build/utility_interface/utility_interface.egg-info
+[0.594s] writing ../../build/utility_interface/utility_interface.egg-info/PKG-INFO
+[0.595s] writing dependency_links to ../../build/utility_interface/utility_interface.egg-info/dependency_links.txt
+[0.595s] writing requirements to ../../build/utility_interface/utility_interface.egg-info/requires.txt
+[0.595s] writing top-level names to ../../build/utility_interface/utility_interface.egg-info/top_level.txt
+[0.595s] writing manifest file '../../build/utility_interface/utility_interface.egg-info/SOURCES.txt'
+[0.608s] reading manifest file '../../build/utility_interface/utility_interface.egg-info/SOURCES.txt'
+[0.608s] adding license file 'LICENSE'
+[0.609s] writing manifest file '../../build/utility_interface/utility_interface.egg-info/SOURCES.txt'
+[0.609s] running build
+[0.609s] running build_py
+[0.609s] creating /home/dvrk-team/dvrk_ctrl_ws/build/utility_interface/build
+[0.609s] creating /home/dvrk-team/dvrk_ctrl_ws/build/utility_interface/build/lib
+[0.609s] creating /home/dvrk-team/dvrk_ctrl_ws/build/utility_interface/build/lib/utility_interface
+[0.609s] copying utility_interface/__init__.py -> /home/dvrk-team/dvrk_ctrl_ws/build/utility_interface/build/lib/utility_interface
+[0.610s] running install
+[0.611s] running install_lib
+[0.618s] creating /home/dvrk-team/dvrk_ctrl_ws/install/utility_interface/lib/python3.12/site-packages/utility_interface
+[0.618s] copying /home/dvrk-team/dvrk_ctrl_ws/build/utility_interface/build/lib/utility_interface/__init__.py -> /home/dvrk-team/dvrk_ctrl_ws/install/utility_interface/lib/python3.12/site-packages/utility_interface
+[0.619s] byte-compiling /home/dvrk-team/dvrk_ctrl_ws/install/utility_interface/lib/python3.12/site-packages/utility_interface/__init__.py to __init__.cpython-312.pyc
+[0.619s] running install_data
+[0.619s] creating /home/dvrk-team/dvrk_ctrl_ws/install/utility_interface/share/ament_index
+[0.619s] creating /home/dvrk-team/dvrk_ctrl_ws/install/utility_interface/share/ament_index/resource_index
+[0.619s] creating /home/dvrk-team/dvrk_ctrl_ws/install/utility_interface/share/ament_index/resource_index/packages
+[0.619s] copying resource/utility_interface -> /home/dvrk-team/dvrk_ctrl_ws/install/utility_interface/share/ament_index/resource_index/packages
+[0.619s] copying package.xml -> /home/dvrk-team/dvrk_ctrl_ws/install/utility_interface/share/utility_interface
+[0.619s] running install_egg_info
+[0.626s] Copying ../../build/utility_interface/utility_interface.egg-info to /home/dvrk-team/dvrk_ctrl_ws/install/utility_interface/lib/python3.12/site-packages/utility_interface-0.0.0-py3.12.egg-info
+[0.627s] running install_scripts
+[0.678s] writing list of installed files to '/home/dvrk-team/dvrk_ctrl_ws/build/utility_interface/install.log'
+[0.692s] Invoked command in '/home/dvrk-team/dvrk_ctrl_ws/src/utility_interface' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/dvrk-team/dvrk_ctrl_ws/build/utility_interface/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dvrk-team/dvrk_ctrl_ws/install/utility_interface/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/utility_interface build --build-base /home/dvrk-team/dvrk_ctrl_ws/build/utility_interface/build install --record /home/dvrk-team/dvrk_ctrl_ws/build/utility_interface/install.log --install-scripts $base/lib/utility_interface --single-version-externally-managed install_data

@@ -1,0 +1,26 @@
+[0.362s] Invoking command in '/home/dvrk-team/dvrk_ctrl_ws/src/utilities': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/dvrk-team/dvrk_ctrl_ws/build/utilities/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/utilities build --build-base /home/dvrk-team/dvrk_ctrl_ws/build/utilities/build install --record /home/dvrk-team/dvrk_ctrl_ws/build/utilities/install.log --install-scripts $base/lib/utilities --single-version-externally-managed install_data
+[0.481s] running egg_info
+[0.487s] writing ../../build/utilities/utilities.egg-info/PKG-INFO
+[0.487s] writing dependency_links to ../../build/utilities/utilities.egg-info/dependency_links.txt
+[0.488s] writing entry points to ../../build/utilities/utilities.egg-info/entry_points.txt
+[0.488s] writing requirements to ../../build/utilities/utilities.egg-info/requires.txt
+[0.488s] writing top-level names to ../../build/utilities/utilities.egg-info/top_level.txt
+[0.501s] reading manifest file '../../build/utilities/utilities.egg-info/SOURCES.txt'
+[0.501s] adding license file 'LICENSE'
+[0.501s] writing manifest file '../../build/utilities/utilities.egg-info/SOURCES.txt'
+[0.501s] running build
+[0.501s] running build_py
+[0.502s] copying utilities/object_loc.py -> /home/dvrk-team/dvrk_ctrl_ws/build/utilities/build/lib/utilities
+[0.502s] running install
+[0.504s] running install_lib
+[0.511s] copying /home/dvrk-team/dvrk_ctrl_ws/build/utilities/build/lib/utilities/object_loc.py -> /home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/python3.12/site-packages/utilities
+[0.511s] byte-compiling /home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/python3.12/site-packages/utilities/object_loc.py to object_loc.cpython-312.pyc
+[0.511s] running install_data
+[0.511s] running install_egg_info
+[0.519s] removing '/home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/python3.12/site-packages/utilities-0.0.0-py3.12.egg-info' (and everything under it)
+[0.519s] Copying ../../build/utilities/utilities.egg-info to /home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/python3.12/site-packages/utilities-0.0.0-py3.12.egg-info
+[0.519s] running install_scripts
+[0.569s] Installing object_loc script to /home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/utilities
+[0.569s] Installing tool_cmd script to /home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/utilities
+[0.569s] writing list of installed files to '/home/dvrk-team/dvrk_ctrl_ws/build/utilities/install.log'
+[0.581s] Invoked command in '/home/dvrk-team/dvrk_ctrl_ws/src/utilities' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/dvrk-team/dvrk_ctrl_ws/build/utilities/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/utilities build --build-base /home/dvrk-team/dvrk_ctrl_ws/build/utilities/build install --record /home/dvrk-team/dvrk_ctrl_ws/build/utilities/install.log --install-scripts $base/lib/utilities --single-version-externally-managed install_data

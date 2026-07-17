@@ -1,0 +1,2 @@
+[console_scripts]
+psm_to_block = peg_control.psm_to_block:main

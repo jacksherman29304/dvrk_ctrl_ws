@@ -1,0 +1,125 @@
+import rclpy
+from rclpy.node import Node
+
+# block1/State message type: ambf_msgs/msg/RigidBodyState
+from ambf_msgs.msg import RigidBodyState
+from ambf_msgs.msg import ActuatorState
+
+# import custom service 
+from utility_interfaces.srv import GetObjectPose
+
+class ObjectLocator(Node):
+
+    def __init__(self):
+        super().__init__('object_locator') # node name
+
+        # subscriber to block1/State topic
+        self.block1_sub = self.create_subscription(
+            RigidBodyState,                         # message type
+            '/ambf/env/phantom/block1/State',       # topic name
+            self.block1_callback,                 # callback function
+            10                                      # QoS queue depth
+            )
+        
+        # subscriber to peg10/State topic
+        self.peg10_sub = self.create_subscription(
+            RigidBodyState,                         # message type
+            '/ambf/env/phantom/peg10/State',       # topic name
+            self.peg10_callback,                 # callback function
+            10               
+        )
+
+        self.psm1_sub = self.create_subscription(
+            RigidBodyState,
+            '/ambf/env/psm1/baselink/State',
+            self.psm1_callback,
+            10
+        )
+
+        self.psm2_sub = self.create_subscription(
+            RigidBodyState,
+            '/ambf/env/psm2/baselink/State',
+            self.psm2_callback,
+            10
+        )
+
+        self.cam_sub = self.create_subscription(
+            RigidBodyState,
+            '/ambf/env/phantom/CameraFrame/State',
+            self.cam_callback,
+            10
+        )
+
+        self.get_logger().info('Subscribed to /ambf/env/phantom/block1/State')
+
+        self.object_pose = {}
+
+        self.pose_service = self.create_service(
+            GetObjectPose, # service type defined in peg_transfer_interfaces
+            "get_object_pose", # service name
+            self.get_object_pose_callback # callback function executed whenever service called
+
+        )
+
+    # callback function for block1 position
+    def block1_callback(self, msg):
+        self.object_pose['block1'] = msg.pose
+        self.get_logger().info(f'block1-state: {self.object_pose['block1']}')
+ 
+    # callback function for peg10 position
+    def peg10_callback(self, msg):
+        self.object_pose['peg10'] = msg.pose    
+        self.get_logger().info(f'peg10-pose: {self.object_pose['peg10']}')
+
+    # callback function for psm1 position
+    def psm1_callback(self, msg):
+        self.object_pose['psm1'] = msg.pose
+        self.get_logger().info(f'psm1-pose: {self.object_pose['psm1']}')
+    
+    # callback function for psm2 position
+    def psm2_callback(self, msg):
+        self.object_pose['psm2'] = msg.pose
+        self.get_logger().info(f'psm2-pose: {self.object_pose['psm2']}')
+
+    # callback function for camera position
+    def cam_callback(self, msg):
+        self.object_pose['cam'] = msg.pose    
+        self.get_logger().info(f'cam-pose: {self.object_pose['cam']}')
+
+
+    def get_object_pose(self, object_name:str):
+        return self.object_pose[object_name]
+
+    # service/cli approach
+    def get_object_pose_callback(self, request, response):
+        if request.object_name not in self.object_pose: # eventually change to object_states
+            response.success = False
+            return response
+        
+        # object_name is the string input defined in GetObjectPose.srv
+        pose = self.object_pose[request.object_name]
+
+        response.pose = pose # assign pose
+        response.success = True # assign boolean as in GetObjectPose.srv structure
+
+        return response # response sent to client via ROS2
+        
+
+# ROS2 entry point
+def main(args=None):
+    rclpy.init(args=args)
+    
+    # Runs init
+    node = ObjectLocator()
+ 
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()

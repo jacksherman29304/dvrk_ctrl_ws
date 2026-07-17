@@ -1,0 +1,250 @@
+[0.111s] Invoking command in '/home/dvrk-team/dvrk_ctrl_ws/build/utility_interfaces': CMAKE_PREFIX_PATH=/home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer_interfaces:/home/dvrk-team/ros2_ws/install/dvrk_robot:/home/dvrk-team/ros2_ws/install/saw_robot_io_1394_ros:/home/dvrk-team/ros2_ws/install/saw_intuitive_research_kit_example_psm_derived:/home/dvrk-team/ros2_ws/install/saw_intuitive_research_kit_example_bilateral_teleop:/home/dvrk-team/ros2_ws/install/saw_controllers_ros:/home/dvrk-team/ros2_ws/install/sawIntuitiveResearchKitCore:/home/dvrk-team/ros2_ws/install/sawTextToSpeechAll:/home/dvrk-team/ros2_ws/install/sawRobotIO1394Core:/home/dvrk-team/ros2_ws/install/sawControllersCore:/home/dvrk-team/ros2_ws/install/sawKeyboardAll:/home/dvrk-team/ros2_ws/install/dvrk_python:/home/dvrk-team/ros2_ws/install/dvrk_display:/home/dvrk-team/ros2_ws/install/dvrk_camera_registration:/home/dvrk-team/ros2_ws/install/data_collection:/home/dvrk-team/ros2_ws/install/crtk_python_client:/home/dvrk-team/ros2_ws/install/peg_transfer_interfaces:/home/dvrk-team/ros2_ws/install/dvrk_video:/home/dvrk-team/dvrk_ctrl_ws/install/utility_interface:/home/dvrk-team/dvrk_ctrl_ws/install/utilities:/home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer:/home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer:/home/dvrk-team/ros2_ws/install/dvrk_mtm_gc:/home/dvrk-team/ros2_ws/install/peg_transfer:/opt/ros/jazzy:/home/dvrk-team/ros2_ws/install/dvrk_model:/home/dvrk-team/ros2_ws/install/dvrk_hrsv_widget:/home/dvrk-team/ros2_ws/install/dvrk_config_jhu:/home/dvrk-team/ros2_ws/install/dvrk_config:/home/dvrk-team/ros2_ws/install/dvrk_arms_from_ros:/home/dvrk-team/ros2_ws/install/cisst_ros_crtk:/home/dvrk-team/ros2_ws/install/crtk_msgs:/home/dvrk-team/ros2_ws/install/cisst_ros_bridge:/home/dvrk-team/ros2_ws/install/cisst_msgs:/home/dvrk-team/ros2_ws/install/cisst:/home/dvrk-team/ros2_ws/install/cisstNetlib:/home/dvrk-team/ros_ambf_ws/install/ambf_client:/home/dvrk-team/ros_ambf_ws/install/tf_function:/home/dvrk-team/ros_ambf_ws/install/ros_comm_plugin:/home/dvrk-team/ros_ambf_ws/install/ambf_server:/home/dvrk-team/ros_ambf_ws/install/ambf_msgs:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/dvrk-team/dvrk_ctrl_ws/src/utility_interfaces -DCMAKE_INSTALL_PREFIX=/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces
+[0.154s] -- The C compiler identification is GNU 13.3.0
+[0.189s] -- The CXX compiler identification is GNU 13.3.0
+[0.203s] -- Detecting C compiler ABI info
+[0.271s] -- Detecting C compiler ABI info - done
+[0.278s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.278s] -- Detecting C compile features
+[0.279s] -- Detecting C compile features - done
+[0.287s] -- Detecting CXX compiler ABI info
+[0.364s] -- Detecting CXX compiler ABI info - done
+[0.371s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.372s] -- Detecting CXX compile features
+[0.372s] -- Detecting CXX compile features - done
+[0.374s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.486s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.565s] -- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[0.637s] -- Found geometry_msgs: 5.3.8 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[0.665s] -- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.674s] -- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.685s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.697s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.723s] -- Found rosidl_default_generators: 1.6.1 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[0.733s] -- Found rosidl_adapter: 4.6.9 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[1.124s] -- Found ament_cmake_ros: 0.12.1 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+[1.671s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.907s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.910s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[2.012s] -- Found PythonExtra: /usr/bin/python3  
+[2.297s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+[2.373s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[2.378s] -- Added test 'lint_cmake' to check CMake code style
+[2.380s] -- Added test 'xmllint' to check XML markup files
+[2.382s] -- Configuring done (2.3s)
+[2.397s] -- Generating done (0.0s)
+[2.402s] -- Build files have been written to: /home/dvrk-team/dvrk_ctrl_ws/build/utility_interfaces
+[2.409s] Invoked command in '/home/dvrk-team/dvrk_ctrl_ws/build/utility_interfaces' returned '0': CMAKE_PREFIX_PATH=/home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer_interfaces:/home/dvrk-team/ros2_ws/install/dvrk_robot:/home/dvrk-team/ros2_ws/install/saw_robot_io_1394_ros:/home/dvrk-team/ros2_ws/install/saw_intuitive_research_kit_example_psm_derived:/home/dvrk-team/ros2_ws/install/saw_intuitive_research_kit_example_bilateral_teleop:/home/dvrk-team/ros2_ws/install/saw_controllers_ros:/home/dvrk-team/ros2_ws/install/sawIntuitiveResearchKitCore:/home/dvrk-team/ros2_ws/install/sawTextToSpeechAll:/home/dvrk-team/ros2_ws/install/sawRobotIO1394Core:/home/dvrk-team/ros2_ws/install/sawControllersCore:/home/dvrk-team/ros2_ws/install/sawKeyboardAll:/home/dvrk-team/ros2_ws/install/dvrk_python:/home/dvrk-team/ros2_ws/install/dvrk_display:/home/dvrk-team/ros2_ws/install/dvrk_camera_registration:/home/dvrk-team/ros2_ws/install/data_collection:/home/dvrk-team/ros2_ws/install/crtk_python_client:/home/dvrk-team/ros2_ws/install/peg_transfer_interfaces:/home/dvrk-team/ros2_ws/install/dvrk_video:/home/dvrk-team/dvrk_ctrl_ws/install/utility_interface:/home/dvrk-team/dvrk_ctrl_ws/install/utilities:/home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer:/home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer:/home/dvrk-team/ros2_ws/install/dvrk_mtm_gc:/home/dvrk-team/ros2_ws/install/peg_transfer:/opt/ros/jazzy:/home/dvrk-team/ros2_ws/install/dvrk_model:/home/dvrk-team/ros2_ws/install/dvrk_hrsv_widget:/home/dvrk-team/ros2_ws/install/dvrk_config_jhu:/home/dvrk-team/ros2_ws/install/dvrk_config:/home/dvrk-team/ros2_ws/install/dvrk_arms_from_ros:/home/dvrk-team/ros2_ws/install/cisst_ros_crtk:/home/dvrk-team/ros2_ws/install/crtk_msgs:/home/dvrk-team/ros2_ws/install/cisst_ros_bridge:/home/dvrk-team/ros2_ws/install/cisst_msgs:/home/dvrk-team/ros2_ws/install/cisst:/home/dvrk-team/ros2_ws/install/cisstNetlib:/home/dvrk-team/ros_ambf_ws/install/ambf_client:/home/dvrk-team/ros_ambf_ws/install/tf_function:/home/dvrk-team/ros_ambf_ws/install/ros_comm_plugin:/home/dvrk-team/ros_ambf_ws/install/ambf_server:/home/dvrk-team/ros_ambf_ws/install/ambf_msgs:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/dvrk-team/dvrk_ctrl_ws/src/utility_interfaces -DCMAKE_INSTALL_PREFIX=/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces
+[2.411s] Invoking command in '/home/dvrk-team/dvrk_ctrl_ws/build/utility_interfaces': CMAKE_PREFIX_PATH=/home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer_interfaces:/home/dvrk-team/ros2_ws/install/dvrk_robot:/home/dvrk-team/ros2_ws/install/saw_robot_io_1394_ros:/home/dvrk-team/ros2_ws/install/saw_intuitive_research_kit_example_psm_derived:/home/dvrk-team/ros2_ws/install/saw_intuitive_research_kit_example_bilateral_teleop:/home/dvrk-team/ros2_ws/install/saw_controllers_ros:/home/dvrk-team/ros2_ws/install/sawIntuitiveResearchKitCore:/home/dvrk-team/ros2_ws/install/sawTextToSpeechAll:/home/dvrk-team/ros2_ws/install/sawRobotIO1394Core:/home/dvrk-team/ros2_ws/install/sawControllersCore:/home/dvrk-team/ros2_ws/install/sawKeyboardAll:/home/dvrk-team/ros2_ws/install/dvrk_python:/home/dvrk-team/ros2_ws/install/dvrk_display:/home/dvrk-team/ros2_ws/install/dvrk_camera_registration:/home/dvrk-team/ros2_ws/install/data_collection:/home/dvrk-team/ros2_ws/install/crtk_python_client:/home/dvrk-team/ros2_ws/install/peg_transfer_interfaces:/home/dvrk-team/ros2_ws/install/dvrk_video:/home/dvrk-team/dvrk_ctrl_ws/install/utility_interface:/home/dvrk-team/dvrk_ctrl_ws/install/utilities:/home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer:/home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer:/home/dvrk-team/ros2_ws/install/dvrk_mtm_gc:/home/dvrk-team/ros2_ws/install/peg_transfer:/opt/ros/jazzy:/home/dvrk-team/ros2_ws/install/dvrk_model:/home/dvrk-team/ros2_ws/install/dvrk_hrsv_widget:/home/dvrk-team/ros2_ws/install/dvrk_config_jhu:/home/dvrk-team/ros2_ws/install/dvrk_config:/home/dvrk-team/ros2_ws/install/dvrk_arms_from_ros:/home/dvrk-team/ros2_ws/install/cisst_ros_crtk:/home/dvrk-team/ros2_ws/install/crtk_msgs:/home/dvrk-team/ros2_ws/install/cisst_ros_bridge:/home/dvrk-team/ros2_ws/install/cisst_msgs:/home/dvrk-team/ros2_ws/install/cisst:/home/dvrk-team/ros2_ws/install/cisstNetlib:/home/dvrk-team/ros_ambf_ws/install/ambf_client:/home/dvrk-team/ros_ambf_ws/install/tf_function:/home/dvrk-team/ros_ambf_ws/install/ros_comm_plugin:/home/dvrk-team/ros_ambf_ws/install/ambf_server:/home/dvrk-team/ros_ambf_ws/install/ambf_msgs:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/dvrk-team/dvrk_ctrl_ws/build/utility_interfaces -- -j24 -l24
+[2.453s] [  2%] [34m[1mGenerating Rust code for ROS interfaces[0m
+[2.456s] [  5%] [34m[1mGenerating type hashes for ROS interfaces[0m
+[2.459s] [  5%] Built target ament_cmake_python_copy_utility_interfaces
+[2.556s] [  5%] Built target utility_interfaces__rosidl_generator_type_description
+[2.565s] [  8%] [34m[1mGenerating C code for ROS interfaces[0m
+[2.565s] running egg_info
+[2.566s] creating utility_interfaces.egg-info
+[2.568s] [  8%] Built target utility_interfaces__rs
+[2.571s] [ 11%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[2.572s] writing utility_interfaces.egg-info/PKG-INFO
+[2.572s] writing dependency_links to utility_interfaces.egg-info/dependency_links.txt
+[2.572s] writing top-level names to utility_interfaces.egg-info/top_level.txt
+[2.572s] writing manifest file 'utility_interfaces.egg-info/SOURCES.txt'
+[2.592s] reading manifest file 'utility_interfaces.egg-info/SOURCES.txt'
+[2.592s] writing manifest file 'utility_interfaces.egg-info/SOURCES.txt'
+[2.608s] [ 11%] Built target ament_cmake_python_build_utility_interfaces_egg
+[2.694s] [ 11%] Built target utility_interfaces__cpp
+[2.701s] [ 17%] [32mBuilding C object CMakeFiles/utility_interfaces__rosidl_generator_c.dir/rosidl_generator_c/utility_interfaces/srv/detail/get_object_pose__description.c.o[0m
+[2.701s] [ 17%] [32mBuilding C object CMakeFiles/utility_interfaces__rosidl_generator_c.dir/rosidl_generator_c/utility_interfaces/srv/detail/get_object_pose__functions.c.o[0m
+[2.701s] [ 20%] [32mBuilding C object CMakeFiles/utility_interfaces__rosidl_generator_c.dir/rosidl_generator_c/utility_interfaces/srv/detail/get_object_pose__type_support.c.o[0m
+[2.743s] [ 22%] [32m[1mLinking C shared library libutility_interfaces__rosidl_generator_c.so[0m
+[2.769s] [ 22%] Built target utility_interfaces__rosidl_generator_c
+[2.777s] [ 28%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[2.777s] [ 28%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[2.777s] [ 34%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[2.777s] [ 34%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[2.777s] [ 37%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[2.779s] [ 40%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[2.896s] [ 42%] [32mBuilding CXX object CMakeFiles/utility_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/utility_interfaces/srv/get_object_pose__type_support.cpp.o[0m
+[2.907s] [ 45%] [32mBuilding CXX object CMakeFiles/utility_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/utility_interfaces/srv/get_object_pose__type_support.cpp.o[0m
+[2.910s] [ 48%] [32mBuilding C object CMakeFiles/utility_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/utility_interfaces/srv/detail/get_object_pose__type_support.c.o[0m
+[2.914s] [ 51%] [32mBuilding CXX object CMakeFiles/utility_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/utility_interfaces/srv/detail/get_object_pose__type_support.cpp.o[0m
+[2.923s] [ 54%] [32mBuilding CXX object CMakeFiles/utility_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/utility_interfaces/srv/detail/dds_fastrtps/get_object_pose__type_support.cpp.o[0m
+[2.929s] [ 57%] [32mBuilding CXX object CMakeFiles/utility_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/utility_interfaces/srv/detail/get_object_pose__type_support_c.cpp.o[0m
+[2.933s] [ 60%] [32m[1mLinking CXX shared library libutility_interfaces__rosidl_typesupport_c.so[0m
+[2.938s] [ 62%] [32m[1mLinking C shared library libutility_interfaces__rosidl_typesupport_introspection_c.so[0m
+[2.959s] [ 62%] Built target utility_interfaces__rosidl_typesupport_c
+[2.960s] [ 62%] Built target utility_interfaces__rosidl_typesupport_introspection_c
+[3.082s] [ 65%] [32m[1mLinking CXX shared library libutility_interfaces__rosidl_typesupport_cpp.so[0m
+[3.105s] [ 68%] [32m[1mLinking CXX shared library libutility_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[3.137s] [ 68%] Built target utility_interfaces__rosidl_typesupport_cpp
+[3.148s] [ 71%] [32m[1mLinking CXX shared library libutility_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[3.152s] [ 71%] Built target utility_interfaces__rosidl_typesupport_introspection_cpp
+[3.188s] [ 74%] [32m[1mLinking CXX shared library libutility_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[3.198s] [ 74%] Built target utility_interfaces__rosidl_typesupport_fastrtps_c
+[3.235s] [ 74%] Built target utility_interfaces__rosidl_typesupport_fastrtps_cpp
+[3.256s] [ 74%] Built target utility_interfaces
+[3.277s] [ 77%] [34m[1mGenerating Python code for ROS interfaces[0m
+[3.428s] [ 77%] Built target utility_interfaces__py
+[3.441s] [ 80%] [32mBuilding C object CMakeFiles/utility_interfaces__rosidl_generator_py.dir/rosidl_generator_py/utility_interfaces/srv/_get_object_pose_s.c.o[0m
+[3.516s] [ 82%] [32m[1mLinking C shared library libutility_interfaces__rosidl_generator_py.so[0m
+[3.553s] [ 82%] Built target utility_interfaces__rosidl_generator_py
+[3.568s] [ 85%] [32mBuilding C object CMakeFiles/utility_interfaces_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/utility_interfaces/_utility_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[3.568s] [ 88%] [32mBuilding C object CMakeFiles/utility_interfaces_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/utility_interfaces/_utility_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[3.571s] [ 91%] [32mBuilding C object CMakeFiles/utility_interfaces_s__rosidl_typesupport_c.dir/rosidl_generator_py/utility_interfaces/_utility_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[3.632s] [ 94%] [32m[1mLinking C shared module rosidl_generator_py/utility_interfaces/utility_interfaces_s__rosidl_typesupport_introspection_c.so[0m
+[3.633s] [100%] [32m[1mLinking C shared module rosidl_generator_py/utility_interfaces/utility_interfaces_s__rosidl_typesupport_fastrtps_c.so[0m
+[3.633s] [100%] [32m[1mLinking C shared module rosidl_generator_py/utility_interfaces/utility_interfaces_s__rosidl_typesupport_c.so[0m
+[3.653s] [100%] Built target utility_interfaces_s__rosidl_typesupport_fastrtps_c
+[3.653s] [100%] Built target utility_interfaces_s__rosidl_typesupport_introspection_c
+[3.654s] [100%] Built target utility_interfaces_s__rosidl_typesupport_c
+[3.664s] Invoked command in '/home/dvrk-team/dvrk_ctrl_ws/build/utility_interfaces' returned '0': CMAKE_PREFIX_PATH=/home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer_interfaces:/home/dvrk-team/ros2_ws/install/dvrk_robot:/home/dvrk-team/ros2_ws/install/saw_robot_io_1394_ros:/home/dvrk-team/ros2_ws/install/saw_intuitive_research_kit_example_psm_derived:/home/dvrk-team/ros2_ws/install/saw_intuitive_research_kit_example_bilateral_teleop:/home/dvrk-team/ros2_ws/install/saw_controllers_ros:/home/dvrk-team/ros2_ws/install/sawIntuitiveResearchKitCore:/home/dvrk-team/ros2_ws/install/sawTextToSpeechAll:/home/dvrk-team/ros2_ws/install/sawRobotIO1394Core:/home/dvrk-team/ros2_ws/install/sawControllersCore:/home/dvrk-team/ros2_ws/install/sawKeyboardAll:/home/dvrk-team/ros2_ws/install/dvrk_python:/home/dvrk-team/ros2_ws/install/dvrk_display:/home/dvrk-team/ros2_ws/install/dvrk_camera_registration:/home/dvrk-team/ros2_ws/install/data_collection:/home/dvrk-team/ros2_ws/install/crtk_python_client:/home/dvrk-team/ros2_ws/install/peg_transfer_interfaces:/home/dvrk-team/ros2_ws/install/dvrk_video:/home/dvrk-team/dvrk_ctrl_ws/install/utility_interface:/home/dvrk-team/dvrk_ctrl_ws/install/utilities:/home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer:/home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer:/home/dvrk-team/ros2_ws/install/dvrk_mtm_gc:/home/dvrk-team/ros2_ws/install/peg_transfer:/opt/ros/jazzy:/home/dvrk-team/ros2_ws/install/dvrk_model:/home/dvrk-team/ros2_ws/install/dvrk_hrsv_widget:/home/dvrk-team/ros2_ws/install/dvrk_config_jhu:/home/dvrk-team/ros2_ws/install/dvrk_config:/home/dvrk-team/ros2_ws/install/dvrk_arms_from_ros:/home/dvrk-team/ros2_ws/install/cisst_ros_crtk:/home/dvrk-team/ros2_ws/install/crtk_msgs:/home/dvrk-team/ros2_ws/install/cisst_ros_bridge:/home/dvrk-team/ros2_ws/install/cisst_msgs:/home/dvrk-team/ros2_ws/install/cisst:/home/dvrk-team/ros2_ws/install/cisstNetlib:/home/dvrk-team/ros_ambf_ws/install/ambf_client:/home/dvrk-team/ros_ambf_ws/install/tf_function:/home/dvrk-team/ros_ambf_ws/install/ros_comm_plugin:/home/dvrk-team/ros_ambf_ws/install/ambf_server:/home/dvrk-team/ros_ambf_ws/install/ambf_msgs:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/dvrk-team/dvrk_ctrl_ws/build/utility_interfaces -- -j24 -l24
+[3.670s] Invoking command in '/home/dvrk-team/dvrk_ctrl_ws/build/utility_interfaces': CMAKE_PREFIX_PATH=/home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer_interfaces:/home/dvrk-team/ros2_ws/install/dvrk_robot:/home/dvrk-team/ros2_ws/install/saw_robot_io_1394_ros:/home/dvrk-team/ros2_ws/install/saw_intuitive_research_kit_example_psm_derived:/home/dvrk-team/ros2_ws/install/saw_intuitive_research_kit_example_bilateral_teleop:/home/dvrk-team/ros2_ws/install/saw_controllers_ros:/home/dvrk-team/ros2_ws/install/sawIntuitiveResearchKitCore:/home/dvrk-team/ros2_ws/install/sawTextToSpeechAll:/home/dvrk-team/ros2_ws/install/sawRobotIO1394Core:/home/dvrk-team/ros2_ws/install/sawControllersCore:/home/dvrk-team/ros2_ws/install/sawKeyboardAll:/home/dvrk-team/ros2_ws/install/dvrk_python:/home/dvrk-team/ros2_ws/install/dvrk_display:/home/dvrk-team/ros2_ws/install/dvrk_camera_registration:/home/dvrk-team/ros2_ws/install/data_collection:/home/dvrk-team/ros2_ws/install/crtk_python_client:/home/dvrk-team/ros2_ws/install/peg_transfer_interfaces:/home/dvrk-team/ros2_ws/install/dvrk_video:/home/dvrk-team/dvrk_ctrl_ws/install/utility_interface:/home/dvrk-team/dvrk_ctrl_ws/install/utilities:/home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer:/home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer:/home/dvrk-team/ros2_ws/install/dvrk_mtm_gc:/home/dvrk-team/ros2_ws/install/peg_transfer:/opt/ros/jazzy:/home/dvrk-team/ros2_ws/install/dvrk_model:/home/dvrk-team/ros2_ws/install/dvrk_hrsv_widget:/home/dvrk-team/ros2_ws/install/dvrk_config_jhu:/home/dvrk-team/ros2_ws/install/dvrk_config:/home/dvrk-team/ros2_ws/install/dvrk_arms_from_ros:/home/dvrk-team/ros2_ws/install/cisst_ros_crtk:/home/dvrk-team/ros2_ws/install/crtk_msgs:/home/dvrk-team/ros2_ws/install/cisst_ros_bridge:/home/dvrk-team/ros2_ws/install/cisst_msgs:/home/dvrk-team/ros2_ws/install/cisst:/home/dvrk-team/ros2_ws/install/cisstNetlib:/home/dvrk-team/ros_ambf_ws/install/ambf_client:/home/dvrk-team/ros_ambf_ws/install/tf_function:/home/dvrk-team/ros_ambf_ws/install/ros_comm_plugin:/home/dvrk-team/ros_ambf_ws/install/ambf_server:/home/dvrk-team/ros_ambf_ws/install/ambf_msgs:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/dvrk-team/dvrk_ctrl_ws/build/utility_interfaces
+[3.675s] -- Install configuration: ""
+[3.675s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/ament_index/resource_index/rosidl_interfaces/utility_interfaces
+[3.675s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/srv/GetObjectPose.json
+[3.675s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces
+[3.675s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv
+[3.676s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/get_object_pose.h
+[3.676s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail
+[3.676s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail/get_object_pose__functions.c
+[3.676s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail/get_object_pose__description.c
+[3.676s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail/get_object_pose__type_support.c
+[3.676s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail/get_object_pose__functions.h
+[3.676s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail/get_object_pose__struct.h
+[3.676s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail/get_object_pose__type_support.h
+[3.676s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/msg
+[3.676s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/msg/rosidl_generator_c__visibility_control.h
+[3.676s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/environment/library_path.sh
+[3.676s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/environment/library_path.dsv
+[3.676s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/libutility_interfaces__rosidl_generator_c.so
+[3.676s] -- Set non-toolchain portion of runtime path of "/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/libutility_interfaces__rosidl_generator_c.so" to ""
+[3.677s] -- Up-to-date: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces
+[3.677s] -- Up-to-date: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv
+[3.677s] -- Up-to-date: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail
+[3.677s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail/get_object_pose__rosidl_typesupport_fastrtps_c.h
+[3.677s] -- Up-to-date: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/msg
+[3.677s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[3.677s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/libutility_interfaces__rosidl_typesupport_fastrtps_c.so
+[3.677s] -- Set non-toolchain portion of runtime path of "/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/libutility_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[3.677s] -- Up-to-date: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces
+[3.677s] -- Up-to-date: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv
+[3.677s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/get_object_pose.hpp
+[3.677s] -- Up-to-date: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail
+[3.677s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail/get_object_pose__struct.hpp
+[3.677s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail/get_object_pose__builder.hpp
+[3.677s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail/get_object_pose__traits.hpp
+[3.677s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail/get_object_pose__type_support.hpp
+[3.678s] -- Up-to-date: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/msg
+[3.678s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[3.678s] -- Up-to-date: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces
+[3.678s] -- Up-to-date: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv
+[3.678s] -- Up-to-date: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail
+[3.678s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail/dds_fastrtps
+[3.678s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail/get_object_pose__rosidl_typesupport_fastrtps_cpp.hpp
+[3.678s] -- Up-to-date: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/msg
+[3.678s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[3.678s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/libutility_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[3.678s] -- Set non-toolchain portion of runtime path of "/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/libutility_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[3.678s] -- Up-to-date: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces
+[3.678s] -- Up-to-date: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv
+[3.678s] -- Up-to-date: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail
+[3.678s] -- Up-to-date: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail/get_object_pose__type_support.c
+[3.679s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail/get_object_pose__rosidl_typesupport_introspection_c.h
+[3.679s] -- Up-to-date: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/msg
+[3.679s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[3.679s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/libutility_interfaces__rosidl_typesupport_introspection_c.so
+[3.679s] -- Set non-toolchain portion of runtime path of "/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/libutility_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[3.679s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/libutility_interfaces__rosidl_typesupport_c.so
+[3.679s] -- Set non-toolchain portion of runtime path of "/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/libutility_interfaces__rosidl_typesupport_c.so" to ""
+[3.679s] -- Up-to-date: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces
+[3.679s] -- Up-to-date: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv
+[3.679s] -- Up-to-date: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail
+[3.679s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail/get_object_pose__type_support.cpp
+[3.679s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/include/utility_interfaces/utility_interfaces/srv/detail/get_object_pose__rosidl_typesupport_introspection_cpp.hpp
+[3.679s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/libutility_interfaces__rosidl_typesupport_introspection_cpp.so
+[3.679s] -- Set non-toolchain portion of runtime path of "/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/libutility_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[3.679s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/libutility_interfaces__rosidl_typesupport_cpp.so
+[3.679s] -- Set non-toolchain portion of runtime path of "/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/libutility_interfaces__rosidl_typesupport_cpp.so" to ""
+[3.679s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/environment/pythonpath.sh
+[3.679s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/environment/pythonpath.dsv
+[3.680s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces-0.0.0-py3.12.egg-info
+[3.680s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces-0.0.0-py3.12.egg-info/PKG-INFO
+[3.680s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces-0.0.0-py3.12.egg-info/dependency_links.txt
+[3.680s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces-0.0.0-py3.12.egg-info/SOURCES.txt
+[3.680s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces-0.0.0-py3.12.egg-info/top_level.txt
+[3.680s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces
+[3.680s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces/utility_interfaces_s__rosidl_typesupport_introspection_c.so
+[3.680s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces/utility_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[3.680s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces/_utility_interfaces_s.ep.rosidl_typesupport_c.c
+[3.680s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces/_utility_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[3.680s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces/srv
+[3.680s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces/srv/_get_object_pose.py
+[3.680s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces/srv/__init__.py
+[3.680s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces/srv/_get_object_pose_s.c
+[3.680s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces/utility_interfaces_s__rosidl_typesupport_c.so
+[3.680s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces/__init__.py
+[3.680s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces/_utility_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[3.707s] Listing '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces'...
+[3.707s] Compiling '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces/__init__.py'...
+[3.707s] Listing '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces/srv'...
+[3.708s] Compiling '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces/srv/__init__.py'...
+[3.708s] Compiling '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces/srv/_get_object_pose.py'...
+[3.711s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces/utility_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[3.711s] -- Set non-toolchain portion of runtime path of "/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces/utility_interfaces_s__rosidl_typesupport_fastrtps_c.so" to ""
+[3.711s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces/utility_interfaces_s__rosidl_typesupport_introspection_c.so
+[3.712s] -- Set non-toolchain portion of runtime path of "/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces/utility_interfaces_s__rosidl_typesupport_introspection_c.so" to ""
+[3.712s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces/utility_interfaces_s__rosidl_typesupport_c.so
+[3.712s] -- Set non-toolchain portion of runtime path of "/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages/utility_interfaces/utility_interfaces_s__rosidl_typesupport_c.so" to ""
+[3.712s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/libutility_interfaces__rosidl_generator_py.so
+[3.713s] -- Set non-toolchain portion of runtime path of "/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/libutility_interfaces__rosidl_generator_py.so" to ""
+[3.713s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/ament_index/resource_index/rust_packages/utility_interfaces
+[3.713s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/rust
+[3.713s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/rust/build.rs
+[3.713s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/rust/src
+[3.713s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/rust/src/lib.rs
+[3.713s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/rust/src/srv.rs
+[3.714s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/rust/src/srv
+[3.714s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/rust/src/srv/rmw.rs
+[3.714s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/rust/Cargo.toml
+[3.714s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/srv/GetObjectPose.idl
+[3.714s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/srv/GetObjectPose.srv
+[3.714s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/ament_index/resource_index/package_run_dependencies/utility_interfaces
+[3.714s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/ament_index/resource_index/parent_prefix_path/utility_interfaces
+[3.714s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/environment/ament_prefix_path.sh
+[3.714s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/environment/ament_prefix_path.dsv
+[3.714s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/environment/path.sh
+[3.714s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/environment/path.dsv
+[3.714s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/local_setup.bash
+[3.714s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/local_setup.sh
+[3.714s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/local_setup.zsh
+[3.715s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/local_setup.dsv
+[3.715s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/package.dsv
+[3.715s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/ament_index/resource_index/packages/utility_interfaces
+[3.715s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/export_utility_interfaces__rosidl_generator_cExport.cmake
+[3.715s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/export_utility_interfaces__rosidl_generator_cExport-noconfig.cmake
+[3.715s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/export_utility_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[3.715s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/export_utility_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[3.715s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/export_utility_interfaces__rosidl_generator_cppExport.cmake
+[3.715s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/export_utility_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[3.715s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/export_utility_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[3.715s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/utility_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[3.715s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/utility_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[3.716s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/utility_interfaces__rosidl_typesupport_cExport.cmake
+[3.716s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/utility_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[3.716s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/utility_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[3.716s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/utility_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[3.716s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/utility_interfaces__rosidl_typesupport_cppExport.cmake
+[3.716s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/utility_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[3.716s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/export_utility_interfaces__rosidl_generator_pyExport.cmake
+[3.716s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/export_utility_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[3.717s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/rosidl_cmake-extras.cmake
+[3.717s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[3.717s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[3.717s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[3.717s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[3.717s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[3.717s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[3.717s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/rosidl_cmake_aggregate_target-extras.cmake
+[3.717s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/utility_interfacesConfig.cmake
+[3.717s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/cmake/utility_interfacesConfig-version.cmake
+[3.718s] -- Installing: /home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/package.xml
+[3.720s] Invoked command in '/home/dvrk-team/dvrk_ctrl_ws/build/utility_interfaces' returned '0': CMAKE_PREFIX_PATH=/home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer_interfaces:/home/dvrk-team/ros2_ws/install/dvrk_robot:/home/dvrk-team/ros2_ws/install/saw_robot_io_1394_ros:/home/dvrk-team/ros2_ws/install/saw_intuitive_research_kit_example_psm_derived:/home/dvrk-team/ros2_ws/install/saw_intuitive_research_kit_example_bilateral_teleop:/home/dvrk-team/ros2_ws/install/saw_controllers_ros:/home/dvrk-team/ros2_ws/install/sawIntuitiveResearchKitCore:/home/dvrk-team/ros2_ws/install/sawTextToSpeechAll:/home/dvrk-team/ros2_ws/install/sawRobotIO1394Core:/home/dvrk-team/ros2_ws/install/sawControllersCore:/home/dvrk-team/ros2_ws/install/sawKeyboardAll:/home/dvrk-team/ros2_ws/install/dvrk_python:/home/dvrk-team/ros2_ws/install/dvrk_display:/home/dvrk-team/ros2_ws/install/dvrk_camera_registration:/home/dvrk-team/ros2_ws/install/data_collection:/home/dvrk-team/ros2_ws/install/crtk_python_client:/home/dvrk-team/ros2_ws/install/peg_transfer_interfaces:/home/dvrk-team/ros2_ws/install/dvrk_video:/home/dvrk-team/dvrk_ctrl_ws/install/utility_interface:/home/dvrk-team/dvrk_ctrl_ws/install/utilities:/home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer:/home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer:/home/dvrk-team/ros2_ws/install/dvrk_mtm_gc:/home/dvrk-team/ros2_ws/install/peg_transfer:/opt/ros/jazzy:/home/dvrk-team/ros2_ws/install/dvrk_model:/home/dvrk-team/ros2_ws/install/dvrk_hrsv_widget:/home/dvrk-team/ros2_ws/install/dvrk_config_jhu:/home/dvrk-team/ros2_ws/install/dvrk_config:/home/dvrk-team/ros2_ws/install/dvrk_arms_from_ros:/home/dvrk-team/ros2_ws/install/cisst_ros_crtk:/home/dvrk-team/ros2_ws/install/crtk_msgs:/home/dvrk-team/ros2_ws/install/cisst_ros_bridge:/home/dvrk-team/ros2_ws/install/cisst_msgs:/home/dvrk-team/ros2_ws/install/cisst:/home/dvrk-team/ros2_ws/install/cisstNetlib:/home/dvrk-team/ros_ambf_ws/install/ambf_client:/home/dvrk-team/ros_ambf_ws/install/tf_function:/home/dvrk-team/ros_ambf_ws/install/ros_comm_plugin:/home/dvrk-team/ros_ambf_ws/install/ambf_server:/home/dvrk-team/ros_ambf_ws/install/ambf_msgs:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/dvrk-team/dvrk_ctrl_ws/build/utility_interfaces

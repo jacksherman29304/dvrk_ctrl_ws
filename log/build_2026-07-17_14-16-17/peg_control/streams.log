@@ -1,0 +1,25 @@
+[0.541s] Invoking command in '/home/dvrk-team/dvrk_ctrl_ws/src/peg_control': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/dvrk-team/dvrk_ctrl_ws/build/peg_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/peg_control build --build-base /home/dvrk-team/dvrk_ctrl_ws/build/peg_control/build install --record /home/dvrk-team/dvrk_ctrl_ws/build/peg_control/install.log --install-scripts $base/lib/peg_control --single-version-externally-managed install_data
+[0.676s] running egg_info
+[0.684s] writing ../../build/peg_control/peg_control.egg-info/PKG-INFO
+[0.684s] writing dependency_links to ../../build/peg_control/peg_control.egg-info/dependency_links.txt
+[0.684s] writing entry points to ../../build/peg_control/peg_control.egg-info/entry_points.txt
+[0.684s] writing requirements to ../../build/peg_control/peg_control.egg-info/requires.txt
+[0.684s] writing top-level names to ../../build/peg_control/peg_control.egg-info/top_level.txt
+[0.700s] reading manifest file '../../build/peg_control/peg_control.egg-info/SOURCES.txt'
+[0.700s] adding license file 'LICENSE'
+[0.701s] writing manifest file '../../build/peg_control/peg_control.egg-info/SOURCES.txt'
+[0.701s] running build
+[0.701s] running build_py
+[0.701s] copying peg_control/psm_to_block.py -> /home/dvrk-team/dvrk_ctrl_ws/build/peg_control/build/lib/peg_control
+[0.701s] running install
+[0.703s] running install_lib
+[0.710s] copying /home/dvrk-team/dvrk_ctrl_ws/build/peg_control/build/lib/peg_control/psm_to_block.py -> /home/dvrk-team/dvrk_ctrl_ws/install/peg_control/lib/python3.12/site-packages/peg_control
+[0.711s] byte-compiling /home/dvrk-team/dvrk_ctrl_ws/install/peg_control/lib/python3.12/site-packages/peg_control/psm_to_block.py to psm_to_block.cpython-312.pyc
+[0.711s] running install_data
+[0.711s] running install_egg_info
+[0.719s] removing '/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/lib/python3.12/site-packages/peg_control-0.0.0-py3.12.egg-info' (and everything under it)
+[0.720s] Copying ../../build/peg_control/peg_control.egg-info to /home/dvrk-team/dvrk_ctrl_ws/install/peg_control/lib/python3.12/site-packages/peg_control-0.0.0-py3.12.egg-info
+[0.720s] running install_scripts
+[0.776s] Installing psm_to_block script to /home/dvrk-team/dvrk_ctrl_ws/install/peg_control/lib/peg_control
+[0.777s] writing list of installed files to '/home/dvrk-team/dvrk_ctrl_ws/build/peg_control/install.log'
+[0.792s] Invoked command in '/home/dvrk-team/dvrk_ctrl_ws/src/peg_control' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/dvrk-team/dvrk_ctrl_ws/build/peg_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/peg_control build --build-base /home/dvrk-team/dvrk_ctrl_ws/build/peg_control/build install --record /home/dvrk-team/dvrk_ctrl_ws/build/peg_control/install.log --install-scripts $base/lib/peg_control --single-version-externally-managed install_data

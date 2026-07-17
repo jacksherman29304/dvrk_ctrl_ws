@@ -1,0 +1,32 @@
+[0.356s] Invoking command in '/home/dvrk-team/dvrk_ctrl_ws/src/peg_transfer': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/dvrk-team/dvrk_ctrl_ws/build/peg_transfer/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/peg_transfer build --build-base /home/dvrk-team/dvrk_ctrl_ws/build/peg_transfer/build install --record /home/dvrk-team/dvrk_ctrl_ws/build/peg_transfer/install.log --install-scripts $base/lib/peg_transfer --single-version-externally-managed install_data
+[0.472s] running egg_info
+[0.472s] creating ../../build/peg_transfer/peg_transfer.egg-info
+[0.479s] writing ../../build/peg_transfer/peg_transfer.egg-info/PKG-INFO
+[0.479s] writing dependency_links to ../../build/peg_transfer/peg_transfer.egg-info/dependency_links.txt
+[0.479s] writing requirements to ../../build/peg_transfer/peg_transfer.egg-info/requires.txt
+[0.479s] writing top-level names to ../../build/peg_transfer/peg_transfer.egg-info/top_level.txt
+[0.479s] writing manifest file '../../build/peg_transfer/peg_transfer.egg-info/SOURCES.txt'
+[0.493s] reading manifest file '../../build/peg_transfer/peg_transfer.egg-info/SOURCES.txt'
+[0.493s] writing manifest file '../../build/peg_transfer/peg_transfer.egg-info/SOURCES.txt'
+[0.493s] running build
+[0.494s] running build_py
+[0.494s] creating /home/dvrk-team/dvrk_ctrl_ws/build/peg_transfer/build
+[0.494s] creating /home/dvrk-team/dvrk_ctrl_ws/build/peg_transfer/build/lib
+[0.494s] creating /home/dvrk-team/dvrk_ctrl_ws/build/peg_transfer/build/lib/peg_transfer
+[0.494s] copying peg_transfer/__init__.py -> /home/dvrk-team/dvrk_ctrl_ws/build/peg_transfer/build/lib/peg_transfer
+[0.494s] running install
+[0.496s] running install_lib
+[0.503s] creating /home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer/lib/python3.12/site-packages/peg_transfer
+[0.503s] copying /home/dvrk-team/dvrk_ctrl_ws/build/peg_transfer/build/lib/peg_transfer/__init__.py -> /home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer/lib/python3.12/site-packages/peg_transfer
+[0.504s] byte-compiling /home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer/lib/python3.12/site-packages/peg_transfer/__init__.py to __init__.cpython-312.pyc
+[0.504s] running install_data
+[0.504s] creating /home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer/share/ament_index
+[0.504s] creating /home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer/share/ament_index/resource_index
+[0.504s] creating /home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer/share/ament_index/resource_index/packages
+[0.504s] copying resource/peg_transfer -> /home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer/share/ament_index/resource_index/packages
+[0.504s] copying package.xml -> /home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer/share/peg_transfer
+[0.504s] running install_egg_info
+[0.511s] Copying ../../build/peg_transfer/peg_transfer.egg-info to /home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer/lib/python3.12/site-packages/peg_transfer-0.0.0-py3.12.egg-info
+[0.511s] running install_scripts
+[0.564s] writing list of installed files to '/home/dvrk-team/dvrk_ctrl_ws/build/peg_transfer/install.log'
+[0.576s] Invoked command in '/home/dvrk-team/dvrk_ctrl_ws/src/peg_transfer' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/dvrk-team/dvrk_ctrl_ws/build/peg_transfer/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/peg_transfer build --build-base /home/dvrk-team/dvrk_ctrl_ws/build/peg_transfer/build install --record /home/dvrk-team/dvrk_ctrl_ws/build/peg_transfer/install.log --install-scripts $base/lib/peg_transfer --single-version-externally-managed install_data

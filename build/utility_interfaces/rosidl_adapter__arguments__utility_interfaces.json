@@ -1,0 +1,6 @@
+{
+  "package_name": "utility_interfaces",
+  "non_idl_tuples": [
+    "/home/dvrk-team/dvrk_ctrl_ws/src/utility_interfaces:srv/GetObjectPose.srv"
+  ]
+}

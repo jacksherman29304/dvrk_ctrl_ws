@@ -1,0 +1,31 @@
+running egg_info
+creating ../../build/utility_interface/utility_interface.egg-info
+writing ../../build/utility_interface/utility_interface.egg-info/PKG-INFO
+writing dependency_links to ../../build/utility_interface/utility_interface.egg-info/dependency_links.txt
+writing requirements to ../../build/utility_interface/utility_interface.egg-info/requires.txt
+writing top-level names to ../../build/utility_interface/utility_interface.egg-info/top_level.txt
+writing manifest file '../../build/utility_interface/utility_interface.egg-info/SOURCES.txt'
+reading manifest file '../../build/utility_interface/utility_interface.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../../build/utility_interface/utility_interface.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/dvrk-team/dvrk_ctrl_ws/build/utility_interface/build
+creating /home/dvrk-team/dvrk_ctrl_ws/build/utility_interface/build/lib
+creating /home/dvrk-team/dvrk_ctrl_ws/build/utility_interface/build/lib/utility_interface
+copying utility_interface/__init__.py -> /home/dvrk-team/dvrk_ctrl_ws/build/utility_interface/build/lib/utility_interface
+running install
+running install_lib
+creating /home/dvrk-team/dvrk_ctrl_ws/install/utility_interface/lib/python3.12/site-packages/utility_interface
+copying /home/dvrk-team/dvrk_ctrl_ws/build/utility_interface/build/lib/utility_interface/__init__.py -> /home/dvrk-team/dvrk_ctrl_ws/install/utility_interface/lib/python3.12/site-packages/utility_interface
+byte-compiling /home/dvrk-team/dvrk_ctrl_ws/install/utility_interface/lib/python3.12/site-packages/utility_interface/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/dvrk-team/dvrk_ctrl_ws/install/utility_interface/share/ament_index
+creating /home/dvrk-team/dvrk_ctrl_ws/install/utility_interface/share/ament_index/resource_index
+creating /home/dvrk-team/dvrk_ctrl_ws/install/utility_interface/share/ament_index/resource_index/packages
+copying resource/utility_interface -> /home/dvrk-team/dvrk_ctrl_ws/install/utility_interface/share/ament_index/resource_index/packages
+copying package.xml -> /home/dvrk-team/dvrk_ctrl_ws/install/utility_interface/share/utility_interface
+running install_egg_info
+Copying ../../build/utility_interface/utility_interface.egg-info to /home/dvrk-team/dvrk_ctrl_ws/install/utility_interface/lib/python3.12/site-packages/utility_interface-0.0.0-py3.12.egg-info
+running install_scripts
+writing list of installed files to '/home/dvrk-team/dvrk_ctrl_ws/build/utility_interface/install.log'

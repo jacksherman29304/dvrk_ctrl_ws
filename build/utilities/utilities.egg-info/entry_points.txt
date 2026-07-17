@@ -1,0 +1,5 @@
+[console_scripts]
+object_loc = utilities.object_loc:main
+psm1_cmd = utilities.psm1_cmd:main
+psm2_cmd = utilities.psm2_cmd:main
+tool_cmd = utilities.tool_cmd:main
