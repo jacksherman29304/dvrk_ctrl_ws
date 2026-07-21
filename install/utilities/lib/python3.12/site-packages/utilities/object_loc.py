@@ -21,6 +21,50 @@ class ObjectLocator(Node):
             10                                      # QoS queue depth
             )
         
+        self.block2_sub = self.create_subscription(
+            RigidBodyState,                         # message type
+            '/ambf/env/phantom/block2/State',       # topic name
+            self.block2_callback,                 # callback function
+            10                                      # QoS queue depth
+            )
+        
+        self.block3_sub = self.create_subscription(
+            RigidBodyState,                         # message type
+            '/ambf/env/phantom/block3/State',       # topic name
+            self.block3_callback,                 # callback function
+            10                                      # QoS queue depth
+            )
+        
+        self.block1_sub = self.create_subscription(
+            RigidBodyState,                         # message type
+            '/ambf/env/phantom/block1/State',       # topic name
+            self.block1_callback,                 # callback function
+            10                                      # QoS queue depth
+            )
+
+                # subscriber to block1/State topic
+        self.block4_sub = self.create_subscription(
+            RigidBodyState,                         # message type
+            '/ambf/env/phantom/block4/State',       # topic name
+            self.block4_callback,                 # callback function
+            10                                      # QoS queue depth
+            )
+
+                # subscriber to block1/State topic
+        self.block5_sub = self.create_subscription(
+            RigidBodyState,                         # message type
+            '/ambf/env/phantom/block5/State',       # topic name
+            self.block5_callback,                 # callback function
+            10                                      # QoS queue depth
+            )
+                        # subscriber to block1/State topic
+        self.block6_sub = self.create_subscription(
+            RigidBodyState,                         # message type
+            '/ambf/env/phantom/block6/State',       # topic name
+            self.block6_callback,                 # callback function
+            10                                      # QoS queue depth
+            )       
+        
         # subscriber to peg10/State topic
         self.peg10_sub = self.create_subscription(
             RigidBodyState,                         # message type
@@ -65,6 +109,29 @@ class ObjectLocator(Node):
     def block1_callback(self, msg):
         self.object_pose['block1'] = msg.pose
         self.get_logger().info(f'block1-state: {self.object_pose['block1']}')
+
+    def block2_callback(self, msg):
+        self.object_pose['block2'] = msg.pose
+        self.get_logger().info(f'block2-state: {self.object_pose['block2']}')
+
+    def block3_callback(self, msg):
+        self.object_pose['block3'] = msg.pose
+        self.get_logger().info(f'block3-state: {self.object_pose['block3']}')
+
+    def block4_callback(self, msg):
+        self.object_pose['block4'] = msg.pose
+        self.get_logger().info(f'block4-state: {self.object_pose['block4']}')
+
+
+    def block5_callback(self, msg):
+        self.object_pose['block5'] = msg.pose
+        self.get_logger().info(f'block5-state: {self.object_pose['block5']}')
+
+
+    def block6_callback(self, msg):
+        self.object_pose['block6'] = msg.pose
+        self.get_logger().info(f'block6-state: {self.object_pose['block6']}')
+
  
     # callback function for peg10 position
     def peg10_callback(self, msg):

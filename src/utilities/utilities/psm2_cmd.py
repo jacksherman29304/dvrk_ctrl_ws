@@ -24,9 +24,11 @@ class Psm2Command(Node):
         self.base_world_topic = namespace + self.tool + "/T_b_w"
         self.jaw_angle_topic = namespace + self.tool +"/jaw/servo_jp"
 
-
         self.move_cp_topic = namespace + self.tool + "/move_cp" # Move PSM until end-effector (relative to base) is in new position (relative to base)
         self.move_cp_pub = self.create_publisher(PoseStamped, self.move_cp_topic, 1) # Publisher to /move_cp topic
+
+        self.move_jp_topic = namespace + self.tool + "/move_jp"  # Move PSM joint position (relative to base) using custom joint-array
+        self.move_jp_pub = self.create_publisher(JointState, self.move_jp_topic, 1) # Publisher to /move_jp topic
 
         self.measured_js = JointState() # JoinState is topic type
         self.measured_cp = PoseStamped() # PoseStamped is topic type
@@ -94,7 +96,13 @@ class Psm2Command(Node):
         msg.pose.orientation.z = float(qz)
         msg.pose.orientation.w = float(qw)
         
-        self.move_cp_pub.publish(msg) # publish Pose to move_cp topic   
+        self.move_cp_pub.publish(msg) # publish Pose to move_cp topic  
+
+    # Accepts array, converts it to JointState, publishes to /move_jp topic
+    def move_jp(self, array):
+        msg = JointState()
+        msg.position = list(array) # publish 6 DOF joint array
+        self.move_jp_pub.publish(msg) 
 
     def servo_jp(self, joint_positions: list):
         msg = JointState()

@@ -1,0 +1,260 @@
+[0.047s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.047s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=24, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7806898a56a0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7806899c9670>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7806899c9670>>, mixin_verb=('build',))
+[0.062s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.062s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.062s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.062s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.063s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.063s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.063s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/dvrk-team/dvrk_ctrl_ws'
+[0.063s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.063s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.063s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.063s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.063s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.063s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.063s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.063s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.063s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src/peg_control) by extensions ['ignore', 'ignore_ament_install']
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src/peg_control) by extension 'ignore'
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src/peg_control) by extension 'ignore_ament_install'
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src/peg_control) by extensions ['colcon_pkg']
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src/peg_control) by extension 'colcon_pkg'
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src/peg_control) by extensions ['colcon_meta']
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src/peg_control) by extension 'colcon_meta'
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src/peg_control) by extensions ['ros']
+[0.074s] Level 1:colcon.colcon_core.package_identification:_identify(src/peg_control) by extension 'ros'
+[0.075s] DEBUG:colcon.colcon_core.package_identification:Package 'src/peg_control' with type 'ros.ament_python' and name 'peg_control'
+[0.075s] Level 1:colcon.colcon_core.package_identification:_identify(src/utilities) by extensions ['ignore', 'ignore_ament_install']
+[0.075s] Level 1:colcon.colcon_core.package_identification:_identify(src/utilities) by extension 'ignore'
+[0.075s] Level 1:colcon.colcon_core.package_identification:_identify(src/utilities) by extension 'ignore_ament_install'
+[0.075s] Level 1:colcon.colcon_core.package_identification:_identify(src/utilities) by extensions ['colcon_pkg']
+[0.075s] Level 1:colcon.colcon_core.package_identification:_identify(src/utilities) by extension 'colcon_pkg'
+[0.076s] Level 1:colcon.colcon_core.package_identification:_identify(src/utilities) by extensions ['colcon_meta']
+[0.076s] Level 1:colcon.colcon_core.package_identification:_identify(src/utilities) by extension 'colcon_meta'
+[0.076s] Level 1:colcon.colcon_core.package_identification:_identify(src/utilities) by extensions ['ros']
+[0.076s] Level 1:colcon.colcon_core.package_identification:_identify(src/utilities) by extension 'ros'
+[0.076s] DEBUG:colcon.colcon_core.package_identification:Package 'src/utilities' with type 'ros.ament_python' and name 'utilities'
+[0.076s] Level 1:colcon.colcon_core.package_identification:_identify(src/utility_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.076s] Level 1:colcon.colcon_core.package_identification:_identify(src/utility_interfaces) by extension 'ignore'
+[0.076s] Level 1:colcon.colcon_core.package_identification:_identify(src/utility_interfaces) by extension 'ignore_ament_install'
+[0.076s] Level 1:colcon.colcon_core.package_identification:_identify(src/utility_interfaces) by extensions ['colcon_pkg']
+[0.076s] Level 1:colcon.colcon_core.package_identification:_identify(src/utility_interfaces) by extension 'colcon_pkg'
+[0.076s] Level 1:colcon.colcon_core.package_identification:_identify(src/utility_interfaces) by extensions ['colcon_meta']
+[0.076s] Level 1:colcon.colcon_core.package_identification:_identify(src/utility_interfaces) by extension 'colcon_meta'
+[0.076s] Level 1:colcon.colcon_core.package_identification:_identify(src/utility_interfaces) by extensions ['ros']
+[0.076s] Level 1:colcon.colcon_core.package_identification:_identify(src/utility_interfaces) by extension 'ros'
+[0.076s] DEBUG:colcon.colcon_core.package_identification:Package 'src/utility_interfaces' with type 'ros.ament_cmake' and name 'utility_interfaces'
+[0.076s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.076s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.076s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.076s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.076s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.084s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.084s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.085s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 7 installed packages in /home/dvrk-team/dvrk_ctrl_ws/install
+[0.085s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 6 installed packages in /home/dvrk-team/ros_ambf_ws/install
+[0.085s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 297 installed packages in /opt/ros/jazzy
+[0.086s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'peg_control' build argument 'cmake_args' from command line to 'None'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'peg_control' build argument 'cmake_target' from command line to 'None'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'peg_control' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'peg_control' build argument 'cmake_clean_cache' from command line to 'False'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'peg_control' build argument 'cmake_clean_first' from command line to 'False'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'peg_control' build argument 'cmake_force_configure' from command line to 'False'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'peg_control' build argument 'ament_cmake_args' from command line to 'None'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'peg_control' build argument 'catkin_cmake_args' from command line to 'None'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'peg_control' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.101s] DEBUG:colcon.colcon_core.verb:Building package 'peg_control' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/dvrk-team/dvrk_ctrl_ws/build/peg_control', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/dvrk-team/dvrk_ctrl_ws/install/peg_control', 'merge_install': False, 'path': '/home/dvrk-team/dvrk_ctrl_ws/src/peg_control', 'symlink_install': False, 'test_result_base': None}
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'utilities' build argument 'cmake_args' from command line to 'None'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'utilities' build argument 'cmake_target' from command line to 'None'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'utilities' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'utilities' build argument 'cmake_clean_cache' from command line to 'False'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'utilities' build argument 'cmake_clean_first' from command line to 'False'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'utilities' build argument 'cmake_force_configure' from command line to 'False'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'utilities' build argument 'ament_cmake_args' from command line to 'None'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'utilities' build argument 'catkin_cmake_args' from command line to 'None'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'utilities' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.101s] DEBUG:colcon.colcon_core.verb:Building package 'utilities' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/dvrk-team/dvrk_ctrl_ws/build/utilities', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/dvrk-team/dvrk_ctrl_ws/install/utilities', 'merge_install': False, 'path': '/home/dvrk-team/dvrk_ctrl_ws/src/utilities', 'symlink_install': False, 'test_result_base': None}
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'utility_interfaces' build argument 'cmake_args' from command line to 'None'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'utility_interfaces' build argument 'cmake_target' from command line to 'None'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'utility_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'utility_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'utility_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'utility_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'utility_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'utility_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.101s] Level 5:colcon.colcon_core.verb:set package 'utility_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.101s] DEBUG:colcon.colcon_core.verb:Building package 'utility_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/dvrk-team/dvrk_ctrl_ws/build/utility_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces', 'merge_install': False, 'path': '/home/dvrk-team/dvrk_ctrl_ws/src/utility_interfaces', 'symlink_install': False, 'test_result_base': None}
+[0.101s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.102s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.103s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/dvrk-team/dvrk_ctrl_ws/src/peg_control' with build type 'ament_python'
+[0.103s] Level 1:colcon.colcon_core.shell:create_environment_hook('peg_control', 'ament_prefix_path')
+[0.103s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.104s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/share/peg_control/hook/ament_prefix_path.ps1'
+[0.104s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/share/peg_control/hook/ament_prefix_path.dsv'
+[0.104s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/share/peg_control/hook/ament_prefix_path.sh'
+[0.104s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.104s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.106s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/dvrk-team/dvrk_ctrl_ws/src/utilities' with build type 'ament_python'
+[0.106s] Level 1:colcon.colcon_core.shell:create_environment_hook('utilities', 'ament_prefix_path')
+[0.106s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dvrk-team/dvrk_ctrl_ws/install/utilities/share/utilities/hook/ament_prefix_path.ps1'
+[0.106s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/dvrk-team/dvrk_ctrl_ws/install/utilities/share/utilities/hook/ament_prefix_path.dsv'
+[0.106s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dvrk-team/dvrk_ctrl_ws/install/utilities/share/utilities/hook/ament_prefix_path.sh'
+[0.107s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.107s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.108s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/dvrk-team/dvrk_ctrl_ws/src/utility_interfaces' with build type 'ament_cmake'
+[0.108s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/dvrk-team/dvrk_ctrl_ws/src/utility_interfaces'
+[0.108s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.108s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.218s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/dvrk-team/dvrk_ctrl_ws/src/peg_control'
+[0.218s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.218s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.321s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/dvrk-team/dvrk_ctrl_ws/src/utilities'
+[0.321s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.321s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.329s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/dvrk-team/dvrk_ctrl_ws/build/utility_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dvrk-team/dvrk_ctrl_ws/install/utility_interface:/home/dvrk-team/dvrk_ctrl_ws/install/utilities:/home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer:/home/dvrk-team/dvrk_ctrl_ws/install/peg_control:/home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/dvrk-team/dvrk_ctrl_ws/build/utility_interfaces -- -j24 -l24
+[0.538s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/dvrk-team/dvrk_ctrl_ws/build/utility_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dvrk-team/dvrk_ctrl_ws/install/utility_interface:/home/dvrk-team/dvrk_ctrl_ws/install/utilities:/home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer:/home/dvrk-team/dvrk_ctrl_ws/install/peg_control:/home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/dvrk-team/dvrk_ctrl_ws/build/utility_interfaces -- -j24 -l24
+[0.545s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/dvrk-team/dvrk_ctrl_ws/build/utility_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dvrk-team/dvrk_ctrl_ws/install/utility_interface:/home/dvrk-team/dvrk_ctrl_ws/install/utilities:/home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer:/home/dvrk-team/dvrk_ctrl_ws/install/peg_control:/home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/dvrk-team/dvrk_ctrl_ws/build/utility_interfaces
+[0.574s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: sdist, install_lib, upload, install, bdist_dumb, symlink_data, extract_messages, egg_info, saveopts, build_ext, update_catalog, rotate, setopt, develop, upload_docs, bdist, bdist_rpm, register, dist_info, easy_install, install_data, alias, build_clib, build_scripts, bdist_wheel, install_scripts, clean, editable_wheel, test, bdist_egg, build, install_headers, build_py, check, install_egg_info, init_catalog, compile_catalog
+[0.576s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/dvrk-team/dvrk_ctrl_ws/src/peg_control': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/dvrk-team/dvrk_ctrl_ws/build/peg_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/peg_control build --build-base /home/dvrk-team/dvrk_ctrl_ws/build/peg_control/build install --record /home/dvrk-team/dvrk_ctrl_ws/build/peg_control/install.log --install-scripts $base/lib/peg_control --single-version-externally-managed install_data
+[0.577s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: sdist, install_lib, upload, install, bdist_dumb, symlink_data, extract_messages, egg_info, saveopts, build_ext, update_catalog, rotate, setopt, develop, upload_docs, bdist, bdist_rpm, register, dist_info, easy_install, install_data, alias, build_clib, build_scripts, bdist_wheel, install_scripts, clean, editable_wheel, test, bdist_egg, build, install_headers, build_py, check, install_egg_info, init_catalog, compile_catalog
+[0.579s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/dvrk-team/dvrk_ctrl_ws/src/utilities': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/dvrk-team/dvrk_ctrl_ws/build/utilities/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/utilities build --build-base /home/dvrk-team/dvrk_ctrl_ws/build/utilities/build install --record /home/dvrk-team/dvrk_ctrl_ws/build/utilities/install.log --install-scripts $base/lib/utilities --single-version-externally-managed install_data
+[0.587s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(utility_interfaces)
+[0.590s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/dvrk-team/dvrk_ctrl_ws/build/utility_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/dvrk-team/dvrk_ctrl_ws/install/utility_interface:/home/dvrk-team/dvrk_ctrl_ws/install/utilities:/home/dvrk-team/dvrk_ctrl_ws/install/peg_transfer:/home/dvrk-team/dvrk_ctrl_ws/install/peg_control:/home/dvrk-team/dvrk_ctrl_ws/install/dvrk_peg_transfer:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/dvrk-team/dvrk_ctrl_ws/build/utility_interfaces
+[0.590s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces' for CMake module files
+[0.591s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces' for CMake config files
+[0.591s] Level 1:colcon.colcon_core.shell:create_environment_hook('utility_interfaces', 'cmake_prefix_path')
+[0.591s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/hook/cmake_prefix_path.ps1'
+[0.591s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/hook/cmake_prefix_path.dsv'
+[0.591s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/hook/cmake_prefix_path.sh'
+[0.592s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib'
+[0.592s] Level 1:colcon.colcon_core.shell:create_environment_hook('utility_interfaces', 'ld_library_path_lib')
+[0.592s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/hook/ld_library_path_lib.ps1'
+[0.592s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/hook/ld_library_path_lib.dsv'
+[0.592s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/hook/ld_library_path_lib.sh'
+[0.592s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/bin'
+[0.592s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/pkgconfig/utility_interfaces.pc'
+[0.592s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages'
+[0.592s] Level 1:colcon.colcon_core.shell:create_environment_hook('utility_interfaces', 'pythonpath')
+[0.593s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/hook/pythonpath.ps1'
+[0.593s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/hook/pythonpath.dsv'
+[0.593s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/hook/pythonpath.sh'
+[0.593s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/bin'
+[0.593s] INFO:colcon.colcon_core.shell:Creating package script '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/package.ps1'
+[0.594s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/package.dsv'
+[0.594s] INFO:colcon.colcon_core.shell:Creating package script '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/package.sh'
+[0.595s] INFO:colcon.colcon_core.shell:Creating package script '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/package.bash'
+[0.595s] INFO:colcon.colcon_core.shell:Creating package script '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/package.zsh'
+[0.595s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/colcon-core/packages/utility_interfaces)
+[0.595s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(utility_interfaces)
+[0.595s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces' for CMake module files
+[0.596s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces' for CMake config files
+[0.596s] Level 1:colcon.colcon_core.shell:create_environment_hook('utility_interfaces', 'cmake_prefix_path')
+[0.596s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/hook/cmake_prefix_path.ps1'
+[0.596s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/hook/cmake_prefix_path.dsv'
+[0.596s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/hook/cmake_prefix_path.sh'
+[0.597s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib'
+[0.597s] Level 1:colcon.colcon_core.shell:create_environment_hook('utility_interfaces', 'ld_library_path_lib')
+[0.597s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/hook/ld_library_path_lib.ps1'
+[0.597s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/hook/ld_library_path_lib.dsv'
+[0.597s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/hook/ld_library_path_lib.sh'
+[0.597s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/bin'
+[0.597s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/pkgconfig/utility_interfaces.pc'
+[0.597s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/lib/python3.12/site-packages'
+[0.597s] Level 1:colcon.colcon_core.shell:create_environment_hook('utility_interfaces', 'pythonpath')
+[0.597s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/hook/pythonpath.ps1'
+[0.598s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/hook/pythonpath.dsv'
+[0.598s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/hook/pythonpath.sh'
+[0.598s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/bin'
+[0.598s] INFO:colcon.colcon_core.shell:Creating package script '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/package.ps1'
+[0.599s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/package.dsv'
+[0.599s] INFO:colcon.colcon_core.shell:Creating package script '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/package.sh'
+[0.599s] INFO:colcon.colcon_core.shell:Creating package script '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/package.bash'
+[0.599s] INFO:colcon.colcon_core.shell:Creating package script '/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/utility_interfaces/package.zsh'
+[0.599s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/dvrk-team/dvrk_ctrl_ws/install/utility_interfaces/share/colcon-core/packages/utility_interfaces)
+[0.792s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/peg_control' for CMake module files
+[0.793s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/dvrk-team/dvrk_ctrl_ws/src/peg_control' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/dvrk-team/dvrk_ctrl_ws/build/peg_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/peg_control build --build-base /home/dvrk-team/dvrk_ctrl_ws/build/peg_control/build install --record /home/dvrk-team/dvrk_ctrl_ws/build/peg_control/install.log --install-scripts $base/lib/peg_control --single-version-externally-managed install_data
+[0.793s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/peg_control' for CMake config files
+[0.794s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/lib'
+[0.794s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/bin'
+[0.794s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/lib/pkgconfig/peg_control.pc'
+[0.794s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/lib/python3.12/site-packages'
+[0.794s] Level 1:colcon.colcon_core.shell:create_environment_hook('peg_control', 'pythonpath')
+[0.795s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/share/peg_control/hook/pythonpath.ps1'
+[0.795s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/share/peg_control/hook/pythonpath.dsv'
+[0.796s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/share/peg_control/hook/pythonpath.sh'
+[0.797s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/bin'
+[0.797s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(peg_control)
+[0.797s] INFO:colcon.colcon_core.shell:Creating package script '/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/share/peg_control/package.ps1'
+[0.798s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/share/peg_control/package.dsv'
+[0.798s] INFO:colcon.colcon_core.shell:Creating package script '/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/share/peg_control/package.sh'
+[0.799s] INFO:colcon.colcon_core.shell:Creating package script '/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/share/peg_control/package.bash'
+[0.799s] INFO:colcon.colcon_core.shell:Creating package script '/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/share/peg_control/package.zsh'
+[0.799s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/dvrk-team/dvrk_ctrl_ws/install/peg_control/share/colcon-core/packages/peg_control)
+[0.800s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/utilities' for CMake module files
+[0.801s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/utilities' for CMake config files
+[0.802s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/dvrk-team/dvrk_ctrl_ws/src/utilities' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/dvrk-team/dvrk_ctrl_ws/build/utilities/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/utilities build --build-base /home/dvrk-team/dvrk_ctrl_ws/build/utilities/build install --record /home/dvrk-team/dvrk_ctrl_ws/build/utilities/install.log --install-scripts $base/lib/utilities --single-version-externally-managed install_data
+[0.802s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib'
+[0.802s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/utilities/bin'
+[0.802s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/pkgconfig/utilities.pc'
+[0.803s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/utilities/lib/python3.12/site-packages'
+[0.803s] Level 1:colcon.colcon_core.shell:create_environment_hook('utilities', 'pythonpath')
+[0.803s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dvrk-team/dvrk_ctrl_ws/install/utilities/share/utilities/hook/pythonpath.ps1'
+[0.804s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/dvrk-team/dvrk_ctrl_ws/install/utilities/share/utilities/hook/pythonpath.dsv'
+[0.804s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/dvrk-team/dvrk_ctrl_ws/install/utilities/share/utilities/hook/pythonpath.sh'
+[0.805s] Level 1:colcon.colcon_core.environment:checking '/home/dvrk-team/dvrk_ctrl_ws/install/utilities/bin'
+[0.805s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(utilities)
+[0.805s] INFO:colcon.colcon_core.shell:Creating package script '/home/dvrk-team/dvrk_ctrl_ws/install/utilities/share/utilities/package.ps1'
+[0.806s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/dvrk-team/dvrk_ctrl_ws/install/utilities/share/utilities/package.dsv'
+[0.806s] INFO:colcon.colcon_core.shell:Creating package script '/home/dvrk-team/dvrk_ctrl_ws/install/utilities/share/utilities/package.sh'
+[0.807s] INFO:colcon.colcon_core.shell:Creating package script '/home/dvrk-team/dvrk_ctrl_ws/install/utilities/share/utilities/package.bash'
+[0.807s] INFO:colcon.colcon_core.shell:Creating package script '/home/dvrk-team/dvrk_ctrl_ws/install/utilities/share/utilities/package.zsh'
+[0.807s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/dvrk-team/dvrk_ctrl_ws/install/utilities/share/colcon-core/packages/utilities)
+[0.807s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[0.807s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[0.807s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[0.808s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[0.814s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[0.814s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[0.814s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[0.837s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[0.837s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/dvrk-team/dvrk_ctrl_ws/install/local_setup.ps1'
+[0.838s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/dvrk-team/dvrk_ctrl_ws/install/_local_setup_util_ps1.py'
+[0.840s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/dvrk-team/dvrk_ctrl_ws/install/setup.ps1'
+[0.841s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/dvrk-team/dvrk_ctrl_ws/install/local_setup.sh'
+[0.841s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/dvrk-team/dvrk_ctrl_ws/install/_local_setup_util_sh.py'
+[0.842s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/dvrk-team/dvrk_ctrl_ws/install/setup.sh'
+[0.843s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/dvrk-team/dvrk_ctrl_ws/install/local_setup.bash'
+[0.843s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/dvrk-team/dvrk_ctrl_ws/install/setup.bash'
+[0.843s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/dvrk-team/dvrk_ctrl_ws/install/local_setup.zsh'
+[0.844s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/dvrk-team/dvrk_ctrl_ws/install/setup.zsh'
