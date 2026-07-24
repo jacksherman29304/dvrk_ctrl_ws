@@ -1,5 +1,6 @@
 from launch import LaunchDescription
-from launch.actions import ExecuteProcess, TimerAction
+from launch.actions import ExecuteProcess, RegisterEventHandler, LogInfo
+from launch.event_handlers import OnProcessExit
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 
@@ -7,6 +8,7 @@ import os
 
 
 def generate_launch_description():
+
     
     # Launch ambf simulation
     ambf_launch = ExecuteProcess(
@@ -16,6 +18,14 @@ def generate_launch_description():
         cwd = '/home/dvrk-team/internship/peg_transfer',
         shell = True,
         output = 'screen'
+    )
+
+    # Checking whether AMBF topics are live
+    ambf_live = Node(
+        package = 'utilities',
+        executable = 'ambf_live',
+        name = 'ambf_live',
+        output = 'screen'  
     )
 
     # Launch CRTK interface
@@ -35,6 +45,14 @@ def generate_launch_description():
                 },
         output = 'screen'
 
+    )
+
+    # Checking whether CRTK topics are live
+    crtk_live = Node(
+        package = 'utilities',
+        executable = 'crtk_live',
+        name = 'crtk_live',
+        output = 'screen'  
     )
 
     # Launch obj_loc node
@@ -61,12 +79,54 @@ def generate_launch_description():
 
     )
 
+    # 'context' doesnt do anything, this is just the ros2 launch function required syntax
+    # event contains details for ambf_live (the target action)
+    def on_ambf_live_exit(event, context):
+        if event.returncode == 0: # inspect ambf_live return code, if success, launch crtk (launch crtk, crtk_live etc.)
+            return[
+                LogInfo(msg='AMBF topics confirmed live — starting crtk.'),
+                crtk_launch, # launch CRTK
+                crtk_live, # check CRTK topics live
+                crtk_handler # respond to status of topics
+            ]
+        else:
+            return[
+                LogInfo(msg=f'ambf_live exited with code {event.returncode} - crtk not started'),
+            ]
+
+    # 'context' doesnt do anything, this is just the ros2 launch function required syntax
+    # event contains details for crtk_live (the target action)
+    def on_crtk_live_exit(event, context):
+        if event.returncode == 0: # inspect crtk_live return code, if success, launch remaining nodes (object-locate, psm-cmd etc.)
+            return[
+                LogInfo(msg='CRTK topics confirmed live — starting remaining nodes.'),
+                object_locate_launch,
+                psm1_command_launch,
+                psm2_command_launch
+            ]
+        else:
+            return[
+                LogInfo(msg=f'crtk_live exited with code {event.returncode} - remaining nodes not started'),
+            ]
+
+    ambf_handler = RegisterEventHandler(
+        OnProcessExit(
+            target_action=ambf_live,
+            on_exit= on_ambf_live_exit # once ambf_live exits, executre this callback function
+        )
+    )
+
+    crtk_handler = RegisterEventHandler(
+        OnProcessExit(
+            target_action=crtk_live,
+            on_exit= on_crtk_live_exit # once crtk_live exits, executre this callback function
+        )
+    )
+
+
 
     return LaunchDescription([
-        ambf_launch,
-        crtk_launch,
-        object_locate_launch,
-        psm1_command_launch,
-        psm2_command_launch
-
+        ambf_launch, # launch ambf
+        ambf_live, # check topics are live
+        ambf_handler # respond to status of topics
     ])

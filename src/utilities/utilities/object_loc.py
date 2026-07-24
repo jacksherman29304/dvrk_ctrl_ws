@@ -108,51 +108,54 @@ class ObjectLocator(Node):
     # callback function for block1 position
     def block1_callback(self, msg):
         self.object_pose['block1'] = msg.pose
-        self.get_logger().info(f'block1-state: {self.object_pose['block1']}')
-
+        #self.get_logger().info(f'block1-state: {self.object_pose['block1']}')
+        self.get_logger().info('block1 pose updated')
     def block2_callback(self, msg):
         self.object_pose['block2'] = msg.pose
-        self.get_logger().info(f'block2-state: {self.object_pose['block2']}')
-
+        #self.get_logger().info(f'block2-state: {self.object_pose['block2']}')
+        self.get_logger().info('block2 pose updated')
     def block3_callback(self, msg):
         self.object_pose['block3'] = msg.pose
-        self.get_logger().info(f'block3-state: {self.object_pose['block3']}')
-
+        #self.get_logger().info(f'block3-state: {self.object_pose['block3']}')
+        self.get_logger().info('block3 pose updated')
     def block4_callback(self, msg):
         self.object_pose['block4'] = msg.pose
-        self.get_logger().info(f'block4-state: {self.object_pose['block4']}')
-
+        #self.get_logger().info(f'block4-state: {self.object_pose['block4']}')
+        self.get_logger().info('block4 pose updated')
 
     def block5_callback(self, msg):
         self.object_pose['block5'] = msg.pose
-        self.get_logger().info(f'block5-state: {self.object_pose['block5']}')
-
+        #self.get_logger().info(f'block5-state: {self.object_pose['block5']}')
+        self.get_logger().info('block5 pose updated')
 
     def block6_callback(self, msg):
         self.object_pose['block6'] = msg.pose
-        self.get_logger().info(f'block6-state: {self.object_pose['block6']}')
-
+        #self.get_logger().info(f'block6-state: {self.object_pose['block6']}')
+        self.get_logger().info('block6 pose updated')
  
     # callback function for peg10 position
     def peg10_callback(self, msg):
         self.object_pose['peg10'] = msg.pose    
-        self.get_logger().info(f'peg10-pose: {self.object_pose['peg10']}')
+        #self.get_logger().info(f'peg10-pose: {self.object_pose['peg10']}')
+        self.get_logger().info('peg10 pose updated')
 
     # callback function for psm1 position
     def psm1_callback(self, msg):
         self.object_pose['psm1'] = msg.pose
-        self.get_logger().info(f'psm1-pose: {self.object_pose['psm1']}')
-    
+        #self.get_logger().info(f'psm1-pose: {self.object_pose['psm1']}')
+        self.get_logger().info('psm1 pose updated')
+
     # callback function for psm2 position
     def psm2_callback(self, msg):
         self.object_pose['psm2'] = msg.pose
-        self.get_logger().info(f'psm2-pose: {self.object_pose['psm2']}')
-
+        #self.get_logger().info(f'psm2-pose: {self.object_pose['psm2']}')
+        self.get_logger().info('psm2 pose updated')
+        
     # callback function for camera position
     def cam_callback(self, msg):
         self.object_pose['cam'] = msg.pose    
-        self.get_logger().info(f'cam-pose: {self.object_pose['cam']}')
-
+        #self.get_logger().info(f'cam-pose: {self.object_pose['cam']}')
+        self.get_logger().info('camera pose updated')
 
     def get_object_pose(self, object_name:str):
         return self.object_pose[object_name]

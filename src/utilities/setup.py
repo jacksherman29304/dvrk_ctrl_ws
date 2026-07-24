@@ -31,7 +31,9 @@ setup(
             'object_loc = utilities.object_loc:main',
             'tool_cmd = utilities.tool_cmd:main',
             'psm1_cmd = utilities.psm1_cmd:main',
-            'psm2_cmd = utilities.psm2_cmd:main'
+            'psm2_cmd = utilities.psm2_cmd:main',
+            'crtk_live = utilities.crtk_live:main',
+            'ambf_live = utilities.ambf_live:main'
         ],
     },
 )
