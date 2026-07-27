@@ -11,7 +11,7 @@ from sensor_msgs.msg import JointState
 from PyKDL import Vector, Rotation, Frame
 
 class ToolCommand(Node):
-    def __init__(self, tool: str):
+    def __init__(self, tool='psm2'):
         super().__init__(f'{tool}_command')
 
         # CRTK topic names
@@ -23,6 +23,12 @@ class ToolCommand(Node):
         self.servo_cp_topic = namespace + self.tool + "/servo_cp"
         self.base_world_topic = namespace + self.tool + "/T_b_w"
         self.jaw_angle_topic = namespace + self.tool +"/jaw/servo_jp"
+
+        self.move_cp_topic = namespace + self.tool + "/move_cp" # Move PSM until end-effector (relative to base) is in new position (relative to base)
+        self.move_cp_pub = self.create_publisher(PoseStamped, self.move_cp_topic, 1) # Publisher to /move_cp topic
+
+        self.move_jp_topic = namespace + self.tool + "/move_jp"  # Move PSM joint position (relative to base) using custom joint-array
+        self.move_jp_pub = self.create_publisher(JointState, self.move_jp_topic, 1) # Publisher to /move_jp topic
 
         self.measured_js = JointState() # JoinState is topic type
         self.measured_cp = PoseStamped() # PoseStamped is topic type
@@ -70,6 +76,34 @@ class ToolCommand(Node):
         
         self.servo_cp_pub.publish(msg) # publish Pose to cp topic
 
+        # Accepts Frame, converts it to PoseStamped, publishes to /move_cp topic
+    def move_cp(self, frame: Frame):
+        msg = PoseStamped()
+
+        pos = frame.p # extract frame position vector
+        rot = frame.M # extract frame rotation
+
+        qx, qy, qz, qw = rot.GetQuaternion()
+
+        # Update position
+        msg.pose.position.x = pos.x()
+        msg.pose.position.y = pos.y()
+        msg.pose.position.z = pos.z()
+
+        # Update orientation
+        msg.pose.orientation.x = float(qx)
+        msg.pose.orientation.y = float(qy)
+        msg.pose.orientation.z = float(qz)
+        msg.pose.orientation.w = float(qw)
+        
+        self.move_cp_pub.publish(msg) # publish Pose to move_cp topic  
+
+    # Accepts array, converts it to JointState, publishes to /move_jp topic
+    def move_jp(self, array):
+        msg = JointState()
+        msg.position = list(array) # publish 6 DOF joint array
+        self.move_jp_pub.publish(msg) 
+
     def servo_jp(self, joint_positions: list):
         msg = JointState()
 
@@ -90,23 +124,27 @@ class ToolCommand(Node):
 
         msg.position = [jaw_angle] # applying single value
         self.servo_jaw_angle_pub.publish(msg)
-    
-# ####### This only works if it is a separate package as the full script is ran - so has no impact this way
+
+
+# Don't need to spin here as they are declared and span in separate peg transfer task scripts?
+
+
+####### This only works if it is a separate package as the full script is ran - so has no impact this way
 # # ROS2 entry point
-# def main(args=None):
-#     rclpy.init(args=args)
+def main(args=None):
+    rclpy.init(args=args)
     
-#     # Runs init
-#     node = ToolCommand()
+    # Runs init
+    node = ToolCommand()
  
-#     try:
-#         rclpy.spin(node)
-#     except KeyboardInterrupt:
-#         pass
-#     finally:
-#         node.destroy_node()
-#         rclpy.shutdown()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
 
 
-# if __name__ == '__main__':
-#     main()
+if __name__ == '__main__':
+    main()

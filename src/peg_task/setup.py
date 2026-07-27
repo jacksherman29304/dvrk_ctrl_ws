@@ -1,9 +1,6 @@
 from setuptools import find_packages, setup
 
-import os
-from glob import glob
-
-package_name = 'utilities'
+package_name = 'peg_task'
 
 setup(
     name=package_name,
@@ -13,14 +10,13 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        (os.path.join('share', package_name, 'launch'), glob('launch/*')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='dvrk-team',
     maintainer_email='jacksherman29304@gmail.com',
-    description='TODO: Package description',
-    license='Apache-2.0',
+    description='Sequential task routines for the peg transfer challenge.',
+    license='TODO: License declaration',
     extras_require={
         'test': [
             'pytest',
@@ -28,12 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'object_loc = utilities.object_loc:main',
-            'tool_cmd = utilities.tool_cmd:main',
-            'psm1_cmd = utilities.psm1_cmd:main',
-            'psm2_cmd = utilities.psm2_cmd:main',
-            'crtk_live = utilities.crtk_live:main',
-            'ambf_live = utilities.ambf_live:main'
+            'pick_and_place = peg_task.pick_and_place:main'
         ],
     },
 )

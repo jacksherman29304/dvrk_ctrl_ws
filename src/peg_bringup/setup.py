@@ -1,6 +1,9 @@
 from setuptools import find_packages, setup
 
-package_name = 'peg_control'
+import os 
+from glob import glob
+
+package_name = 'peg_bringup'
 
 setup(
     name=package_name,
@@ -10,13 +13,15 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name, 'launch'), glob('launch/*.py')),
+        (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='dvrk-team',
     maintainer_email='jacksherman29304@gmail.com',
-    description='TODO: Package description',
-    license='Apache-2.0',
+    description='Launch files, parameters and startup checks for the full system.',
+    license='TODO: License declaration',
     extras_require={
         'test': [
             'pytest',
@@ -24,11 +29,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'psm_to_block = peg_control.psm_to_block:main',
-            'object_loc = peg_control.object_loc:main',
-            # 'psm1_cmd = peg_control.psm1_cmd:main', # if re-instantiate, will need to change the launch file too
-            # 'psm2_cmd = peg_control.psm2_cmd:main',
-            # 'tool_cmd = peg_control.tool_cmd:main'
+            'ambf_live = peg_bringup.ambf_live:main',
+            'crtk_live = peg_bringup.crtk_live:main'
         ],
     },
 )

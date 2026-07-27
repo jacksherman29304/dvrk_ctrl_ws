@@ -1,9 +1,9 @@
 import rclpy
 from rclpy.node import Node
 
-from utilities.psm1_cmd import Psm1Command
-from utilities.psm2_cmd import Psm2Command
-from utilities.object_loc import ObjectLocator
+from peg_control.psm1_cmd import Psm1Command
+from peg_control.psm2_cmd import Psm2Command
+from peg_control.object_loc import ObjectLocator
 from peg_math.conversions import rbs_to_frame
 
 

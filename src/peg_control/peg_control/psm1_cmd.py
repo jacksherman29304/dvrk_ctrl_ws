@@ -127,8 +127,8 @@ class Psm1Command(Node):
         msg.position = [jaw_angle] # applying single value
         self.servo_jaw_angle_pub.publish(msg)
     
-####### This only works if it is a separate package as the full script is ran - so has no impact this way
-# ROS2 entry point
+# ####### This only works if it is a separate package as the full script is ran - so has no impact this way
+# # ROS2 entry point
 def main(args=None):
     rclpy.init(args=args)
     
