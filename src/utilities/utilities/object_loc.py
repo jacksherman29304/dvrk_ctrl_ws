@@ -6,7 +6,7 @@ from ambf_msgs.msg import RigidBodyState
 from ambf_msgs.msg import ActuatorState
 
 # import custom service 
-from utility_interfaces.srv import GetObjectPose
+from peg_interfaces.srv import GetObjectPose
 
 class ObjectLocator(Node):
 
