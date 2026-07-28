@@ -1,0 +1,7 @@
+target_block: "block5"
+
+init:
+  psm1_init: [0.30780306382205863, -0.22222915389237488, 0.1423643360325034, -1.3613186165319513,0.5750600725456388, -0.8399263308008617] # Init joint position from the recording of old phantom
+  psm2_init: [0.10, -0.30, 0.16, 0.0, 1.0, 0.5]
+  jaw_open: 0.25
+  jaw_closed: 0.0
