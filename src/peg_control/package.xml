@@ -3,7 +3,7 @@
 <package format="3">
   <name>peg_control</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>Nodes to command PSMs and locate simulation objects</description>
   <maintainer email="jacksherman29304@gmail.com">dvrk-team</maintainer>
   <license>Apache-2.0</license>
 
