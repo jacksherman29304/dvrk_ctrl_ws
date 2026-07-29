@@ -18,7 +18,7 @@ from peg_control.tool_cmd import ToolCommand
 # Task imports
 from peg_task.config import load_config
 from peg_task.ros_interface import ObjectPoseClient, SimControl
-from peg_task.routines import PsmInit
+from peg_task.routines import PsmInit, get_object_pose, enter_scene
 from peg_task.motion import psm_to_pose
 
 
@@ -40,26 +40,25 @@ def run_task(parameters):
     T_base_w2, T_ee_base2, T_ee_w2 = PsmInit(psm=psm2, jp_init=params['init']['psm2_init'], jaw_init=params['init']['jaw_open'], max_wait=10)
     time.sleep(3.0)
 
-    #------------------------- OFFSET PROCESSING -------------------------#       
-    # Get block position
-    target_block = 'block5'
-    block1 = object_pose_client.get_object_pose(target_block) # block1 in world frame
-    T_block_w = rbs_to_frame(block1) # Convert block1 RigidBodyState to Frame
+    #------------------------- GET BLOCK  -------------------------#       
+    T_block_w = get_object_pose(object_pose_client, params['target_block'])
 
     # 'Claw-grabber' gripper orientation from init function - was a commanded jaw position, now translated into RPY
     R_desired_w = T_ee_w2.M # Target grasp orientation in world frame
     R_offset = (T_block_w.M).Inverse() * R_desired_w # Desired rotation offset converted to block frame
 
 #------------------------- ENTRANCE OPERATION -------------------------#   
-    # ENTRANCE
+    # # ENTRANCE
     position_offset = Vector(-0.004, 0.01, 0.06) # World frame position offset (6cm above the block)
-    p_entrance_w = T_block_w.p + position_offset # Add position offset to block in world
+    # p_entrance_w = T_block_w.p + position_offset # Add position offset to block in world
 
-    T_block_entrance = Frame(T_block_w.M * R_offset, p_entrance_w) # Apply R_offset relative to block's CURRENT rotation (composes, tracks the block) - this is still in the WORLD FRAME
-    T_cmd_entrance = T_base_w2.Inverse() * T_block_entrance # Convert block + offset in WORLD to block + offset in BASE for servo_cmd
-     
+    # T_block_entrance = Frame(T_block_w.M * R_offset, p_entrance_w) # Apply R_offset relative to block's CURRENT rotation (composes, tracks the block) - this is still in the WORLD FRAME
+    # T_cmd_entrance = T_base_w2.Inverse() * T_block_entrance # Convert block + offset in WORLD to block + offset in BASE for servo_cmd
+
+    T_cmd_entrance = enter_scene(T_block_w, position_offset, R_offset, T_base_w2)
+    
     Enter = False # Interpolation success flag
-    print(f"Entering scene for {target_block}")
+    print(f"Entering scene for {params['target_block']}")
     psm_to_pose(psm=psm2, target_pose=T_cmd_entrance, success_flag=Enter, max_delta=0.01, pos_deadband=0.005)
     time.sleep(2.0)
 
@@ -72,13 +71,13 @@ def run_task(parameters):
     T_cmd_grasp = T_base_w2.Inverse() * T_block_grasp
 
     Grasp = False # Interpolation success flag
-    print(f"Moving to {target_block}")
+    print(f"Moving to {params['target_block']}")
     psm_to_pose(psm=psm2, target_pose=T_cmd_grasp, success_flag=Grasp, max_delta=0.003, pos_deadband=0.005) # Need to make sure error allowance is within the size of the block
-    print(f"Arrived at {target_block}")
+    print(f"Arrived at {params['target_block']}")
 
     # Close Jaws
     time.sleep(2.0)
-    psm2.set_jaw(0.05) # can't be completely zero
+    psm2.set_jaw(0.02) # can't be completely zero
     time.sleep(2.0)
 
 # #------------------------- LIFT OPERATION -------------------------#  

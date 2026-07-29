@@ -5,3 +5,6 @@ init:
   psm2_init: [0.10, -0.30, 0.16, 0.0, 1.0, 0.5]
   jaw_open: 0.25
   jaw_closed: 0.0
+
+entrance:
+  #position_offset: (-0.004, 0.01, 0.06)
