@@ -18,6 +18,12 @@ git clone https://github.com/jacksherman29304/dvrk_ctrl_ws.git
 cd dvrk_ctrl_ws
 colcon build
 source install/setup.bash
+
+
+after initial installation, can just call:
+cd dvrk_ctrl_ws
+./rebuild.sh
+this will automate above steps and execute launch file
 ```
 ## Status
 Early development.
