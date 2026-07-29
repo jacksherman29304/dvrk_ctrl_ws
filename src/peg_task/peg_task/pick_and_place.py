@@ -11,6 +11,7 @@ import time
 # Math Imports
 from peg_math.conversions import ps_to_frame, rbs_to_frame
 from peg_math.interpolation import cartesian_interpolate_step, cartesian_interpolate_step_new # Utility function that, given a current frame and a target frame, computes the next incremental step towards the target frame
+from peg_math.plotters import plot_error
 
 # Control Imports
 from peg_control.tool_cmd import ToolCommand
@@ -40,7 +41,8 @@ def run_task(parameters):
     T_base_w2, T_ee_base2, T_ee_w2 = PsmInit(psm=psm2, jp_init=params['init']['psm2_init'], jaw_init=params['init']['jaw_open'], max_wait=10)
     time.sleep(3.0)
 
-    #------------------------- GET BLOCK  -------------------------#       
+    #------------------------- GET BLOCK  -------------------------#   
+    # 
     T_block_w = get_object_pose(object_pose_client, params['target_block'])
 
     # 'Claw-grabber' gripper orientation from init function - was a commanded jaw position, now translated into RPY
@@ -72,13 +74,16 @@ def run_task(parameters):
 
     Grasp = False # Interpolation success flag
     print(f"Moving to {params['target_block']}")
-    psm_to_pose(psm=psm2, target_pose=T_cmd_grasp, success_flag=Grasp, max_delta=0.003, pos_deadband=0.005) # Need to make sure error allowance is within the size of the block
+    psm_to_pose(psm=psm2, target_pose=T_cmd_grasp, success_flag=Grasp, max_delta=0.003, pos_deadband=0.005)
     print(f"Arrived at {params['target_block']}")
 
     # Close Jaws
     time.sleep(2.0)
-    psm2.set_jaw(0.02) # can't be completely zero
-    time.sleep(2.0)
+    # psm2.set_jaw(0.02) # can't be completely zero
+    # time.sleep(2.0)
+    for _ in range(40): # give time for grip to register
+        psm2.set_jaw(0.02)
+        time.sleep(0.05)
 
 # #------------------------- LIFT OPERATION -------------------------#  
     # LIFT
@@ -93,22 +98,41 @@ def run_task(parameters):
     target_block = 'block5'
     block1 = object_pose_client.get_object_pose(target_block) # block1 in world frame
     T_block_w = rbs_to_frame(block1) # Convert block1 RigidBodyState to Frame
-    # -------------------------- FIX ABOVE (and below) -------------------------
-    
     T_block_ee = T_ee_w2.Inverse() * T_block_w # Grasp relationship between block and end-effector (block in end effector)
 
     #position_offset = Vector(-0.004, 0.01, 0.06) # World frame position offset (6cm above the block)
     position_offset = Vector(0,0,0.05)
     p_lift_w = T_block_w.p + position_offset # blocks position in world + z-offset (lift block 6cm above blocks current position)
-
     T_block_lift = Frame(T_block_w.M, p_lift_w) # lift block frame - target rotation and position, why am I using the blocks rotation?
-    T_desired_ee_w = T_block_lift * T_block_ee.Inverse() # Invert the grasp offset to solve for the ee pose that puts the block there in the world-frame
-    T_cmd_lift = T_base_w2.Inverse() * T_desired_ee_w # Convert from ee in world-frame to base-frame for servo_cp
+
+    ####T_cmd_base = T_base_w.Inverse() * T_block_lift*T_block_ee.Inverse()
+
+    T_desired_ee_w = T_block_lift * T_block_ee.Inverse() #T_block_ee.Inverse()* T_ee_w2.Inverse() * T_block_lift # target position in frame of ee 
+
+    #T_desired_ee_w = T_block_lift * T_block_ee.Inverse() # Invert the grasp offset to solve for the ee pose that puts the block there in the world-frame
+    T_cmd_lift = T_base_w.Inverse()*T_desired_ee_w# Convert from ee in world-frame to base-frame for servo_cp
+    # T_desired_ee_w = T_block_lift.Inverse()*T_ee_w2
+    # T_cmd_lift = T_desired_ee_w.Inverse()*T_ee_base.Inverse
 
     Lift = False
-    print(f"Lifting {target_block}")    
-    psm_to_pose(psm=psm2, target_pose=T_cmd_lift, success_flag=Lift, max_delta=0.003, pos_deadband=0.005, rot_deadband=0.01)
-    print(f"Lifted{target_block}")
+    #psm_to_pose(psm=psm2, target_pose=T_cmd_lift, success_flag=Lift, max_delta=0.003, pos_deadband=0.005, rot_deadband=0.01, log_path=f"/home/dvrk-team/internship/logs/lift_{time.strftime('%Y%m%d_%H%M%S')}.csv")
+    dist_error, r_error, p_error, y_error = psm_to_pose(psm=psm2, target_pose=T_cmd_lift, success_flag=Lift, max_delta=0.003, pos_deadband=0.005, rot_deadband=0.01, log=True, control_speed=0.05, timeout=60)
+    plot_error(dist_error, r_error, p_error, y_error)
+
+    # print(f"DIST ERROR------------------------------------------------- \
+    #       {dist_error}")
+          
+    # print(f"ROLL ERROR-------------------------------------------------  \
+    #       {r_error}")
+
+    # print(f"PITCH ERROR-------------------------------------------------  \
+    #       {p_error}")
+
+    # print(f"YAW ERROR-------------------------------------------------  \
+    #       {y_error}")
+
+    #print(f"Lifted{target_block}")
+
     time.sleep(2.0)
 
 # Moved thread spinners to main function

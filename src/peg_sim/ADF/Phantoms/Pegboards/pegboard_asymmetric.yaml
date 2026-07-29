@@ -316,7 +316,7 @@ BODY block5:
   mesh: block5.OBJ
   collision mesh: block_simple_collision.OBJ
   collision mesh type: CONVEX_HULL
-  mass: 0.1 # 0.1 = 100g, made it 0.01 = 10g instead
+  mass: 0.0015 # 0.1 = 100g, made it 0.01 = 10g instead
   collision margin: 0.0001
   scale: 1.0
   location:
