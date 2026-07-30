@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import os, time
 
-LOG_DIR = '/home/dvrk-team/internship/logs'
+LOG_DIR = '/home/dvrk-team/internship/logs/mass_variation'
 
 
 def plot_error(d, r, p, y, tag='lift'):

@@ -79,8 +79,6 @@ def run_task(parameters):
 
     # Close Jaws
     time.sleep(2.0)
-    # psm2.set_jaw(0.02) # can't be completely zero
-    # time.sleep(2.0)
     for _ in range(40): # give time for grip to register
         psm2.set_jaw(0.02)
         time.sleep(0.05)
@@ -95,7 +93,7 @@ def run_task(parameters):
     T_ee_base = ps_to_frame(psm2.measured_cp) # Grab ee relative to base pose from psm2/measured_cp and convert to frame
     T_ee_w2 = T_base_w * T_ee_base # ee in world is multiplication of previous transforms
 
-    target_block = 'block5'
+    target_block = params['target_block']
     block1 = object_pose_client.get_object_pose(target_block) # block1 in world frame
     T_block_w = rbs_to_frame(block1) # Convert block1 RigidBodyState to Frame
     T_block_ee = T_ee_w2.Inverse() * T_block_w # Grasp relationship between block and end-effector (block in end effector)
@@ -116,24 +114,50 @@ def run_task(parameters):
 
     Lift = False
     #psm_to_pose(psm=psm2, target_pose=T_cmd_lift, success_flag=Lift, max_delta=0.003, pos_deadband=0.005, rot_deadband=0.01, log_path=f"/home/dvrk-team/internship/logs/lift_{time.strftime('%Y%m%d_%H%M%S')}.csv")
-    dist_error, r_error, p_error, y_error = psm_to_pose(psm=psm2, target_pose=T_cmd_lift, success_flag=Lift, max_delta=0.003, pos_deadband=0.005, rot_deadband=0.01, log=True, control_speed=0.05, timeout=60)
-    plot_error(dist_error, r_error, p_error, y_error)
-
-    # print(f"DIST ERROR------------------------------------------------- \
-    #       {dist_error}")
-          
-    # print(f"ROLL ERROR-------------------------------------------------  \
-    #       {r_error}")
-
-    # print(f"PITCH ERROR-------------------------------------------------  \
-    #       {p_error}")
-
-    # print(f"YAW ERROR-------------------------------------------------  \
-    #       {y_error}")
-
-    #print(f"Lifted{target_block}")
+    psm_to_pose(psm=psm2, target_pose=T_cmd_lift, success_flag=Lift, max_delta=0.003, pos_deadband=0.005, rot_deadband=0.01, control_speed=0.05, timeout=30)
+    print(f"Lifted{target_block}")
 
     time.sleep(2.0)
+
+
+# #------------------------- RELOCATE OPERATION -------------------------#  
+    peg10 = object_pose_client.get_object_pose(params['target_peg'])
+    T_peg_w = rbs_to_frame(peg10)
+
+    #local_offset = Frame(Rotation.RPY(0,0,0), Vector(0,0,0.05)) # move block above the peg
+    #T_relocate = T_peg_w * local_offset # target in world - either way works - I think I prefere this
+    position_offset = Vector(0,0,0.05)
+    p_relocate_w = T_peg_w.p + position_offset
+    T_relocate = Frame(T_peg_w.M, p_relocate_w) # Target position in world
+
+    T_desired_ee_w = T_relocate * T_block_ee.Inverse()
+    T_cmd_relocate = T_base_w.Inverse() * T_desired_ee_w
+
+
+    Relocate = False
+    print("Relocating")
+    #psm_to_pose(psm=psm2, target_pose=T_cmd_lift, success_flag=Lift, max_delta=0.003, pos_deadband=0.005, rot_deadband=0.01, log_path=f"/home/dvrk-team/internship/logs/lift_{time.strftime('%Y%m%d_%H%M%S')}.csv")
+    psm_to_pose(psm=psm2, target_pose=T_cmd_relocate, success_flag=Relocate, max_delta=0.03, pos_deadband=0.0005, rot_deadband=0.01, control_speed=0.01, timeout=30)
+    print(f"Relocated {target_block} to {params['target_peg']}")
+
+    time.sleep(2.0)
+
+# #------------------------- PLACE OPERATION -------------------------#  
+
+    local_offset = Frame(Rotation.RPY(0,0,-np.pi/9), Vector(0,0,0.02)) # relocate block to bottom og peg - with 45 degree yaw to prevent arm getting in the way
+    T_place = T_peg_w * local_offset
+
+    T_desired_ee_w = T_place * T_block_ee.Inverse()
+    T_cmd_place = T_base_w.Inverse() * T_desired_ee_w
+
+    Place = False
+    print("Placing")
+    psm_to_pose(psm=psm2, target_pose=T_cmd_place, success_flag=Place, max_delta=0.03, pos_deadband=0.005, rot_deadband=0.01, control_speed=0.01, timeout=30)
+    print(f"Placed {target_block} on {params['target_peg']}")
+    psm2.set_jaw(0.08) # open jaw
+    time.sleep(2.0)
+    psm_to_pose(psm=psm2, target_pose=T_cmd_relocate, success_flag=Place, max_delta=0.03, pos_deadband=0.0005, rot_deadband=0.01, control_speed=0.01, timeout=30)
+
 
 # Moved thread spinners to main function
 # This is ros2 run command is looking at setup.py wrapper, which references 'main'

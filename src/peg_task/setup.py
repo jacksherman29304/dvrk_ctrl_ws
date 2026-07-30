@@ -25,7 +25,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'pick_and_place = peg_task.pick_and_place:main',
+            'peg_transfer = peg_task.peg_transfer:main',
             #'config = peg_task.config:main'
         ],
     },

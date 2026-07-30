@@ -13,7 +13,7 @@ peg_task/
     ├── motion.py          psm_to_pose — the servo loop
     ├── routines.py        init_arm, pick_block, place_block
     ├── sequence.py        run_task — calls skills in order
-    └── pick_and_place.py  main
+    └── peg_transfer.py  main
 
 ## Used by
 N/A

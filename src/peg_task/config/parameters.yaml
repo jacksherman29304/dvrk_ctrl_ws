@@ -1,4 +1,5 @@
 target_block: "block5"
+target_peg: "peg10"
 
 init:
   psm1_init: [0.30780306382205863, -0.22222915389237488, 0.1423643360325034, -1.3613186165319513,0.5750600725456388, -0.8399263308008617] # Init joint position from the recording of old phantom
@@ -7,4 +8,26 @@ init:
   jaw_closed: 0.0
 
 entrance:
-  #position_offset: (-0.004, 0.01, 0.06)
+  position_offset: (-0.004, 0.01, 0.06)
+  rotation_offset: (0,0,0)
+
+
+grasp:
+  position_offset: (-0.002,0.001, 0.015)
+  rotation_offset: (0,0,0)
+
+
+
+lift:
+  position_offset: (0,0,0.05)
+  rotation_offset: (0,0,0)
+
+
+relocate:
+  position_offset: (0,0,0.05)
+  rotation_offset: (0,0,0)
+
+
+place:
+  position_offset: (0,0,0.02)
+  rotation_offset: (0,0,-0.3490658503988659) # -pi/9

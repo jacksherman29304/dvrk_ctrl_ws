@@ -108,7 +108,7 @@ BODY block1:
   mesh: block1.OBJ
   collision mesh: block_simple_collision.OBJ
   collision mesh type: CONVEX_HULL
-  mass: 0.1 # changed to 0.00165 previously
+  mass: 0.00001 # changed to 0.00165 previously
   collision margin: 0.0001
   scale: 1.0
   location:
@@ -160,7 +160,7 @@ BODY block2:
   mesh: block2.OBJ
   collision mesh: block_simple_collision.OBJ
   collision mesh type: CONVEX_HULL
-  mass: 0.1
+  mass: 0.00001
   collision margin: 0.0001
   scale: 1.0
   location:
@@ -212,7 +212,7 @@ BODY block3:
   mesh: block3.OBJ
   collision mesh: block_simple_collision.OBJ
   collision mesh type: CONVEX_HULL
-  mass: 0.1
+  mass: 0.00001
   collision margin: 0.0001
   scale: 1.0
   location:
@@ -264,7 +264,7 @@ BODY block4:
   mesh: block4.OBJ
   collision mesh: block_simple_collision.OBJ
   collision mesh type: CONVEX_HULL
-  mass: 0.1
+  mass: 0.00001
   collision margin: 0.0001
   scale: 1.0
   location:
@@ -316,7 +316,7 @@ BODY block5:
   mesh: block5.OBJ
   collision mesh: block_simple_collision.OBJ
   collision mesh type: CONVEX_HULL
-  mass: 0.0015 # 0.1 = 100g, made it 0.01 = 10g instead
+  mass: 0.00001 #10mg  #0.000000001 #0.0015 # 0.1 = 100g, made it 0.01 = 10g instead
   collision margin: 0.0001
   scale: 1.0
   location:
@@ -368,7 +368,7 @@ BODY block6:
   mesh: block6.OBJ
   collision mesh: block_simple_collision.OBJ
   collision mesh type: CONVEX_HULL
-  mass: 0.1
+  mass: 0.00001
   collision margin: 0.0001
   scale: 1.0
   location:
