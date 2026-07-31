@@ -8,26 +8,38 @@ init:
   jaw_closed: 0.0
 
 entrance:
-  position_offset: (-0.004, 0.01, 0.06)
-  rotation_offset: (0,0,0)
+  pos_offset: [-0.004, 0.01, 0.06]
+  rot_offset: [0,0,0]
+  max_delta: 0.01
+  pos_deadband: 0.005
+  rot_deadband: 0.01
 
 
 grasp:
-  position_offset: (-0.002,0.001, 0.015)
-  rotation_offset: (0,0,0)
-
+  pos_offset: [-0.002,0.001, 0.015]
+  rot_offset: [0,0,0]
+  max_delta: 0.003
+  pos_deadband: 0.005
+  rot_deadband: 0.01
 
 
 lift:
-  position_offset: (0,0,0.05)
-  rotation_offset: (0,0,0)
-
+  pos_offset: [0,0,0.05]
+  rot_offset: [0,0,0]
+  max_delta: 0.003
+  pos_deadband: 0.005
+  rot_deadband: 0.01
 
 relocate:
-  position_offset: (0,0,0.05)
-  rotation_offset: (0,0,0)
-
+  pos_offset: [0,0,0.05]
+  rot_offset: [0,0,0]
+  max_delta: 0.03
+  pos_deadband: 0.005
+  rot_deadband: 0.01
 
 place:
-  position_offset: (0,0,0.02)
-  rotation_offset: (0,0,-0.3490658503988659) # -pi/9
+  pos_offset: [0,0,0.02]
+  rot_offset: [0,0,-0.3490658503988659] # -pi/9
+  max_delta: 0.03
+  pos_deadband: 0.005
+  rot_deadband: 0.01
