@@ -47,13 +47,6 @@ def PsmInit(psm, jp_init, jaw_init, max_wait):
     else: # error detection
         print(f"WARNING: {psm} did not converge to init position within {max_wait}s timeout")
 
-    T_base_w = ps_to_frame(psm.T_b_w) # Grab base in world pose from psm2/T_b_w and convert to frame
-    T_ee_base = ps_to_frame(psm.measured_cp) # Grab ee relative to base pose from psm2/measured_cp and convert to frame
-    T_ee_w = T_base_w * T_ee_base # ee in world is multiplication of previous transforms
-
-    return T_base_w, T_ee_base, T_ee_w
-
-
 #-------------------------  GET OBJECT POSE -------------------------#
 # eventually remove pose_client
 def get_object_pose(target_obj):

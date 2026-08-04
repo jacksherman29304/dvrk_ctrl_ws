@@ -35,14 +35,6 @@ class ObjectLocator(Node):
             10                                      # QoS queue depth
             )
         
-        self.block1_sub = self.create_subscription(
-            RigidBodyState,                         # message type
-            '/ambf/env/phantom/block1/State',       # topic name
-            self.block1_callback,                 # callback function
-            10                                      # QoS queue depth
-            )
-
-                # subscriber to block1/State topic
         self.block4_sub = self.create_subscription(
             RigidBodyState,                         # message type
             '/ambf/env/phantom/block4/State',       # topic name
@@ -63,13 +55,48 @@ class ObjectLocator(Node):
             '/ambf/env/phantom/block6/State',       # topic name
             self.block6_callback,                 # callback function
             10                                      # QoS queue depth
-            )       
-        
-        # subscriber to peg10/State topic
+            )
+
+        self.peg4_sub = self.create_subscription(
+            RigidBodyState,                         # message type
+            '/ambf/env/phantom/peg4/State',       # topic name
+            self.peg4_callback,                 # callback function
+            10               
+        )
+               
+        self.peg6_sub = self.create_subscription(
+            RigidBodyState,                         # message type
+            '/ambf/env/phantom/peg6/State',       # topic name
+            self.peg6_callback,                 # callback function
+            10               
+        )
+
+                
+        self.peg7_sub = self.create_subscription(
+            RigidBodyState,                         # message type
+            '/ambf/env/phantom/peg7/State',       # topic name
+            self.peg7_callback,                 # callback function
+            10               
+        )
+
         self.peg10_sub = self.create_subscription(
             RigidBodyState,                         # message type
             '/ambf/env/phantom/peg10/State',       # topic name
             self.peg10_callback,                 # callback function
+            10               
+        )
+
+        self.peg13_sub = self.create_subscription(
+            RigidBodyState,                         # message type
+            '/ambf/env/phantom/peg13/State',       # topic name
+            self.peg13_callback,                 # callback function
+            10               
+        )
+
+        self.peg14_sub = self.create_subscription(
+            RigidBodyState,                         # message type
+            '/ambf/env/phantom/peg14/State',       # topic name
+            self.peg14_callback,                 # callback function
             10               
         )
 
@@ -110,14 +137,17 @@ class ObjectLocator(Node):
         self.object_pose['block1'] = msg.pose
         #self.get_logger().info(f'block1-state: {self.object_pose['block1']}')
         self.get_logger().info('block1 pose updated')
+
     def block2_callback(self, msg):
         self.object_pose['block2'] = msg.pose
         #self.get_logger().info(f'block2-state: {self.object_pose['block2']}')
         self.get_logger().info('block2 pose updated')
+
     def block3_callback(self, msg):
         self.object_pose['block3'] = msg.pose
         #self.get_logger().info(f'block3-state: {self.object_pose['block3']}')
         self.get_logger().info('block3 pose updated')
+
     def block4_callback(self, msg):
         self.object_pose['block4'] = msg.pose
         #self.get_logger().info(f'block4-state: {self.object_pose['block4']}')
@@ -132,12 +162,38 @@ class ObjectLocator(Node):
         self.object_pose['block6'] = msg.pose
         #self.get_logger().info(f'block6-state: {self.object_pose['block6']}')
         self.get_logger().info('block6 pose updated')
- 
+
+        
+    def peg4_callback(self, msg):
+        self.object_pose['peg4'] = msg.pose    
+        #self.get_logger().info(f'peg4-pose: {self.object_pose['peg4']}')
+        self.get_logger().info('peg4 pose updated')
+
+    def peg6_callback(self, msg):
+        self.object_pose['peg6'] = msg.pose    
+        #self.get_logger().info(f'peg6-pose: {self.object_pose['peg6']}')
+        self.get_logger().info('peg6 pose updated')  
+
+    def peg7_callback(self, msg):
+        self.object_pose['peg7'] = msg.pose    
+        #self.get_logger().info(f'peg7-pose: {self.object_pose['peg7']}')
+        self.get_logger().info('peg7 pose updated')     
+
     # callback function for peg10 position
     def peg10_callback(self, msg):
         self.object_pose['peg10'] = msg.pose    
         #self.get_logger().info(f'peg10-pose: {self.object_pose['peg10']}')
         self.get_logger().info('peg10 pose updated')
+
+    def peg13_callback(self, msg):
+        self.object_pose['peg13'] = msg.pose    
+        #self.get_logger().info(f'peg13-pose: {self.object_pose['peg13']}')
+        self.get_logger().info('peg13 pose updated')
+
+    def peg14_callback(self, msg):
+        self.object_pose['peg14'] = msg.pose    
+        #self.get_logger().info(f'peg14-pose: {self.object_pose['peg14']}')
+        self.get_logger().info('peg14 pose updated')
 
     # callback function for psm1 position
     def psm1_callback(self, msg):

@@ -85,22 +85,29 @@ def generate_launch_description():
         name = 'object_loc',
         output = 'screen'  
         )
+
+    # camera_interface_launch = Node(
+    #     package = 'peg_perception',
+    #     executable = 'camera_interface',
+    #     name = 'camera_interface',
+    #     output = 'screen'
+    # )
     
-    psm1_command_launch = Node(
-        package = 'peg_control',
-        executable = 'psm1_cmd',
-        name = 'psm1_cmd',
-        output = 'screen'  
+    # psm1_command_launch = Node(
+    #     package = 'peg_control',
+    #     executable = 'psm1_cmd',
+    #     name = 'psm1_cmd',
+    #     output = 'screen'  
 
-    )
+    # )
 
-    psm2_command_launch = Node(
-        package = 'peg_control',
-        executable = 'psm2_cmd',
-        name = 'psm2_cmd',
-        output = 'screen'  
+    # psm2_command_launch = Node(
+    #     package = 'peg_control',
+    #     executable = 'psm2_cmd',
+    #     name = 'psm2_cmd',
+    #     output = 'screen'  
 
-    )
+    # )
 
     # 'context' doesnt do anything, this is just the ros2 launch function required syntax
     # event contains details for ambf_live (the target action)
@@ -153,4 +160,5 @@ def generate_launch_description():
         ambf_launch, # launch ambf
         ambf_live, # check topics are live
         ambf_handler # respond to status of topics
+        # camera_interface_launch
     ])
