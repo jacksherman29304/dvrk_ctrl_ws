@@ -14,7 +14,7 @@ def generate_launch_description():
 
     ambf_arg = DeclareLaunchArgument(
         'scene_indices',
-        default_value='15,16,2,3,4,5',
+        default_value= '15,16,2,3,4,5',
         description='AMBF multibody indices. '
                     'asymmetric pegboard = 15,16,2,3,4,5   '
                     'symmetric with wall = 14,16,2,3,4,5',        

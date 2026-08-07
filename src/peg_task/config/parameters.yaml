@@ -14,14 +14,12 @@ entrance:
   pos_deadband: 0.005
   rot_deadband: 0.01
 
-
 grasp:
   pos_offset: [-0.002,0.001, 0.015]
   rot_offset: [0,0,0]
   max_delta: 0.003
   pos_deadband: 0.005
   rot_deadband: 0.01
-
 
 lift:
   pos_offset: [0,0,0.05]

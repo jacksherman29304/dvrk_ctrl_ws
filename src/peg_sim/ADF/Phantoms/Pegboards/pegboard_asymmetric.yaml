@@ -103,58 +103,58 @@ BODY BlackGround_Plane:
       g: 0.29075
       r: 0.29075
     transparency: 1.0
-BODY block1:
-  name: block1
-  mesh: block1.OBJ
-  collision mesh: block_simple_collision.OBJ
-  collision mesh type: CONVEX_HULL
-  mass: 0.00001 # changed to 0.00165 previously
-  collision margin: 0.0001
-  scale: 1.0
-  location:
-    position:
-      x: 0.03352
-      y: 0.23481
-      z: 0.729
-    orientation:
-      r: 0.0
-      p: -0.0
-      y: 0.47599
-  inertial offset:
-    position:
-      x: 0.0
-      y: 0.0
-      z: 0.0075
-    orientation:
-      r: 0
-      p: 0
-      y: 0
-  passive: false
-  publish children names: false
-  publish joint names: false
-  publish joint positions: false
-  friction:
-    rolling: 0.0
-    static: 0.5
-  restitution: 0.1
-  damping:
-    angular: 0.1
-    linear: 0.04
-  visible: true
-  collision groups: []
-  use material: false
-  color components:
-    ambient:
-      level: 1.0
-    diffuse:
-      b: 0.8
-      g: 0.8
-      r: 0.8
-    specular:
-      b: 0.4
-      g: 0.4
-      r: 0.4
-    transparency: 1.0
+# BODY block1:
+#   name: block1
+#   mesh: block1.OBJ
+#   collision mesh: block_simple_collision.OBJ
+#   collision mesh type: CONVEX_HULL
+#   mass: 0.00001 # changed to 0.00165 previously
+#   collision margin: 0.0001
+#   scale: 1.0
+#   location:
+#     position:
+#       x: 0.03352
+#       y: 0.23481
+#       z: 0.729
+#     orientation:
+#       r: 0.0
+#       p: -0.0
+#       y: 0.47599
+#   inertial offset:
+#     position:
+#       x: 0.0
+#       y: 0.0
+#       z: 0.0075
+#     orientation:
+#       r: 0
+#       p: 0
+#       y: 0
+#   passive: false
+#   publish children names: false
+#   publish joint names: false
+#   publish joint positions: false
+#   friction:
+#     rolling: 0.0
+#     static: 0.5
+#   restitution: 0.1
+#   damping:
+#     angular: 0.1
+#     linear: 0.04
+#   visible: true
+#   collision groups: []
+#   use material: false
+#   color components:
+#     ambient:
+#       level: 1.0
+#     diffuse:
+#       b: 0.8
+#       g: 0.8
+#       r: 0.8
+#     specular:
+#       b: 0.4
+#       g: 0.4
+#       r: 0.4
+#     transparency: 1.0
 BODY block2:
   name: block2
   mesh: block2.OBJ
@@ -207,110 +207,110 @@ BODY block2:
       g: 0.4
       r: 0.4
     transparency: 1.0
-BODY block3:
-  name: block3
-  mesh: block3.OBJ
-  collision mesh: block_simple_collision.OBJ
-  collision mesh type: CONVEX_HULL
-  mass: 0.00001
-  collision margin: 0.0001
-  scale: 1.0
-  location:
-    position:
-      x: 0.05892
-      y: 0.20936
-      z: 0.729
-    orientation:
-      r: 0.0
-      p: -0.0
-      y: 0.38776
-  inertial offset:
-    position:
-      x: 0.0
-      y: 0.0
-      z: 0.0075
-    orientation:
-      r: 0
-      p: 0
-      y: 0
-  passive: false
-  publish children names: false
-  publish joint names: false
-  publish joint positions: false
-  friction:
-    rolling: 0.0
-    static: 0.5
-  restitution: 0.1
-  damping:
-    angular: 0.1
-    linear: 0.04
-  visible: true
-  collision groups: []
-  use material: false
-  color components:
-    ambient:
-      level: 1.0
-    diffuse:
-      b: 0.8
-      g: 0.8
-      r: 0.8
-    specular:
-      b: 0.4
-      g: 0.4
-      r: 0.4
-    transparency: 1.0
-BODY block4:
-  name: block4
-  mesh: block4.OBJ
-  collision mesh: block_simple_collision.OBJ
-  collision mesh type: CONVEX_HULL
-  mass: 0.00001
-  collision margin: 0.0001
-  scale: 1.0
-  location:
-    position:
-      x: -0.00478
-      y: 0.21749
-      z: 0.729
-    orientation:
-      r: 0.0
-      p: -0.0
-      y: 0.0
-  inertial offset:
-    position:
-      x: 0.0
-      y: 0.0
-      z: 0.0075
-    orientation:
-      r: 0
-      p: 0
-      y: 0
-  passive: false
-  publish children names: false
-  publish joint names: false
-  publish joint positions: false
-  friction:
-    rolling: 0.0
-    static: 0.5
-  restitution: 0.1
-  damping:
-    angular: 0.1
-    linear: 0.04
-  visible: true
-  collision groups: []
-  use material: false
-  color components:
-    ambient:
-      level: 1.0
-    diffuse:
-      b: 0.8
-      g: 0.8
-      r: 0.8
-    specular:
-      b: 0.4
-      g: 0.4
-      r: 0.4
-    transparency: 1.0
+# BODY block3:
+#   name: block3
+#   mesh: block3.OBJ
+#   collision mesh: block_simple_collision.OBJ
+#   collision mesh type: CONVEX_HULL
+#   mass: 0.00001
+#   collision margin: 0.0001
+#   scale: 1.0
+#   location:
+#     position:
+#       x: 0.05892
+#       y: 0.20936
+#       z: 0.729
+#     orientation:
+#       r: 0.0
+#       p: -0.0
+#       y: 0.38776
+#   inertial offset:
+#     position:
+#       x: 0.0
+#       y: 0.0
+#       z: 0.0075
+#     orientation:
+#       r: 0
+#       p: 0
+#       y: 0
+#   passive: false
+#   publish children names: false
+#   publish joint names: false
+#   publish joint positions: false
+#   friction:
+#     rolling: 0.0
+#     static: 0.5
+#   restitution: 0.1
+#   damping:
+#     angular: 0.1
+#     linear: 0.04
+#   visible: true
+#   collision groups: []
+#   use material: false
+#   color components:
+#     ambient:
+#       level: 1.0
+#     diffuse:
+#       b: 0.8
+#       g: 0.8
+#       r: 0.8
+#     specular:
+#       b: 0.4
+#       g: 0.4
+#       r: 0.4
+#     transparency: 1.0
+# BODY block4:
+#   name: block4
+#   mesh: block4.OBJ
+#   collision mesh: block_simple_collision.OBJ
+#   collision mesh type: CONVEX_HULL
+#   mass: 0.00001
+#   collision margin: 0.0001
+#   scale: 1.0
+#   location:
+#     position:
+#       x: -0.00478
+#       y: 0.21749
+#       z: 0.729
+#     orientation:
+#       r: 0.0
+#       p: -0.0
+#       y: 0.0
+#   inertial offset:
+#     position:
+#       x: 0.0
+#       y: 0.0
+#       z: 0.0075
+#     orientation:
+#       r: 0
+#       p: 0
+#       y: 0
+#   passive: false
+#   publish children names: false
+#   publish joint names: false
+#   publish joint positions: false
+#   friction:
+#     rolling: 0.0
+#     static: 0.5
+#   restitution: 0.1
+#   damping:
+#     angular: 0.1
+#     linear: 0.04
+#   visible: true
+#   collision groups: []
+#   use material: false
+#   color components:
+#     ambient:
+#       level: 1.0
+#     diffuse:
+#       b: 0.8
+#       g: 0.8
+#       r: 0.8
+#     specular:
+#       b: 0.4
+#       g: 0.4
+#       r: 0.4
+#     transparency: 1.0
 BODY block5:
   name: block5
   mesh: block5.OBJ
@@ -363,58 +363,58 @@ BODY block5:
       g: 0.4
       r: 0.4
     transparency: 1.0
-BODY block6:
-  name: block6
-  mesh: block6.OBJ
-  collision mesh: block_simple_collision.OBJ
-  collision mesh type: CONVEX_HULL
-  mass: 0.00001
-  collision margin: 0.0001
-  scale: 1.0
-  location:
-    position:
-      x: -0.00491
-      y: 0.25284
-      z: 0.729
-    orientation:
-      r: 0.0
-      p: -0.0
-      y: 0.0
-  inertial offset:
-    position:
-      x: 0.0
-      y: 0.0
-      z: 0.0075
-    orientation:
-      r: 0
-      p: 0
-      y: 0
-  passive: false
-  publish children names: false
-  publish joint names: false
-  publish joint positions: false
-  friction:
-    rolling: 0.0
-    static: 0.5
-  restitution: 0.1
-  damping:
-    angular: 0.1
-    linear: 0.04
-  visible: true
-  collision groups: []
-  use material: false
-  color components:
-    ambient:
-      level: 1.0
-    diffuse:
-      b: 0.8
-      g: 0.8
-      r: 0.8
-    specular:
-      b: 0.4
-      g: 0.4
-      r: 0.4
-    transparency: 1.0
+# BODY block6:
+#   name: block6
+#   mesh: block6.OBJ
+#   collision mesh: block_simple_collision.OBJ
+#   collision mesh type: CONVEX_HULL
+#   mass: 0.00001
+#   collision margin: 0.0001
+#   scale: 1.0
+#   location:
+#     position:
+#       x: -0.00491
+#       y: 0.25284
+#       z: 0.729
+#     orientation:
+#       r: 0.0
+#       p: -0.0
+#       y: 0.0
+#   inertial offset:
+#     position:
+#       x: 0.0
+#       y: 0.0
+#       z: 0.0075
+#     orientation:
+#       r: 0
+#       p: 0
+#       y: 0
+#   passive: false
+#   publish children names: false
+#   publish joint names: false
+#   publish joint positions: false
+#   friction:
+#     rolling: 0.0
+#     static: 0.5
+#   restitution: 0.1
+#   damping:
+#     angular: 0.1
+#     linear: 0.04
+#   visible: true
+#   collision groups: []
+#   use material: false
+#   color components:
+#     ambient:
+#       level: 1.0
+#     diffuse:
+#       b: 0.8
+#       g: 0.8
+#       r: 0.8
+#     specular:
+#       b: 0.4
+#       g: 0.4
+#       r: 0.4
+#     transparency: 1.0
 BODY peg1:
   name: peg1
   mesh: peg1.OBJ

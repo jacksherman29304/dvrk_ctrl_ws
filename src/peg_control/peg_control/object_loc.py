@@ -2,7 +2,7 @@ import rclpy
 from rclpy.node import Node
 
 # block1/State message type: ambf_msgs/msg/RigidBodyState
-from ambf_msgs.msg import RigidBodyState
+from ambf_msgs.msg import RigidBodyState, CameraState
 from ambf_msgs.msg import ActuatorState
 
 # import custom service 
@@ -14,12 +14,12 @@ class ObjectLocator(Node):
         super().__init__('object_locator') # node name
 
         # subscriber to block1/State topic
-        self.block1_sub = self.create_subscription(
-            RigidBodyState,                         # message type
-            '/ambf/env/phantom/block1/State',       # topic name
-            self.block1_callback,                 # callback function
-            10                                      # QoS queue depth
-            )
+        # self.block1_sub = self.create_subscription(
+        #     RigidBodyState,                         # message type
+        #     '/ambf/env/phantom/block1/State',       # topic name
+        #     self.block1_callback,                 # callback function
+        #     10                                      # QoS queue depth
+        #     )
         
         self.block2_sub = self.create_subscription(
             RigidBodyState,                         # message type
@@ -28,19 +28,19 @@ class ObjectLocator(Node):
             10                                      # QoS queue depth
             )
         
-        self.block3_sub = self.create_subscription(
-            RigidBodyState,                         # message type
-            '/ambf/env/phantom/block3/State',       # topic name
-            self.block3_callback,                 # callback function
-            10                                      # QoS queue depth
-            )
+        # self.block3_sub = self.create_subscription(
+        #     RigidBodyState,                         # message type
+        #     '/ambf/env/phantom/block3/State',       # topic name
+        #     self.block3_callback,                 # callback function
+        #     10                                      # QoS queue depth
+        #     )
         
-        self.block4_sub = self.create_subscription(
-            RigidBodyState,                         # message type
-            '/ambf/env/phantom/block4/State',       # topic name
-            self.block4_callback,                 # callback function
-            10                                      # QoS queue depth
-            )
+        # self.block4_sub = self.create_subscription(
+        #     RigidBodyState,                         # message type
+        #     '/ambf/env/phantom/block4/State',       # topic name
+        #     self.block4_callback,                 # callback function
+        #     10                                      # QoS queue depth
+        #     )
 
                 # subscriber to block1/State topic
         self.block5_sub = self.create_subscription(
@@ -50,12 +50,12 @@ class ObjectLocator(Node):
             10                                      # QoS queue depth
             )
                         # subscriber to block1/State topic
-        self.block6_sub = self.create_subscription(
-            RigidBodyState,                         # message type
-            '/ambf/env/phantom/block6/State',       # topic name
-            self.block6_callback,                 # callback function
-            10                                      # QoS queue depth
-            )
+        # self.block6_sub = self.create_subscription(
+        #     RigidBodyState,                         # message type
+        #     '/ambf/env/phantom/block6/State',       # topic name
+        #     self.block6_callback,                 # callback function
+        #     10                                      # QoS queue depth
+        #     )
 
         self.peg4_sub = self.create_subscription(
             RigidBodyState,                         # message type
@@ -114,10 +114,24 @@ class ObjectLocator(Node):
             10
         )
 
-        self.cam_sub = self.create_subscription(
+        self.cameraframe_sub = self.create_subscription(
             RigidBodyState,
             '/ambf/env/phantom/CameraFrame/State',
-            self.cam_callback,
+            self.cameraframe_callback,
+            10
+            )
+
+        self.stereoL_sub = self.create_subscription(
+            CameraState,
+            '/ambf/env/stereo/left/State',
+            self.stereoL_callback,
+            10
+        )
+
+        self.StereoR_sub = self.create_subscription(
+            CameraState,
+            '/ambf/env/stereo/right/State',
+            self.stereoR_callback,
             10
         )
 
@@ -133,35 +147,35 @@ class ObjectLocator(Node):
         )
 
     # callback function for block1 position
-    def block1_callback(self, msg):
-        self.object_pose['block1'] = msg.pose
-        #self.get_logger().info(f'block1-state: {self.object_pose['block1']}')
-        self.get_logger().info('block1 pose updated')
+    # def block1_callback(self, msg):
+    #     self.object_pose['block1'] = msg.pose
+    #     #self.get_logger().info(f'block1-state: {self.object_pose['block1']}')
+    #     self.get_logger().info('block1 pose updated')
 
     def block2_callback(self, msg):
         self.object_pose['block2'] = msg.pose
         #self.get_logger().info(f'block2-state: {self.object_pose['block2']}')
         self.get_logger().info('block2 pose updated')
 
-    def block3_callback(self, msg):
-        self.object_pose['block3'] = msg.pose
-        #self.get_logger().info(f'block3-state: {self.object_pose['block3']}')
-        self.get_logger().info('block3 pose updated')
+    # def block3_callback(self, msg):
+    #     self.object_pose['block3'] = msg.pose
+    #     #self.get_logger().info(f'block3-state: {self.object_pose['block3']}')
+    #     self.get_logger().info('block3 pose updated')
 
-    def block4_callback(self, msg):
-        self.object_pose['block4'] = msg.pose
-        #self.get_logger().info(f'block4-state: {self.object_pose['block4']}')
-        self.get_logger().info('block4 pose updated')
+    # def block4_callback(self, msg):
+    #     self.object_pose['block4'] = msg.pose
+    #     #self.get_logger().info(f'block4-state: {self.object_pose['block4']}')
+    #     self.get_logger().info('block4 pose updated')
 
     def block5_callback(self, msg):
         self.object_pose['block5'] = msg.pose
         #self.get_logger().info(f'block5-state: {self.object_pose['block5']}')
         self.get_logger().info('block5 pose updated')
 
-    def block6_callback(self, msg):
-        self.object_pose['block6'] = msg.pose
-        #self.get_logger().info(f'block6-state: {self.object_pose['block6']}')
-        self.get_logger().info('block6 pose updated')
+    # def block6_callback(self, msg):
+    #     self.object_pose['block6'] = msg.pose
+    #     #self.get_logger().info(f'block6-state: {self.object_pose['block6']}')
+    #     self.get_logger().info('block6 pose updated')
 
         
     def peg4_callback(self, msg):
@@ -206,12 +220,20 @@ class ObjectLocator(Node):
         self.object_pose['psm2'] = msg.pose
         #self.get_logger().info(f'psm2-pose: {self.object_pose['psm2']}')
         self.get_logger().info('psm2 pose updated')
+
+    # callback function for camera frame position relative to world
+    def cameraframe_callback(self, msg):
+        self.object_pose['cameraframe'] = msg.pose    
+        #self.get_logger().info(f'stereoL pose: {self.object_pose['stereoL']}')
         
-    # callback function for camera position
-    def cam_callback(self, msg):
-        self.object_pose['cam'] = msg.pose    
-        #self.get_logger().info(f'cam-pose: {self.object_pose['cam']}')
-        self.get_logger().info('camera pose updated')
+    # callback function for camera position relative to camerframe
+    def stereoL_callback(self, msg):
+        self.object_pose['stereoL'] = msg.pose    
+        #self.get_logger().info(f'stereoL pose: {self.object_pose['stereoL']}')
+
+    def stereoR_callback(self, msg):
+        self.object_pose['stereoR'] = msg.pose    
+        #self.get_logger().info(f'stereoL pose: {self.object_pose['stereoR']}')
 
     def get_object_pose(self, object_name:str):
         return self.object_pose[object_name]
