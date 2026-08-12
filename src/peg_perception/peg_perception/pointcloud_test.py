@@ -1,22 +1,18 @@
+# Math & transformation imports
 import numpy as np
 import open3d as o3d
-import cv2 as cv
 import matplotlib.colors as cls
 import copy
 import PyKDL
+import time
 
 # RCLPY Imports
 import rclpy
 import threading
 from rclpy.executors import MultiThreadedExecutor
 
-# External Imports
-import time
-
-# Control Imports
+# Peg Task and Control imports for PSM demonstration
 from peg_control.tool_cmd import ToolCommand
-
-# Task imports
 from peg_task.config import load_config
 from peg_task.ros_interface import ObjectPoseClient, SimControl
 from peg_task.routines import PsmInit, init_handlers
@@ -25,18 +21,22 @@ from peg_task.motion import psm_to_pose
 from peg_math.conversions import ps_to_frame
 
 
-############################################PEGBOARD########################################################
-# left stereo camera depth data from ROS topic /ambf/env/stereo/left/DepthData
+# ----------------------------------- PEGBOARD 
+# ---- POINTCLOUD COLOUR MASKING
+
+# left stereo camera depth data from ROS topic /ambf/env/stereo/left/DepthData (generated in camera_interface.py)
 data = np.load('/home/dvrk-team/Desktop/pointcloudL_curr.npy') 
 
-points = data[:, 0:3] # columns 0-2 (x, y, z)
+# point data in columns 0-2 (x,y,z)
+points = data[:, 0:3] 
+
+# rgb data in column 3
 rgb = data[:,3] # column 3 (rgb)
 
 # reinterpret float32 bits as uint32
 rgb_uint = rgb.view(np.uint32)
 
-# extract rgb
-# rrrrrrrr gggggggg bbbbbbbb
+# extract rgb (rrrrrrrr gggggggg bbbbbbbb)
 r = (rgb_uint >> 16) & 0xFF # shift by 16 bits and mask last 8 bits
 g = (rgb_uint >> 8) & 0xFF # shift by 8 bits and mask last 8 bits
 b = rgb_uint & 0xFF # mask last 8 bits
@@ -250,6 +250,7 @@ R_90_z = np.array([
     [0,              0,             1]
 ])
 
+# Matrix multiplication
 rotation_guess = pegboard_rotation @ R_90_z 
 
 # print(f"new rotation: {rotation_guess}")
@@ -329,8 +330,17 @@ draw_registration_result(block_model_pcd, block_masked_pcd, final_pose)
 
 ######## THE BELOW MUST BE CONVERTED FROM CAMERA-L FRAME INTO THE BASE FRAME
 
+############ FIXED ROTATION MATRIX APPLIED AS WAS 180 DISORIENTED
+rotation_matrix = np.array([
+    [-1.0, 0.0,  0.0],
+    [ 0.0, 1.0,  0.0],
+    [ 0.0, 0.0, -1.0]
+])
+rotation_fix = final_pose[0:3,0:3] @ rotation_matrix
+
 # extract rotation matrix and convert into PyKDL.Rotation (3D array flattened into 1D)
-rot = PyKDL.Rotation(*final_pose[0:3,0:3].flatten())
+#rot = PyKDL.Rotation(*final_pose[0:3,0:3].flatten())
+rot = PyKDL.Rotation(*rotation_fix.flatten())
 # convert to RPY 
 roll, pitch, yaw = rot.GetRPY()
 # print(f"roll: {roll}, pitch: {pitch}, yaw: {yaw}")
@@ -360,19 +370,20 @@ def run_task(parameters):
     target_arm = psm2
 
     camframe_in_w = get_object_pose('cameraframe')
-    print(f'StereoL in World: {camframe_in_w}')
+    #print(f'StereoL in World: {camframe_in_w}')
 
     stereoL_in_camera = get_object_pose('stereoL')
-    print(f'StereoL in CameraFrame: {stereoL_in_camera}')
+    #print(f'StereoL in CameraFrame: {stereoL_in_camera}')
 
     stereoL_in_w = camframe_in_w * stereoL_in_camera
 
     base_in_w = ps_to_frame(target_arm.T_b_w)
-    print(f"PSM2 base in World: {base_in_w}")
+    #print(f"PSM2 base in World: {base_in_w}")
 
     block_in_world = stereoL_in_w * block_in_cam
-    
-    block_in_base = base_in_w.Inverse() * stereoL_in_w * block_in_cam #block_in_cam.Inverse() * stereoL_in_w.Inverse() * base_in_w
+
+    #block_in_base = base_in_w.Inverse() * stereoL_in_w * block_in_cam#base_in_w.Inverse() * stereoL_in_w * block_in_cam
+    block_in_base = base_in_w.Inverse() * block_in_world
     print(f"Calculated Block in base: {block_in_base}")
 
     actual_block_in_w = get_object_pose('block5')
@@ -389,7 +400,7 @@ def run_task(parameters):
 
     local_offset = PyKDL.Frame(R_offset, PyKDL.Vector(-0.002,0.001, 0.05)) # compile local offset into a Frame
     
-    target_pose = block_in_base * local_offset # apply local offset to target object in world = targ
+    target_pose = block_in_base * local_offset # apply local offset to target object in world = target
 
     psm_to_pose(psm=target_arm, target_pose=target_pose, success_flag=move) # grasp
 

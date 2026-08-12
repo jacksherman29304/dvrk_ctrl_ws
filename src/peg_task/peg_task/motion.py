@@ -2,6 +2,8 @@
 
 from PyKDL import Frame
 import time
+import matplotlib.pyplot as plt
+import numpy as np
 
 import csv, os
 
@@ -73,6 +75,8 @@ def psm_to_pose(psm, target_pose: Frame, success_flag: bool, control_speed=0.01,
         T_step.p = T_current.p + T_delta.p # step positin = current position + delta position
         T_step.M = T_current.M * T_delta.M # step rotation = current rotation * delta rotation
 
+
+
             
         dist_error_norm = (target_pose.p - T_current.p).Norm()
         rpy_error = (T_current.M.Inverse() * target_pose.M).GetRPY()
@@ -92,6 +96,68 @@ def psm_to_pose(psm, target_pose: Frame, success_flag: bool, control_speed=0.01,
     else:
         return
 
+
+def psm_to_pose_plot(psm, target_pose: Frame, success_flag: bool, control_speed=0.01, max_delta=0.01, pos_deadband=0.005, rot_deadband=0.01, timeout=30.0):
+
+    success_flag = False
+    t0 = time.time()
+    x_log = []
+    y_log = []
+    z_log = []
+    yaw_log = []
+
+    while not success_flag:
+
+        if (time.time() - t0) >= timeout:
+            print(f"ERROR:psm_to_pose exceeded {timeout}s") # if doesn't converge after set timeout, breaks out of loop
+            break
+
+
+        T_current = ps_to_frame(psm.measured_cp)
+
+        x_log.append(T_current.p.x())
+        y_log.append(T_current.p.y())
+        z_log.append(T_current.p.z())
+        yaw_log.append(T_current.M.GetRPY()[2])
+
+            
+        T_delta, success_flag = cartesian_interpolate_step_new(T_current, target_pose, max_delta, pos_deadband=pos_deadband,rot_deadband=rot_deadband)
+
+        T_step = Frame() # New command frame that adds positional and rotational delta to current tool position
+        T_step.p = T_current.p + T_delta.p # step positin = current position + delta position
+        T_step.M = T_current.M * T_delta.M # step rotation = current rotation * delta rotation
+
+
+        psm.servo_cp(T_step) # Set cartesian pose of servo
+        time.sleep(control_speed) # Adjustable speed so can slow down more intricate movements (e.g. pick and place)
+    plot_trajectory(x_log, y_log, z_log)
+
+ 
+def plot_trajectory(x_log, y_log, z_log, arrow_len=0.003):
+
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection = '3d')
+    ax.plot(x_log, y_log, z_log, marker = 'o', color='g')
+    #ax.scatter(*points.T[0], color = 'red')
+    plt.show()
+
+    # x, y, yaw = np.array(x_log), np.array(y_log), np.array(yaw_log)
+    # u, v = np.cos(yaw), np.sin(yaw)
+
+    # fig, ax = plt.subplots(figsize=(6, 6))
+    # ax.plot(x, y, '-', linewidth=1, alpha=0.5, color='gray', label='path')
+    # ax.quiver(x, y, u, v, angles='xy', scale_units='xy',
+    #           scale=1/arrow_len, color='r', width=0.004, label='heading')
+
+    # ax.scatter(x[0], y[0], c='green', s=60, zorder=5, label='start')
+    # ax.scatter(x[-1], y[-1], c='blue', s=60, zorder=5, label='end')
+
+    # ax.set_xlabel('X (m)')
+    # ax.set_ylabel('Y (m)')
+    # ax.set_aspect('equal')
+    # ax.legend()
+    # ax.set_title('PSM Cartesian Trajectory')
+    # plt.show()
 
 
 # def psm_to_pose(psm, target_pose: Frame, success_flag: bool, control_speed=0.01, max_delta=0.01, pos_deadband=0.005, rot_deadband=0.01, log_path=None):

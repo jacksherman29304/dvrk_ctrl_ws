@@ -125,6 +125,9 @@ class ToolCommand(Node):
         msg.position = [jaw_angle] # applying single value
         self.servo_jaw_angle_pub.publish(msg)
 
+    def get_tool_name(self):
+        return str(self.tool)
+
 
 # Don't need to spin here as they are declared and span in separate peg transfer task scripts?
 

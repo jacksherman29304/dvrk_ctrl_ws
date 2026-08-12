@@ -154,7 +154,7 @@ class ObjectLocator(Node):
 
     def block2_callback(self, msg):
         self.object_pose['block2'] = msg.pose
-        #self.get_logger().info(f'block2-state: {self.object_pose['block2']}')
+        self.get_logger().info(f'block2-state: {self.object_pose['block2']}')
         self.get_logger().info('block2 pose updated')
 
     # def block3_callback(self, msg):

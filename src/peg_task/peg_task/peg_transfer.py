@@ -6,6 +6,9 @@ from rclpy.executors import MultiThreadedExecutor
 # External Imports
 import time
 
+# Math Imports
+from peg_math import randomise_env
+
 # Control Imports
 from peg_control.tool_cmd import ToolCommand
 
@@ -13,7 +16,7 @@ from peg_control.tool_cmd import ToolCommand
 from peg_task.config import load_config
 from peg_task.ros_interface import ObjectPoseClient, SimControl
 from peg_task.routines import PsmInit, init_handlers
-from peg_task.routines import enter_scene, grasp_block, lift_block, relocate_block, place_block
+from peg_task.routines import enter_scene, grasp_block, lift_block, relocate_block, place_block, block_passover
 
 
 #------------------------- CLASS INSTANCES -------------------------#
@@ -26,21 +29,45 @@ init_handlers(object_pose_client) # pass client-side handler to routines,py
 
 #------------------------- RUN TASK LOOP -------------------------#  
 def run_task(parameters):
-
     params = parameters # parameters.yaml - offsets, objects etc.
     sim.reset_env() # Reset all simulation bodies (e.g. blocks, PSMs)
     time.sleep(2.0)
     PsmInit(psm=psm2, jp_init=params['init']['psm2_init'], jaw_init=params['init']['jaw_open'], max_wait=10)
+    PsmInit(psm=psm1, jp_init=params['init']['psm1_init'], jaw_init=params['init']['jaw_open'], max_wait=10)
     time.sleep(3.0)
-    target_arm = psm2
 
-    enter_scene(target_arm)
-    grasp_block(target_arm) 
-    lift_block(target_arm)
-    relocate_block(target_arm)
-    place_block(target_arm)
+    # lift block 5 and reloate
+    enter_scene(psm2, 'block5')
+    grasp_block(psm2, 'block5') 
+    lift_block(psm2, 'block5')
+    block_passover(psm1, 'block5')
+    psm2.set_jaw(0.08)
+    relocate_block(psm1, 'block5', 'peg10')
+    place_block(psm1, 'block5', 'peg10')
+
+    # lift block 2 and relocate
+    # current issue lies with hard offets not applying to all blocks in all positions
+    PsmInit(psm=psm2, jp_init=params['init']['psm2_init'], jaw_init=params['init']['jaw_open'], max_wait=10)
+    PsmInit(psm=psm1, jp_init=params['init']['psm1_init'], jaw_init=params['init']['jaw_open'], max_wait=10)
+    time.sleep(2.0)
+    enter_scene(psm1, 'block2')
+    grasp_block(psm1, 'block2') 
+    lift_block(psm1, 'block2')
+    block_passover(psm2, 'block2')
+    psm1.set_jaw(0.08)
+    relocate_block(psm2, 'block2', 'peg7')
+    place_block(psm2, 'block2', 'peg7')
+    
+
+    
+    # psm1.set_jaw(0.08)
+    # relocate_block(psm1, 'block5', 'peg10')
+    # place_block(psm1, 'block5', 'peg10')
 
 def main():
+    # input_path = '/home/dvrk-team/dvrk_ctrl_ws/src/peg_sim/ADF/Phantoms/Pegboards/pegboard_asymmetric.yaml'
+    # output_path = '/home/dvrk-team/dvrk_ctrl_ws/src/peg_sim/ADF/Phantoms/Pegboards/pegboard_asymmetric_out.yaml'
+    # randomise_env(input_path, output_path)
     parameters = load_config()
     executor = MultiThreadedExecutor()
     executor.add_node(psm1)
