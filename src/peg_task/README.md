@@ -6,7 +6,7 @@ Actual peg-transfer task scripts.
 
 peg_task/
 ├── config/
-│   └── parameters.yaml
+│   └── parameters.yaml    key parameters for peg routines (e.g. offsets, deadbands etc.)
 └── peg_task/
     ├── config.py          loads parameters.yaml, allows access to data and offsets etc.
     ├── ros_interface.py   ObjectPoseClient, SimControl

@@ -366,8 +366,9 @@ def run_task(parameters):
     sim.reset_env() # Reset all simulation bodies (e.g. blocks, PSMs)
     time.sleep(2.0)
     PsmInit(psm=psm2, jp_init=params['init']['psm2_init'], jaw_init=params['init']['jaw_open'], max_wait=10)
+    PsmInit(psm=psm1, jp_init=params['init']['psm1_init'], jaw_init=params['init']['jaw_open'], max_wait=10)
     time.sleep(3.0)
-    target_arm = psm2
+    target_arm = psm2 # PSM2 offsets work well, PSM1 less accurate
 
     camframe_in_w = get_object_pose('cameraframe')
     #print(f'StereoL in World: {camframe_in_w}')
@@ -395,16 +396,23 @@ def run_task(parameters):
     R_desired_w = T_ee_w.M # Target grasp orientation in world frame
     R_offset = (block_in_world.M).Inverse() * R_desired_w # Desired rotation offset converted to block frame
 
-    enter_scene(target_arm)
+    enter_scene(target_arm, 'block5')
     move = False
 
-    local_offset = PyKDL.Frame(R_offset, PyKDL.Vector(-0.002,0.001, 0.05)) # compile local offset into a Frame
+    local_offset = PyKDL.Frame(R_offset, PyKDL.Vector(-0.00444226,  0.00256499, 0.005)) # compile local offset into a Frame
     
     target_pose = block_in_base * local_offset # apply local offset to target object in world = target
 
     psm_to_pose(psm=target_arm, target_pose=target_pose, success_flag=move) # grasp
 
+    for _ in range(20):
+        target_arm.set_jaw(0.04)
+        time.sleep(0.05)
 
+    lift_offset = PyKDL.Frame(R_offset, PyKDL.Vector(-0.00444226,  0.00256499, 0.06)) #0.00444226,  0.00256499, 0.015)) # compile local offset into a Frame
+    lift_pose = block_in_base * lift_offset # apply local offset to target object in world = target
+
+    psm_to_pose(psm=target_arm, target_pose=lift_pose, success_flag=move) # grasp
 
 
 def main():

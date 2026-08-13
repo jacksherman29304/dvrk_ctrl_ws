@@ -10,16 +10,12 @@ class ObjectPoseClient(Node):
         super().__init__('object_pose_client') # Node name
         self.cli = self.create_client(GetObjectPose, '/get_object_pose')
 
-        # while not self.cli.wait_for_service(timeout_sec=1.0):
-        #     self.get_logger().info('service not available, waiting again...')
-
     def wait_for_server(self, timeout=10.0):
         if not self.cli.wait_for_service(timeout_sec=timeout):
             raise RuntimeError(
                 f'/get_object_pose unavailable after {timeout}s — is object_loc running?'
             )
 
-        
         self.req = GetObjectPose.Request()
 
     def get_object_pose(self, object_name:str):

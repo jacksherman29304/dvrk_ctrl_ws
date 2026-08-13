@@ -34,13 +34,6 @@ def generate_launch_description():
         ],
         cwd=sim_share, # points to share directory so configs can be found
         output='screen',
-
-        # cmd=[
-        #     '/home/dvrk-team/internship/peg_transfer/run_env_pegboard_asymmetric.sh'
-        # ],
-        # cwd = '/home/dvrk-team/internship/peg_transfer',
-        # shell = True,
-        # output = 'screen'
     )
 
     # Checking whether AMBF topics are live
@@ -86,30 +79,7 @@ def generate_launch_description():
         output = 'screen'  
         )
 
-    # camera_interface_launch = Node(
-    #     package = 'peg_perception',
-    #     executable = 'camera_interface',
-    #     name = 'camera_interface',
-    #     output = 'screen'
-    # )
     
-    # psm1_command_launch = Node(
-    #     package = 'peg_control',
-    #     executable = 'psm1_cmd',
-    #     name = 'psm1_cmd',
-    #     output = 'screen'  
-
-    # )
-
-    # psm2_command_launch = Node(
-    #     package = 'peg_control',
-    #     executable = 'psm2_cmd',
-    #     name = 'psm2_cmd',
-    #     output = 'screen'  
-
-    # )
-
-    # 'context' doesnt do anything, this is just the ros2 launch function required syntax
     # event contains details for ambf_live (the target action)
     def on_ambf_live_exit(event, context):
         if event.returncode == 0: # inspect ambf_live return code, if success, launch crtk (launch crtk, crtk_live etc.)
@@ -124,7 +94,7 @@ def generate_launch_description():
                 LogInfo(msg=f'ambf_live exited with code {event.returncode} - crtk not started'),
             ]
 
-    # 'context' doesnt do anything, this is just the ros2 launch function required syntax
+
     # event contains details for crtk_live (the target action)
     def on_crtk_live_exit(event, context):
         if event.returncode == 0: # inspect crtk_live return code, if success, launch remaining nodes (object-locate, psm-cmd etc.)
@@ -160,5 +130,4 @@ def generate_launch_description():
         ambf_launch, # launch ambf
         ambf_live, # check topics are live
         ambf_handler # respond to status of topics
-        # camera_interface_launch
     ])

@@ -74,7 +74,7 @@ def move_gripper_to_pose(psm, target_object, rot_offset, pos_offset, max_delta, 
                 max_delta=max_delta, pos_deadband=pos_deadband, rot_deadband=rot_deadband)
 
 # commanding gripper with grasped item to certain pose
-def move_grasped_object_to_pose(psm, grasped_object, target_object, rot_offset, pos_offset, max_delta, pos_deadband, rot_deadband):
+def move_grasped_object_to_pose(psm, grasped_object, rot_offset, pos_offset, max_delta, pos_deadband, rot_deadband,target_object=None, target_pose=None):
 
     base_w = ps_to_frame(psm.T_b_w) # base in world pose, convert to Frame
 
@@ -88,11 +88,16 @@ def move_grasped_object_to_pose(psm, grasped_object, target_object, rot_offset, 
 
     local_offset = Frame(rot_offset, pos_offset) # compile local offset into a Frame
 
-    target_pose_w = get_object_pose(target_object) * local_offset # apply local offset to target object in world = target final pose
+    if target_pose is None:
 
-    target_pose_grasp_w = target_pose_w * object_ee.Inverse() # target final pose with grasp offset applied
+        target_pose_w = get_object_pose(target_object) * local_offset # apply local offset to target object in world = target final pose
 
-    target_pose_b = base_w.Inverse() * target_pose_grasp_w # convert target object with offset in world into the base frame for PSM commands
+        target_pose_grasp_w = target_pose_w * object_ee.Inverse() # target final pose with grasp offset applied
+
+        target_pose_b = base_w.Inverse() * target_pose_grasp_w # convert target object with offset in world into the base frame for PSM commands
+
+    else:
+        target_pose_b = target_pose
 
     success_flag = False
     psm_to_pose(psm=psm, target_pose=target_pose_b, success_flag=success_flag, 
@@ -132,7 +137,7 @@ def enter_scene(psm, target_block):
 
     print("Entered Scene")
 
-    time.sleep(2.0)
+    time.sleep(1.0)
 
 def grasp_block(psm, target_block):
 
@@ -153,9 +158,9 @@ def grasp_block(psm, target_block):
 
     print(f'Arrived at {target_block}')
 
-    time.sleep(2.0)
+    time.sleep(1.0)
 
-    for _ in range(40):
+    for _ in range(20):
         psm.set_jaw(0.04)
         time.sleep(0.05)
 
@@ -176,12 +181,11 @@ def lift_block(psm, target_block):
 
     print(f"Lifted {target_block}")
 
-    time.sleep(2.0)
+    time.sleep(1.0)
     
 def relocate_block(psm, target_block, target_peg):
 
     print(f"Relocating {target_block} to {target_peg}")
-
 
     move_grasped_object_to_pose(psm=psm,
                                 grasped_object=target_block,
@@ -194,27 +198,32 @@ def relocate_block(psm, target_block, target_peg):
 
     print(f"Relocated {target_block} to {target_peg}")
 
-    time.sleep(2.0)
+    time.sleep(1.0)
 
     
 def place_block(psm, target_block, target_peg): # need to think about L + R variances
 
     print(f'Placing {target_block} on {target_peg}')
 
+    if psm.get_tool_name()== "psm2":
+        rot_offset = Rotation.RPY(*_get_parameter['psm2_place']['rot_offset']) # fix this 
+    else: 
+        rot_offset = Rotation.RPY(*_get_parameter['psm1_place']['rot_offset'])
+
     move_grasped_object_to_pose(psm=psm,
                                 grasped_object=target_block,
                                 target_object=target_peg,
-                                rot_offset = Rotation.RPY(*_get_parameter['place']['rot_offset']), # changed to relocate as second PSM doesn't need
-                                pos_offset = Vector(*_get_parameter['place']['pos_offset']),
-                                max_delta=_get_parameter['place']['max_delta'], 
-                                pos_deadband=_get_parameter['place']['pos_deadband'], 
-                                rot_deadband=_get_parameter['place']['rot_deadband'])
+                                rot_offset = rot_offset, 
+                                pos_offset = Vector(*_get_parameter['psm1_place']['pos_offset']),
+                                max_delta=_get_parameter['psm1_place']['max_delta'], 
+                                pos_deadband=_get_parameter['psm1_place']['pos_deadband'], 
+                                rot_deadband=_get_parameter['psm1_place']['rot_deadband'])
 
     psm.set_jaw(0.08)
 
     print(f"Placed {target_block} on {target_peg}")
 
-    time.sleep(2.0)
+    time.sleep(1.0)
 
 
 def block_passover(psm, target_block): # split into 2 movements - some reason when PSM2 is grasping there is a rotation error
@@ -235,7 +244,7 @@ def block_passover(psm, target_block): # split into 2 movements - some reason wh
                     rot_deadband=_get_parameter['1to2_passover']['rot_deadband'])
 
     print(f"Secondary PSM entered scene")
-    time.sleep(2.0)
+    time.sleep(1.0)
     print(f"Secondary PSM grasping block")
 
     if psm.get_tool_name()== "psm2": # incoming arm is psm2 (right-hand), so this would be left-to-right passover
@@ -252,10 +261,53 @@ def block_passover(psm, target_block): # split into 2 movements - some reason wh
                     pos_deadband=_get_parameter['psm2_grasp']['pos_deadband'], 
                     rot_deadband=_get_parameter['psm2_grasp']['rot_deadband'])
 
-    for _ in range(40):
+    for _ in range(20):
         psm.set_jaw(0.02)
         time.sleep(0.05)
 
     print(f"Secondary PSM grasped block")
-    time.sleep(2.0)
+    time.sleep(1.0)
 
+def passover(grasp_psm, passover_psm, target_block='block5'):
+
+    grasp_base_w = ps_to_frame(grasp_psm.T_b_w)
+    grasp_ee_base = ps_to_frame(grasp_psm.measured_cp) # grasping psm pose in base
+    grasp_ee_w = grasp_base_w * grasp_ee_base
+
+
+    passover_base_w = ps_to_frame(passover_psm.T_b_w)
+    passover_ee_base = ps_to_frame(passover_psm.measured_cp) # grasping psm pose in base
+    passover_ee_w = passover_base_w * passover_ee_base
+   
+    # find midpoint between grippers in world
+    # only vary x and y as height of gripper with block (z) should stay consistent
+    
+    #print(f"original grasp pose: {grasp_psm_pose}")
+
+    # Calculated in world frame
+    gx, gy, gz = grasp_ee_w.p
+    px, py, pz = passover_ee_w.p
+
+    mid_x = (gx + px)/2
+    mid_y = (gy + py)/2
+
+    grasp_ee_base.p[0] = mid_x
+    grasp_ee_base.p[1] = mid_y
+
+    midpoint_target_w = Frame(grasp_ee_w.M, Vector(mid_x, mid_y, gz))
+    midpoint_target_base = grasp_base_w.Inverse() * midpoint_target_w # convert back to base frame
+
+    #print(f"midway grasp pose: {grasp_psm_pose}")
+
+    move_grasped_object_to_pose(psm=grasp_psm,
+                                   grasped_object=target_block,
+                                   target_pose = midpoint_target_base,
+                                   rot_offset = Rotation.RPY(*_get_parameter['relocate']['rot_offset']), # currently zero
+                                   pos_offset = Vector(*_get_parameter['psm1_place']['pos_offset']),
+                                   max_delta=_get_parameter['relocate']['max_delta'], 
+                                   pos_deadband=_get_parameter['relocate']['pos_deadband'], 
+                                   rot_deadband=_get_parameter['relocate']['rot_deadband'])
+
+
+    block_passover(passover_psm, target_block)
+    time.sleep(1.0)

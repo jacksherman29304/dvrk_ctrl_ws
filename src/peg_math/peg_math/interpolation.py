@@ -66,15 +66,3 @@ def cartesian_interpolate_step_new(T_curr, T_goal, max_delta=0.01, pos_deadband=
     T_step = Frame(Rotation.RPY(rot_error_scaled[0], rot_error_scaled[1], rot_error_scaled[2]),
                                 Vector(pos_error_scaled[0], pos_error_scaled[1], pos_error_scaled[2]))
     return T_step, done
-
-
-# def pos_spline(T_curr, T_goal):
-#     x_current = T_curr.p.x
-#     y_current = T_curr.p.y
-#     z_current = T_curr.p.z
-
-#     x_new = T_goal.p.x
-#     y_new = T_goal.p.y
-#     z_new = T_goal.p.z
-
-#     cs_x = CubicSpline()

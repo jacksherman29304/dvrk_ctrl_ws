@@ -74,14 +74,6 @@ class CameraInterface(Node):
     def left_depth_cb(self, msg):
         self.left_depth = msg
 
-
-        # points = np.array(
-        #     list(
-        #         point_cloud2.read_points(msg, field_names=('x', 'y', 'z'), skip_nans=True) # helper that reads points from PointCloud2 message, returns tuple of data, must convert into list
-        #         ),
-        #         dtype=np.float32
-        #     )
-
         points = point_cloud2.read_points(
         msg,
         field_names=("x", "y", "z", "rgb"),

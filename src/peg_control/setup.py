@@ -24,11 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'psm_to_block = peg_control.psm_to_block:main',
             'object_loc = peg_control.object_loc:main',
-            # 'psm1_cmd = peg_control.psm1_cmd:main', # if re-instantiate, will need to change the launch file too
-            # 'psm2_cmd = peg_control.psm2_cmd:main',
-            # 'tool_cmd = peg_control.tool_cmd:main'
         ],
     },
 )
