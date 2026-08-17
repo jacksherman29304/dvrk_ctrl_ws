@@ -13,7 +13,7 @@
   <exec_depend>geometry_msgs</exec_depend>
   
   <depend>peg_interfaces</depend>
-  <depend>peg_math</depend>
+  <depend>peg_helpers</depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>

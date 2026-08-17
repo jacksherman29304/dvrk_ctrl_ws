@@ -7,6 +7,9 @@ from geometry_msgs.msg import PoseStamped
 #Imports ROS messages for joint state (position (rad or m), velocity (rad/s or m/s), effort (Nm or N)) - joint
 #Type: sensor_msgs/msg/
 from sensor_msgs.msg import JointState
+
+from ambf_msgs.msg import GhostObjectState
+
 #Rotation class used to represent and convert 3D rotation in various formats (e.g., rotation matrix, quaternion, Euler angles)
 from PyKDL import Vector, Rotation, Frame
 
@@ -23,31 +26,37 @@ class ToolCommand(Node):
         self.servo_cp_topic = namespace + self.tool + "/servo_cp"
         self.base_world_topic = namespace + self.tool + "/T_b_w"
         self.jaw_angle_topic = namespace + self.tool +"/jaw/servo_jp"
-
+        self.left_finger_topic = "/ambf/env/ghosts/" + self.tool + "/left_finger_ghost/State"
+        self.right_finger_topic = "/ambf/env/ghosts/" + self.tool + "/right_finger_ghost/State"
         self.move_cp_topic = namespace + self.tool + "/move_cp" # Move PSM until end-effector (relative to base) is in new position (relative to base)
-        self.move_cp_pub = self.create_publisher(PoseStamped, self.move_cp_topic, 1) # Publisher to /move_cp topic
-
         self.move_jp_topic = namespace + self.tool + "/move_jp"  # Move PSM joint position (relative to base) using custom joint-array
-        self.move_jp_pub = self.create_publisher(JointState, self.move_jp_topic, 1) # Publisher to /move_jp topic
+
 
         self.measured_js = JointState() # JoinState is topic type
         self.measured_cp = PoseStamped() # PoseStamped is topic type
-
         self.servo_jp_msg = JointState()
         self.servo_cp_msg = PoseStamped()
-
         self.T_b_w = PoseStamped()
+
+        # Test parameter init
+        self.distance_travelled = 0 # distance travelled monitor for
+        self.left_bool = False
+        self.right_bool = False
+
 
         # subscribers - read position data from respective topic, triggering associated function
         self.measured_js_sub = self.create_subscription(JointState, self.measured_js_topic, self.measured_js_cb, 1)
         self.measured_cp_sub = self.create_subscription(PoseStamped, self.measured_cp_topic, self.measured_cp_cb, 1)
-        # subscribe to base in world position for an inputted psm
-        self.b_w_sub = self.create_subscription(PoseStamped, self.base_world_topic, self.b_w_cb, 1)
+        self.b_w_sub = self.create_subscription(PoseStamped, self.base_world_topic, self.b_w_cb, 1) # subscribe to base in world position for an inputed psm
+        self.left_finger_sub = self.create_subscription(GhostObjectState, self.left_finger_topic, self.left_finger_cb, 1)
+        self.right_finger_sub = self.create_subscription(GhostObjectState, self.right_finger_topic, self.right_finger_cb, 1)
 
         # publishers - publish position data to respective topic
         self.servo_jp_pub = self.create_publisher(JointState, self.servo_jp_topic, 1)
         self.servo_cp_pub  = self.create_publisher(PoseStamped, self.servo_cp_topic, 1)
         self.servo_jaw_angle_pub = self.create_publisher(JointState, self.jaw_angle_topic, 1)
+        self.move_cp_pub = self.create_publisher(PoseStamped, self.move_cp_topic, 1) # Publisher to /move_cp topic
+        self.move_jp_pub = self.create_publisher(JointState, self.move_jp_topic, 1) # Publisher to /move_jp topic
 
     def measured_js_cb(self, msg):
         self.measured_js = msg
@@ -129,6 +138,37 @@ class ToolCommand(Node):
         return str(self.tool)
 
 
+    # check if end-effector left finger detects object
+    def left_finger_cb(self, msg):
+        if msg.sensed_objects:
+            self.left_bool = True
+
+        else:
+            self.left_bool = False
+
+    # check if end-effector right finger detects object
+    def right_finger_cb(self, msg):
+        if msg.sensed_objects:
+            self.right_bool = True
+
+        else:
+            self.right_bool = False
+
+    # check if end-effector has object grasped
+    def is_grasped(self): 
+        if self.left_bool is True and self.right_bool is True:
+            return True
+        else:
+            return False
+
+    def reset_distance(self):
+        self.distance_travelled = 0
+
+    def update_distance(self, value):
+        self.distance_travelled += value
+
+
+        
 # Don't need to spin here as they are declared and span in separate peg transfer task scripts?
 
 

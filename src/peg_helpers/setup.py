@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'peg_math'
+package_name = 'peg_helpers'
 
 setup(
     name=package_name,

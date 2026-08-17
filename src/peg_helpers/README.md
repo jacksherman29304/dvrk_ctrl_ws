@@ -1,4 +1,4 @@
-# peg_math
+# peg_helpers
 
 Non-rclpy (Python only) interpolation and topic-type conversion helper functions. No ROS dependencies.
 

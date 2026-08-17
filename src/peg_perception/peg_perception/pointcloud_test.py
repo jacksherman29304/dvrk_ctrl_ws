@@ -18,7 +18,7 @@ from peg_task.ros_interface import ObjectPoseClient, SimControl
 from peg_task.routines import PsmInit, init_handlers
 from peg_task.routines import get_object_pose, enter_scene, move_gripper_to_pose
 from peg_task.motion import psm_to_pose
-from peg_math.conversions import ps_to_frame
+from peg_helpers.conversions import ps_to_frame
 
 
 # ----------------------------------- PEGBOARD 

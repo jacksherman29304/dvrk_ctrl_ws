@@ -3,7 +3,7 @@ target_peg: "peg10"
 
 init:
   # outer yaw, outer pitch, insertion, tool roll, wrist pitch, wrist yaw
-  psm1_init: [-0.10, -0.30, 0.16, 0.0, 1.0, -0.5] #[0.30780306382205863, -0.22222915389237488, 0.1423643360325034, -1.3613186165319513,0.5750600725456388, -0.8399263308008617] # Init joint position from the recording of old phantom
+  psm1_init: [-0.10, -0.30, 0.16, 0.0, 1.0, -0.5]
   psm2_init: [0.10, -0.30, 0.16, 0.0, 1.0, 0.5]
   jaw_open: 0.25
   jaw_closed: 0.0
@@ -16,7 +16,7 @@ psm1_entrance:
   rot_deadband: 0.01
 
 psm2_entrance:
-  pos_offset:  [-0.003, 0.0, 0.06] #[-0.007, 0.01, 0.06]
+  pos_offset:  [-0.003, 0.005, 0.06] #[-0.007, 0.01, 0.06]
   rot_offset: [0,0,0]
   max_delta: 0.01
   pos_deadband: 0.005

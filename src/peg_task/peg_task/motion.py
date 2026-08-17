@@ -4,13 +4,13 @@ from PyKDL import Frame
 import time
 import matplotlib.pyplot as plt
 import numpy as np
-
+import inspect
 import csv, os
 
 # Math Imports
-from peg_math.conversions import ps_to_frame, rbs_to_frame
-from peg_math.interpolation import cartesian_interpolate_step, cartesian_interpolate_step_new # Utility function that, given a current frame and a target frame, computes the next incremental step towards the target frame
-
+from peg_helpers.conversions import ps_to_frame
+from peg_helpers.interpolation import cartesian_interpolate_step_new # Utility function that, given a current frame and a target frame, computes the next incremental step towards the target frame
+from peg_helpers.testers import PSMTimeoutError
 
 def psm_to_pose(psm, target_pose: Frame, success_flag: bool, control_speed=0.005, max_delta=0.01, pos_deadband=0.005, rot_deadband=0.01, timeout=30.0, log=False):
 
@@ -20,12 +20,14 @@ def psm_to_pose(psm, target_pose: Frame, success_flag: bool, control_speed=0.005
     pitch_error_log = []
     yaw_error_log = []
     dist_error_log = []
+    distance_travelled = 0
 
     while not success_flag:
 
         if (time.time() - t0) >= timeout:
-            print(f"ERROR:psm_to_pose exceeded {timeout}s") # if doesn't converge after set timeout, breaks out of loop
-            break
+            # print(f"ERROR:psm_to_pose exceeded {timeout}s") # if doesn't converge after set timeout, breaks out of loop
+            raise PSMTimeoutError(f"ERROR:psm_to_pose exceeded {timeout}s") # raise PSMTimeoutError exception, jumps out of motion loop
+            # break
 
 
         T_current = ps_to_frame(psm.measured_cp)
@@ -37,26 +39,27 @@ def psm_to_pose(psm, target_pose: Frame, success_flag: bool, control_speed=0.005
         T_step.p = T_current.p + T_delta.p # step positin = current position + delta position
         T_step.M = T_current.M * T_delta.M # step rotation = current rotation * delta rotation
 
+        distance_travelled += T_step.p.Norm() # euclidian distance sqrt(x2 + y2 + z2)
 
 
-            
-        dist_error_norm = (target_pose.p - T_current.p).Norm()
-        rpy_error = (T_current.M.Inverse() * target_pose.M).GetRPY()
+        # dist_error_norm = (target_pose.p - T_current.p).Norm()
+        # rpy_error = (T_current.M.Inverse() * target_pose.M).GetRPY()
 
-        roll_error_log.append(rpy_error[0])
-        pitch_error_log.append(rpy_error[1])
-        yaw_error_log.append(rpy_error[2])
+        # roll_error_log.append(rpy_error[0])
+        # pitch_error_log.append(rpy_error[1])
+        # yaw_error_log.append(rpy_error[2])
 
-        dist_error_log.append(dist_error_norm)
+        # dist_error_log.append(dist_error_norm)
 
 
         psm.servo_cp(T_step) # Set cartesian pose of servo
         time.sleep(control_speed) # Adjustable speed so can slow down more intricate movements (e.g. pick and place)
 
+
     if log:
-        return dist_error_log, roll_error_log, pitch_error_log, yaw_error_log
+        return #dist_error_log, roll_error_log, pitch_error_log, yaw_error_log
     else:
-        return
+        return distance_travelled
 
 
 # Trajectory plotting variant of psm_to_pose
