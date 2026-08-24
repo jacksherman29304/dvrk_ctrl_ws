@@ -27,7 +27,7 @@ _get_parameter = parameters
 
 #------------------------- PSM INIT -------------------------#
 # Check CRTK BASED CONTROL SCRIPT AND ALSO ORIGINAL PEG TRANSFER
-def PsmInit(psm, jp_init, jaw_init, max_wait):
+def PsmInit(psm, jp_init, jaw_init, max_wait, reference_block=None):
 
     psm.move_jp(jp_init)
     psm.set_jaw(jaw_init)
@@ -47,6 +47,27 @@ def PsmInit(psm, jp_init, jaw_init, max_wait):
         time.sleep(0.002)
     else: # error detection
         print(f"WARNING: {psm} did not converge to init position within {max_wait}s timeout")
+
+    if reference_block is not None:
+        T_base_w = ps_to_frame(psm.T_b_w) # Grab base in world pose from psm2/T_b_w and convert to frame
+        T_ee_base = ps_to_frame(psm.measured_cp) # Grab ee relative to base pose from psm2/measured_cp and convert to frame
+        T_ee_w = T_base_w * T_ee_base # ee in world is multiplication of previous transforms
+        T_block_w = get_object_pose(reference_block)
+
+        global _R_offset_psm1
+        global _R_offset_psm2
+
+        # different rotational offsets calculated for each arm since different approach direction
+        # computed once since if calculated every iteration, calculations within move_gripper_to_pose cancel out T_block_w - not the intended function
+        # checks PSM name otherwise both arms are assigned the same offset (from the wrong PSM) on first call
+        if psm.get_tool_name() == "psm1" and _R_offset_psm1 is None:
+            _R_offset_psm1 = (T_block_w.M).Inverse() * T_ee_w.M
+            print("Computed _R_offset_psm1")
+
+        if psm.get_tool_name() == "psm2" and _R_offset_psm2 is None:
+            _R_offset_psm2 = (T_block_w.M).Inverse() * T_ee_w.M
+            print("Computed _R_offset_psm2")
+
 
 #-------------------------  GET OBJECT POSE -------------------------#
 # eventually remove pose_client
@@ -115,26 +136,24 @@ def move_grasped_object_to_pose(psm, grasped_object, rot_offset, pos_offset, max
 
 def enter_scene(psm, target_block):
 
-    T_base_w = ps_to_frame(psm.T_b_w) # Grab base in world pose from psm2/T_b_w and convert to frame
-    T_ee_base = ps_to_frame(psm.measured_cp) # Grab ee relative to base pose from psm2/measured_cp and convert to frame
-    T_ee_w = T_base_w * T_ee_base # ee in world is multiplication of previous transforms
+    # T_base_w = ps_to_frame(psm.T_b_w) # Grab base in world pose from psm2/T_b_w and convert to frame
+    # T_ee_base = ps_to_frame(psm.measured_cp) # Grab ee relative to base pose from psm2/measured_cp and convert to frame
+    # T_ee_w = T_base_w * T_ee_base # ee in world is multiplication of previous transforms
+    # T_block_w = get_object_pose(target_block)
 
-    T_block_w = get_object_pose(target_block)
+    # global _R_offset_psm1
+    # global _R_offset_psm2
 
-    R_desired_w = T_ee_w.M # Target grasp orientation in world frame
+    # # different rotational offsets calculated for each arm since different approach direction
+    # # computed once since if calculated every iteration, calculations within move_gripper_to_pose cancel out T_block_w - not the intended function
+    # # checks PSM name otherwise both arms are assigned the same offset (from the wrong PSM) on first call
+    # if psm.get_tool_name() == "psm1" and _R_offset_psm1 is None:
+    #     _R_offset_psm1 = (T_block_w.M).Inverse() * T_ee_w.M
+    #     print("Computed _R_offset_psm1")
 
-    global _R_offset_psm1
-    global _R_offset_psm2
-
-    # different rotational offsets calculated for each arm since different approach direction
-    # computed once since if calculated every iteration, calculations within move_gripper_to_pose cancel out T_block_w - not the intended function
-    if _R_offset_psm1 is None:
-        _R_offset_psm1 = (T_block_w.M).Inverse() * T_ee_w.M
-        #print("Computed _R_offset_psm1")
-
-    if _R_offset_psm2 is None:
-        _R_offset_psm2 = (T_block_w.M).Inverse() * T_ee_w.M
-        #print("Computed _R_offset_psm2")
+    # if psm.get_tool_name() == "psm2" and _R_offset_psm2 is None:
+    #     _R_offset_psm2 = (T_block_w.M).Inverse() * T_ee_w.M
+    #     print("Computed _R_offset_psm2")
 
     #_R_offset = (T_block_w.M).Inverse() * R_desired_w # Desired rotation offset converted to block frame
 
@@ -328,7 +347,9 @@ def passover(grasp_psm, passover_psm, target_block='block5'):
     grasp_ee_base.p[0] = mid_x
     grasp_ee_base.p[1] = mid_y
 
-    midpoint_target_w = Frame(grasp_ee_w.M, Vector(mid_x, mid_y, gz))
+    target_orientation = grasp_ee_w.M
+
+    midpoint_target_w = Frame(target_orientation, Vector(mid_x, mid_y, gz))
     midpoint_target_base = grasp_base_w.Inverse() * midpoint_target_w # convert back to base frame
 
     #print(f"midway grasp pose: {grasp_psm_pose}")
@@ -347,3 +368,48 @@ def passover(grasp_psm, passover_psm, target_block='block5'):
     time.sleep(1.0)
 
     return grasp_distance, passover_distance
+
+
+def reset_check(path="/home/dvrk-team/dvrk_ctrl_ws/src/peg_sim/ADF/Phantoms/Pegboards/test_1.yaml"):
+
+    parameters = load_config(path) # read yaml file
+ 
+    ambf_block2_pose = get_object_pose('block2') # ambf (actual) pose of block2
+    ambf_block2_p = ambf_block2_pose.p # extract ambf position data
+    ambf_block5_pose = get_object_pose('block5') # ambf (actual) pose of block 5
+    ambf_block5_p = ambf_block5_pose.p # extract ambf position data
+
+
+    # target position of block2
+    b2 = {"x":  parameters['BODY block2']['location']['position']['x'],
+                              "y":  parameters['BODY block2']['location']['position']['y'],
+                              "z":  parameters['BODY block2']['location']['position']['z'],
+                              }
+
+    # target position of block5
+    b5 = {"x":  parameters['BODY block5']['location']['position']['x'],
+                              "y":  parameters['BODY block5']['location']['position']['y'],
+                              "z":  parameters['BODY block5']['location']['position']['z'],
+                              }
+
+
+    pos_tol = 0.01 # 10mm tolerance
+
+    # Euclidian distance used for x,y,z absolute error calculation
+    abs_error_b2 = np.sqrt(np.power(b2['x']-ambf_block2_p.x(),2) + np.power(b2['y']-ambf_block2_p.y(),2) + np.power(b2['z']-ambf_block2_p.z(),2))
+    abs_error_b5 = np.sqrt(np.power(b5['x']-ambf_block5_p.x(),2) + np.power(b5['y']-ambf_block5_p.y(),2) + np.power(b5['z']-ambf_block5_p.z(),2))
+
+
+    # if within tolerance, return True
+    if abs_error_b2 <= pos_tol and abs_error_b5 <= pos_tol:
+        # print(f"block2 error: {abs_error_b2} ")
+        # print(f"block5 error: {abs_error_b5} ")
+        print("PASS")
+        return True
+
+    # if outside tolerance, return False
+    # print(f"block2 error: {abs_error_b2} ")
+    # print(f"block5 error: {abs_error_b5} ")
+    print("FAIL")
+    return False
+

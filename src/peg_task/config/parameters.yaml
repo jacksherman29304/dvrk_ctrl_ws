@@ -23,17 +23,16 @@ psm2_entrance:
   rot_deadband: 0.01
 
 psm1_grasp:
-  pos_offset: [0.00444226,  0.00256499, 0.015] # Calculated
+  pos_offset: [0.00444226,  0.00256499, 0.015] # Calculated [0.00446751, 0.00257943, 0.015]
   rot_offset: [0,0,0]
   max_delta: 0.003
   pos_deadband: 0.005
   rot_deadband: 0.01
 
-
 psm2_grasp:
-  pos_offset: [-0.00444226,  0.00256499, 0.015]
+  pos_offset: [-0.00444226, 0.00256499, 0.015]
   rot_offset: [0,0,0]
-  max_delta: 0.01
+  max_delta: 0.003
   pos_deadband: 0.005
   rot_deadband: 0.01
 

@@ -12,7 +12,7 @@ from peg_helpers.conversions import ps_to_frame
 from peg_helpers.interpolation import cartesian_interpolate_step_new # Utility function that, given a current frame and a target frame, computes the next incremental step towards the target frame
 from peg_helpers.testers import PSMTimeoutError
 
-def psm_to_pose(psm, target_pose: Frame, success_flag: bool, control_speed=0.005, max_delta=0.01, pos_deadband=0.005, rot_deadband=0.01, timeout=30.0, log=False):
+def psm_to_pose(psm, target_pose: Frame, success_flag: bool, control_speed=0.01, max_delta=0.01, pos_deadband=0.005, rot_deadband=0.01, timeout=30.0, log=False):
 
     success_flag = False
     t0 = time.time()
@@ -26,8 +26,13 @@ def psm_to_pose(psm, target_pose: Frame, success_flag: bool, control_speed=0.005
 
         if (time.time() - t0) >= timeout:
             # print(f"ERROR:psm_to_pose exceeded {timeout}s") # if doesn't converge after set timeout, breaks out of loop
-            raise PSMTimeoutError(f"ERROR:psm_to_pose exceeded {timeout}s") # raise PSMTimeoutError exception, jumps out of motion loop
-            # break
+
+            stack = inspect.stack() # return list of data about call stack
+            failure_stage = stack[2].function # looking up 2-levels at the executing function (psm_to_pose -> gripper_to_pose -> executing_routine)
+            
+            print(f"ERROR:psm_to_pose exceeded {timeout}s in stage: {failure_stage}")
+            raise PSMTimeoutError(failure_stage=failure_stage) # update failure_stage in exception class
+           
 
 
         T_current = ps_to_frame(psm.measured_cp)
@@ -39,7 +44,7 @@ def psm_to_pose(psm, target_pose: Frame, success_flag: bool, control_speed=0.005
         T_step.p = T_current.p + T_delta.p # step positin = current position + delta position
         T_step.M = T_current.M * T_delta.M # step rotation = current rotation * delta rotation
 
-        distance_travelled += T_step.p.Norm() # euclidian distance sqrt(x2 + y2 + z2)
+        distance_travelled += T_delta.p.Norm() # euclidian distance travelled = sqrt(x2 + y2 + z2)
 
 
         # dist_error_norm = (target_pose.p - T_current.p).Norm()

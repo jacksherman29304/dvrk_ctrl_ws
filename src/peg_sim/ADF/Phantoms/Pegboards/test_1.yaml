@@ -94,7 +94,7 @@ BODY BlackGround_Plane:
   color components:
     ambient:
       level: 1.0
-    diffuse:
+    diffuse:r']
       b: 0.5815
       g: 0.5815
       r: 0.5815

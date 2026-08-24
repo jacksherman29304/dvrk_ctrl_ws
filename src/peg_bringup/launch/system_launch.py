@@ -28,7 +28,7 @@ def generate_launch_description():
             'ambf_simulator',
             '--launch_file', 'launch.yaml',
             '-l', LaunchConfiguration('scene_indices'),
-            '-p', '200', '-t1',
+            '-p', '500', '-t1',
             '--override_max_comm_freq', '100',
             '--override_min_comm_freq', '100',
         ],
