@@ -25,7 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
             'camera_interface = peg_perception.camera_interface:main',
-            'pointcloud_test = peg_perception.pointcloud_test:main',
+            'perception_test = peg_perception.perception_test:main',
         ],
     },
 )

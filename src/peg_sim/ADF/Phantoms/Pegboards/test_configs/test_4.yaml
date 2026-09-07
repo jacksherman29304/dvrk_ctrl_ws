@@ -165,8 +165,8 @@ BODY block2:
   scale: 1.0
   location:
     position:
-      x: 0.07561
-      y: 0.24574
+      x: 0.02445
+      y: 0.25263
       z: 0.7290000000000001
     orientation:
       r: 0.0
@@ -321,8 +321,8 @@ BODY block5:
   scale: 1.0
   location:
     position:
-      x: 0.02445
-      y: 0.25263
+      x: -0.00476
+      y: 0.23481
       z: 0.7290000000000001
     orientation:
       r: 0.0
@@ -443,7 +443,7 @@ BODY peg1:
       r: 0
       p: 0
       y: 0
-  passive: false
+  passive: true
   publish children names: false
   publish joint names: false
   publish joint positions: false
@@ -579,7 +579,7 @@ BODY peg12:
       r: 0
       p: 0
       y: 0
-  passive: false
+  passive: true
   publish children names: false
   publish joint names: false
   publish joint positions: false
@@ -783,7 +783,7 @@ BODY peg2:
       r: 0
       p: 0
       y: 0
-  passive: false
+  passive: true
   publish children names: false
   publish joint names: false
   publish joint positions: false
@@ -851,7 +851,7 @@ BODY peg3:
       r: 0
       p: 0
       y: 0
-  passive: false
+  passive: true
   publish children names: false
   publish joint names: false
   publish joint positions: false
@@ -987,7 +987,7 @@ BODY peg5:
       r: 0
       p: 0
       y: 0
-  passive: false
+  passive: true
   publish children names: false
   publish joint names: false
   publish joint positions: false
@@ -1191,7 +1191,7 @@ BODY peg8:
       r: 0
       p: 0
       y: 0
-  passive: false
+  passive: true
   publish children names: false
   publish joint names: false
   publish joint positions: false
@@ -1259,7 +1259,7 @@ BODY peg9:
       r: 0
       p: 0
       y: 0
-  passive: false
+  passive: true
   publish children names: false
   publish joint names: false
   publish joint positions: false
@@ -1327,7 +1327,7 @@ BODY peg_board:
       r: 0
       p: 0
       y: 0
-  passive: false
+  passive: true
   publish children names: false
   publish joint names: false
   publish joint positions: false

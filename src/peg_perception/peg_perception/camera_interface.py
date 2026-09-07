@@ -1,8 +1,11 @@
 import rclpy
 from rclpy.node import Node
 
+from pathlib import Path
+import time
+
 # Type: sensor_msgs/msg/
-from sensor_msgs.msg import CameraInfo, Image, PointCloud2
+from sensor_msgs.msg import CameraInfo, Image, PointCloud2, JointState
 
 #Rotation class used to represent and convert 3D rotation in various formats (e.g., rotation matrix, quaternion, Euler angles)
 from PyKDL import Vector, Rotation, Frame
@@ -12,12 +15,15 @@ from sensor_msgs_py import point_cloud2
 # CV bridge is a ROS package that provides an interface between ROS and OpenCV, allowing for easy conversion between ROS image messages and OpenCV image formats.
 from cv_bridge import CvBridge
 
+
 class CameraInterface(Node):
     def __init__(self):
         super().__init__('CameraInterface')
         self.cv_bridge = CvBridge() #  Instance of the CvBridge class
         self.l_count = [0]
         self.r_count = [0]
+
+        self.measured_js = None
 
         self.left_camera_info_topic = '/ambf/env/stereo/left/CameraInfo'
         self.right_camera_info_topic = '/ambf/env/stereo/right/CameraInfo'
@@ -27,6 +33,9 @@ class CameraInterface(Node):
 
         self.left_camera_depth_topic = '/ambf/env/stereo/left/DepthData'
         self.right_camera_depth_topic = '/ambf/env/stereo/right/DepthData'  
+
+        self.measured_js_topic = '/CRTK/ecm/measured_js'
+        self.servo_jp_topic = '/CRTK/ecm/servo_jp'
 
         # subscribes to CameraInfo ROS topics for left and right stereo cameras
         self.left_info_sub = self.create_subscription(CameraInfo, self.left_camera_info_topic, self.left_info_cb, 1)
@@ -38,6 +47,15 @@ class CameraInterface(Node):
 
         self.left_depth_sub = self.create_subscription(PointCloud2, self.left_camera_depth_topic, self.left_depth_cb, 1)
         self.right_depth_sub = self.create_subscription(PointCloud2, self.right_camera_depth_topic, self.right_depth_cb, 1)
+
+        self.create_subscription(JointState, self.measured_js_topic, self.measured_js_cb, 1) # get Joint Pos
+        self.servo_jp_pub = self.create_publisher(JointState, self.servo_jp_topic, 1) # publish Joint Pos
+
+    def servo_jp(self, joint_positions: list):
+        msg = JointState()
+        msg.position = list(joint_positions)
+        #print(f"JointState Published: {msg}")
+        self.servo_jp_pub.publish(msg)
 
     def left_info_cb(self, msg):
         self.left_camera_info = msg
@@ -68,25 +86,58 @@ class CameraInterface(Node):
         #     self.get_logger().info(f'Image saved to {fname}')
         #     self.r_count[0] += 1
         # else:
-        #     self.get_logger().info('Right image already saved, skipping.')  
+        #     self.get_logger().info('Right image already saved, skipping.') 
 
+    def measured_js_cb(self, msg: JointState):
+        self.measured_js = msg
 
-    def left_depth_cb(self, msg):
-        self.left_depth = msg
+    def get_js(self, timeout=5):
+        t0 = time.time()
 
+        while self.measured_js is None and time.time() - t0 < timeout:
+            time.sleep(0.05)
+
+        if self.measured_js is None:
+            print("Error: No JS received")
+            return
+        
+        else:
+            #print(f"JointState: {self.measured_js}")
+            return self.measured_js 
+
+    def save_left_pcd(self, path: Path):
+        msg = self.left_depth
+        
         points = point_cloud2.read_points(
         msg,
         field_names=("x", "y", "z", "rgb"),
         skip_nans=True,
         )
 
-        xyz = np.column_stack((points["x"], points["y"], points["z"], points["rgb"])).astype(np.float32)
+        pcd = np.column_stack((points["x"], points["y"], points["z"], points["rgb"])).astype(np.float32)
 
-        fname = f'/home/dvrk-team/Desktop/pointcloudL_curr.npy' # save to .npy file for jupyter notebook processing
+        np.save(path, pcd)
+
+        print('Depth Data Logged')
+        self.get_logger().info('Depth Data Logged')
+
+
+    def left_depth_cb(self, msg):
+        self.left_depth = msg
+
+    #     points = point_cloud2.read_points(
+    #     msg,
+    #     field_names=("x", "y", "z", "rgb"),
+    #     skip_nans=True,
+    #     )
+
+    #     xyz = np.column_stack((points["x"], points["y"], points["z"], points["rgb"])).astype(np.float32)
+
+    #     fname = f'/home/dvrk-team/Desktop/pointcloudL_curr.npy' # save to .npy file for jupyter notebook processing
         
-        np.save(fname, xyz)
+    #     np.save(fname, xyz)
 
-        self.get_logger().info('left depth data logged')
+    #     self.get_logger().info('left depth data logged')
 
     def right_depth_cb(self, msg):
         self.right_depth = msg

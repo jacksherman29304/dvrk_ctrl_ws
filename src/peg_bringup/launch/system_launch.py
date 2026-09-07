@@ -48,7 +48,7 @@ def generate_launch_description():
     crtk_launch = ExecuteProcess(
         cmd=[
             'python3',
-            '/home/dvrk-team/internship/peg_transfer/scripts/launch_crtk_interface.py',
+            '/home/dvrk-team/dvrk_ctrl_ws/src/peg_crtk/launch_crtk_interface.py',
 
         ],
         cwd = '/home/dvrk-team/internship/peg_transfer',

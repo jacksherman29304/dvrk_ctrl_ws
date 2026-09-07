@@ -28,6 +28,7 @@ def cartesian_interpolate_step(T_curr, T_goal, max_delta=0.01, deadband=0.01):
                                 Vector(error_scaled[0], error_scaled[1], error_scaled[2]))
     return T_step, done
 
+######################
 
 def cartesian_interpolate_step_new(T_curr, T_goal, max_delta=0.01, pos_deadband=0.01, rot_deadband=0.01):
     error = np.zeros(6)

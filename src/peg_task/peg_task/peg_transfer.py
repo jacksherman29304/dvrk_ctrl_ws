@@ -32,7 +32,7 @@ init_handlers(object_pose_client) # pass client-side handler to routines,py
 
 
 #------------------------- TASK PARAMETERS -------------------------#
-pegs = ['peg4', 'peg6', 'peg10' , 'peg13', 'peg14'] # only peg topics available to ObjectLocate (not incliding peg7, which block5 sits on)
+pegs = ['peg1', 'peg2', 'peg3', 'peg4', 'peg5', 'peg6', 'peg7', 'peg8', 'peg9', 'peg10', 'peg12', 'peg13', 'peg14'] # pegs in simulation
 blocks = ['block2', 'block5'] # blocks used in simulation
 
 #------------------------- RUN TASK LOOP -------------------------#  
@@ -53,15 +53,30 @@ def run_task(parameters):
     block5_target_peg_log = []
 
     TEST_NO = 1
-    TEST_CONFIG_FILE = '/home/dvrk-team/dvrk_ctrl_ws/src/peg_sim/ADF/Phantoms/Pegboards/test_1.yaml' # change this to adapt expected block position checks
+    TEST_CONFIG_FILE = (f'/home/dvrk-team/dvrk_ctrl_ws/src/peg_sim/ADF/Phantoms/Pegboards/test_{TEST_NO}.yaml') # change this to adapt expected block position checks
     RESULTS_OUTPUT_PATH = (f'/home/dvrk-team/Desktop/test{TEST_NO}_results.csv') # REMEMBER to change launch.yaml
     
     LOOPS = 40
     SEED = 32
 
-
+    if TEST_NO == 1:
+        pegs.remove("peg2")
+        pegs.remove("peg7")
+    elif TEST_NO == 2:
+        pegs.remove("peg9")
+        pegs.remove("peg10")
+    elif TEST_NO == 3:
+        pegs.remove("peg4")
+        pegs.remove("peg9")
+    elif TEST_NO == 4:
+        pegs.remove("peg7")
+        pegs.remove("peg13")
+    elif TEST_NO == 5:
+        pegs.remove("peg6")
+        pegs.remove("peg10")
 
     random.seed(SEED)
+
     for i in range(LOOPS):
         print(f"ITERATION {i}")
         # Init test vars
@@ -77,21 +92,32 @@ def run_task(parameters):
         # checks if sim has actually reset (prevents cascading failures)
         if not reset_check(path=TEST_CONFIG_FILE):
 
-            pass_fail_log.append('INVALID')
-            failure_stage_log.append('INVALID')
-            time_log.append('INVALID')
-            drops_log.append('INVALID')
-            distance_psm1_log.append('INVALID')
-            distance_psm2_log.append('INVALID')
-            total_distance_log.append('INVALID')
-            block2_target_peg_log.append('INVALID')
-            block5_target_peg_log.append('INVALID')
+            # open jaws to prevent latched errors
+            psm1.set_jaw(0.08)
+            psm2.set_jaw(0.08)
+            time.sleep(0.5)
 
-            sim.reset_bodies()
-            sim.reset_env()
-            time.sleep(2.0)
+            attempts = 0
+            
+            while not reset_check(path=TEST_CONFIG_FILE) and attempts < 3:
+                sim.reset_bodies()
+                sim.reset_env()
+                time.sleep(2.0)
+                attempts += 1
 
-            continue
+            if not reset_check(path=TEST_CONFIG_FILE):
+
+                pass_fail_log.append('INVALID')
+                failure_stage_log.append('INVALID')
+                time_log.append('INVALID')
+                drops_log.append('INVALID')
+                distance_psm1_log.append('INVALID')
+                distance_psm2_log.append('INVALID')
+                total_distance_log.append('INVALID')
+                block2_target_peg_log.append('INVALID')
+                block5_target_peg_log.append('INVALID')
+
+                continue
 
         # randomly select two pegs to allocate to blocks
         peg = random.sample(pegs, k=2)
@@ -171,6 +197,11 @@ def run_task(parameters):
             total_distance_log.append(distance_psm1 + distance_psm2)
             block2_target_peg_log.append(peg[1])
             block5_target_peg_log.append(peg[0])
+
+            # open jaws to prevent latched errors
+            psm1.set_jaw(0.08)
+            psm2.set_jaw(0.08)
+            time.sleep(0.5)
 
 
     # filter out 'FAIL' string data - only looking for integers and floats    
