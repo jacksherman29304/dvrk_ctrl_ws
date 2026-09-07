@@ -25,5 +25,6 @@ cd dvrk_ctrl_ws
 ./rebuild.sh
 this will automate above steps and execute launch file
 ```
+
 ## Status
-Early development.
+Verified.
